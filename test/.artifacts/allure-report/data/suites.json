@@ -1,0 +1,43 @@
+{
+  "uid" : "98d3104e051c652961429bf95fa0b5d6",
+  "name" : "suites",
+  "children" : [ {
+    "name" : "QaWolf.com  ",
+    "children" : [ {
+      "name" : "should be able to launch url",
+      "uid" : "83f9ab744ef6c020",
+      "parentUid" : "6ca9e4483f72ebd9c639d6d69ffa614c",
+      "status" : "passed",
+      "time" : {
+        "start" : 1690538894974,
+        "stop" : 1690538899258,
+        "duration" : 4284
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "newPassed" : false,
+      "newBroken" : false,
+      "retriesCount" : 0,
+      "retriesStatusChange" : false,
+      "parameters" : [ "chrome-115.0.5790.102" ]
+    }, {
+      "name" : "user should be able to Click on GET STARTED",
+      "uid" : "9aaa580035614e88",
+      "parentUid" : "6ca9e4483f72ebd9c639d6d69ffa614c",
+      "status" : "passed",
+      "time" : {
+        "start" : 1690538899260,
+        "stop" : 1690538900895,
+        "duration" : 1635
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "newPassed" : false,
+      "newBroken" : false,
+      "retriesCount" : 0,
+      "retriesStatusChange" : false,
+      "parameters" : [ "chrome-115.0.5790.102" ]
+    } ],
+    "uid" : "6ca9e4483f72ebd9c639d6d69ffa614c"
+  } ]
+}

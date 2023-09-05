@@ -1,0 +1,78 @@
+{
+  "uid" : "83f9ab744ef6c020",
+  "name" : "should be able to launch url",
+  "fullName" : "QaWolf.com  .should be able to launch url",
+  "historyId" : "d3406134154d7e258bb4430ea140e646",
+  "time" : {
+    "start" : 1690538894974,
+    "stop" : 1690538899258,
+    "duration" : 4284
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "newBroken" : false,
+  "newPassed" : false,
+  "retriesCount" : 0,
+  "retriesStatusChange" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "77d9ad4266026d32",
+      "name" : "Screenshot",
+      "source" : "77d9ad4266026d32.png",
+      "type" : "image/png",
+      "size" : 529778
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : true,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 1
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-0"
+  }, {
+    "name" : "suite",
+    "value" : "QaWolf.com  "
+  }, {
+    "name" : "testClass",
+    "value" : "QaWolf.com  "
+  }, {
+    "name" : "testMethod",
+    "value" : "should be able to launch url"
+  }, {
+    "name" : "package",
+    "value" : "QaWolf.com  "
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "browser",
+    "value" : "chrome-115.0.5790.102"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "83f9ab744ef6c020.json",
+  "parameterValues" : [ "chrome-115.0.5790.102" ]
+}

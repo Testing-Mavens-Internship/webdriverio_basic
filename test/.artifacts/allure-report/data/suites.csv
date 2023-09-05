@@ -1,0 +1,3 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Fri Jul 28 15:38:14 IST 2023","Fri Jul 28 15:38:19 IST 2023","4284","","QaWolf.com  ","","QaWolf.com  ","should be able to launch url","should be able to launch url",""
+"passed","Fri Jul 28 15:38:19 IST 2023","Fri Jul 28 15:38:20 IST 2023","1635","","QaWolf.com  ","","QaWolf.com  ","user should be able to Click on GET STARTED","user should be able to Click on GET STARTED",""
