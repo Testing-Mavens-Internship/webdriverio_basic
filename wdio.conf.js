@@ -22,7 +22,8 @@ export const config = {
     // will be called from there.
     //
     specs: [
-        './**/specs/**/*.js'
+         'demoqa/specs/links.spec.js'
+        //'./demoqa/specs/**/*.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -44,15 +45,53 @@ export const config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same test should run tests.
     //
-    maxInstances: 10,
+    maxInstances: 1,
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://saucelabs.com/platform/platform-configurator
     //
     capabilities: [{
-        browserName: 'chrome'
-    }],
+
+            'maxInstances': 1,
+            'browserName': 'chrome',
+            'acceptInsecureCerts': true,
+            'goog:chromeOptions': {
+                args: [
+
+                    '--window-size=1920,1080',
+
+                    '--incognito',
+
+                    //'--headless=new',
+
+                    '--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36',
+
+                ],
+
+                excludeSwitches: ['enable-automation'],
+
+                // prefs: {
+
+                //     'download.prompt_for_download': false,
+
+                //     'directory_upgrade': true,
+
+                //     'download.default_directory': downloadsFolder,
+
+                // },
+
+            },
+
+            // If outputDir is provided WebdriverIO can capture driver session logs
+
+            // it is possible to configure which logTypes to include/exclude.
+
+            // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
+
+            // excludeDriverLogs: ['bugreport', 'server'],
+
+        }],
 
     //
     // ===================
@@ -61,7 +100,7 @@ export const config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'info',
+    logLevel: 'debug',
     //
     // Set specific log levels per logger
     // loggers:
@@ -130,7 +169,7 @@ export const config = {
     // Options to be passed to Jasmine.
     jasmineOpts: {
         // Jasmine default timeout
-        defaultTimeoutInterval: 60000,
+        defaultTimeoutInterval: 120000,
         //
         // The Jasmine framework allows interception of each assertion in order to log the state of the application
         // or website depending on the result. For example, it is pretty handy to take a screenshot every time
