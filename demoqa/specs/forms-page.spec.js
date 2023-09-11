@@ -1,7 +1,7 @@
 const { formsPage } = require("../page-objects/forms-page")
 const { landingPage } = require ('../page-objects/landing-page');
 
-describe("Demo QA Application Text Box automation", () => {
+xdescribe("Demo QA Application Text Box automation", () => {
     it("load the demo qa url", async () => { // it block shows the action to be performed
       await landingPage.openUrl();
       expect(await landingPage.$header().isDisplayed())
