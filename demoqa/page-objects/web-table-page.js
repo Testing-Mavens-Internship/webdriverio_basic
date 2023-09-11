@@ -14,6 +14,7 @@ class WebTable {
      * Add new user
      */
     async clickOnAdd() {
+        await this.$addButton().waitForClickable({ timeout: 2000 });
         await this.$addButton().click();
         await this.$registrationTitle().waitForDisplayed({ timeout: 2000 });
     }
