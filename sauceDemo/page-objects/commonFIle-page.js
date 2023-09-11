@@ -1,0 +1,18 @@
+export default class Common {
+
+    constructor() {
+        this.$header = () => $('//div[text()="Swag Labs"]')
+       
+    }
+
+    /**
+     * Load url
+     */
+    async openUrl() {
+        await browser.url('https://www.saucedemo.com/');
+        await browser.maximizeWindow();
+        await this.$header().waitForDisplayed({ timeout: 2000 });
+    }
+
+}
+
