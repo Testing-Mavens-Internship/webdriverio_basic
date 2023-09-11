@@ -14,5 +14,6 @@ describe("Demo QA Application Text Box automation", () => {
     expect(await elementsPage.$header())
     .withContext("Expect header to be displayed")
     .toBeDisplayed();
+    
   });
 });
