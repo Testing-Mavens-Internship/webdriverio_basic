@@ -22,7 +22,7 @@ class LoginPage {
      */
     async clickOnTile(tileNameInPage) {
        // await this.$tileName(tileNameInPage).scrollIntoView({block: 'center'});
-       await this.$tileName(tileNameInPage).isClickable
+       await this.$tileName(tileNameInPage).isClickable()
         await this.$tileName(tileNameInPage).click();
         //await browser.pause(5000);
         //await elementsPage.$header().waitForDisplayed({timeout:20000});
