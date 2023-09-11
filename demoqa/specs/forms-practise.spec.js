@@ -5,7 +5,7 @@ let nameFirst="Test";
 let nameLast="Tester";
 let email ="tester@gmail.com";
 let mobileNumber ="1234567891"
-let dob ="08 Sep 2023";
+let dob ="18 Sep 2023";
 let subject="Civics";
 
 describe("Demo QA Application forms page automation", () => {

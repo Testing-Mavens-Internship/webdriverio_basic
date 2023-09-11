@@ -52,9 +52,7 @@ class FormsPage {
       await this.$subjectInput().setValue("Hi")
       await this.$subjectSelect().click();
       await browser.pause(2000);
-// let text=[]
-// text=  await this.$$subjectSelect().map(item => item.getText())
-// await this.$$subjectSelect().click(text[1])
+
 
    
       
