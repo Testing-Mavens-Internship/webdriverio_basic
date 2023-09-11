@@ -20,7 +20,8 @@ class LoginPage {
     async clickOnTile(tileNameInPage) {
         await this.$tileName(tileNameInPage).scrollIntoView({block: 'center'});
         await this.$tileName(tileNameInPage).click();
-        await this.$header.waitForDisplayed({timeout:20000});
+        await this.$header().waitForDisplayed({timeout:20000});
+        
     }
 }
 // export const landingPage = new LoginPage();
