@@ -36,4 +36,5 @@ class ElementsPage{
     }
 }
 
-module.exports = new ElementsPage()
+// module.exports = new ElementsPage()
+export const elementsPage = new ElementsPage()

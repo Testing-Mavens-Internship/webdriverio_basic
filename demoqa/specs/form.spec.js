@@ -1,5 +1,7 @@
-const landingPage = require("../page-objects/landing-web-page.js")
-const elementsPage = require("../page-objects/elements-form-page.js")
+// const landingPage = require("../page-objects/landing-web-page.js")
+// const elementsPage = require("../page-objects/elements-form-page.js")
+import { landingPage } from "../page-objects/landing-web-page.js";
+import {elementsPage} from "../page-objects/elements-form-page.js"
 
 describe("Demo QA Application Text Box automation", () => {
     it("load the demo qa url", async () => {
