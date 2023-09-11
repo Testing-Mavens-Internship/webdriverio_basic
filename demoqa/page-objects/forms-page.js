@@ -1,4 +1,4 @@
-import {landingPage} from ('../page-objects//landing-page.js')
+import {landingPage} from ('../page-objects//landing-page.js');
 class FormsPage {
     constructor() {
         this.$header = () => $('//div[@class = "main-header"]');

@@ -22,7 +22,7 @@ export const config = {
     // will be called from there.
     //
     specs: [
-         'demoqa/specs/links.spec.js'
+         './demoqa/specs/links.spec.js'
         //'./demoqa/specs/**/*.js'
     ],
     // Patterns to exclude.
@@ -70,25 +70,16 @@ export const config = {
                 ],
 
                 excludeSwitches: ['enable-automation'],
-
                 // prefs: {
-
                 //     'download.prompt_for_download': false,
-
                 //     'directory_upgrade': true,
-
                 //     'download.default_directory': downloadsFolder,
 
                 // },
-
             },
-
             // If outputDir is provided WebdriverIO can capture driver session logs
-
             // it is possible to configure which logTypes to include/exclude.
-
             // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
-
             // excludeDriverLogs: ['bugreport', 'server'],
 
         }],

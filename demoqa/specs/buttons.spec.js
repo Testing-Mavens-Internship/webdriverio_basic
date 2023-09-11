@@ -1,7 +1,7 @@
-import { checkbox } from "../page-objects/check-box-page";
-import { landingPage } from "../page-objects/landing-page.js";
-import { elementsPage } from "../page-objects/elements-page.js";
-import { buttonPage } from "..//page-objects/buttons-page.js";
+import { checkbox } from ("../page-objects/check-box-page");
+import { landingPage } from ("../page-objects/landing-page.js");
+import { elementsPage } from ("../page-objects/elements-page.js");
+import { buttonPage } from ("..//page-objects/buttons-page.js");
 
 describe("Demo QA Application Text Box automation", () => {
   it("load the demo qa url", async () => {

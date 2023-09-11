@@ -1,6 +1,6 @@
-import { landingPage } from c"../page-objects/landing-page.js";
-import { elementsPage } from "../page-objects/elements-page.js";
-import { link } from "../page-objects/links-page.js";
+import { landingPage } from ("../page-objects/landing-page.js");
+import { elementsPage } from ("../page-objects/elements-page.js");
+import { link } from ("../page-objects/links-page.js");
 
 describe("Demo QA Application Text Box automation", () => {
   it("load the demo qa url", async () => {
@@ -27,7 +27,7 @@ describe("Demo QA Application Text Box automation", () => {
   it("Click on the home text and navigate to the new window", async () => {
     await link.clickOnNewHome();
     let windowshandle = await browser.getWindowHandles();
-    await browser.switchToWindow(windowshandle[1])
+    await browser.switchToWindow(windowshandle[1]);
     expect(await landingPage.$tileName("Elements").isDisplayed())
       .withContext("Expect elements to be displayed")
       .toBe(true);
