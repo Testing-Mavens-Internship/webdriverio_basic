@@ -10,7 +10,7 @@ class Links{
     }
 
     async clickOnLinkNav(linkTitle){
-      // await this.$textBoxName().scrollIntoView();
+      await this.$textBoxName(linkTitle).scrollIntoView();
         await this.$textBoxName(linkTitle).click()
        // await browser.pause(3000);
         //await this.$textBoxName(linkTitle).waitForDisplayed({setTimeout:30000})
