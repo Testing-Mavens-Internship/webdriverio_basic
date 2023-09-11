@@ -33,6 +33,7 @@ class ElementsPage{
      }
      async clickOnSubmitButton(){
         await this.$submitButton().scrollIntoView({block:'center'})
+        await this.$submitButton().waitForClickable();
         await this.$submitButton().click()
         await this.$submitButton().waitForDisplayed({setTimeout:20000});
 

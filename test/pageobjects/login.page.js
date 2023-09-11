@@ -25,6 +25,7 @@ async openUrl() {
 
 async clickOnTile(tileNameInPage) {
    await this.$tileName(tileNameInPage).scrollIntoView({block: 'center'});
+   await this.$tileName(tileNameInPage).waitForClickable();
    await this.$tileName(tileNameInPage).click();
    await elementsPage.$header().waitForDisplayed({setTimeout:20000});
    

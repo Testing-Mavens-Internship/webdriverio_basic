@@ -27,6 +27,7 @@ class FormsPage{
         await this.$enterfields('Date of Birth').setValue(dateOfBirth)
         await this.$selectHobbies(hobbies).click()
         await this.$submitButton().scrollIntoView({block: 'center'});
+        await this.$submitButton().waitForClickable();
         await browser.pause(3000);
 
      }
