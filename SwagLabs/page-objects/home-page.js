@@ -11,11 +11,7 @@ class launch extends Common{
       this.$addToCart=()=>$(`//div[text()="49.99"]/../button[text()="Add to cart"]`)
       this.$remove=()=>$(`//div[text()="49.99"]/../button[text()="Remove"]`)
       this.$cartIcon=()=>$(`//span[@class="shopping_cart_badge"]`)
-      this.$selectedCartItemName=()=>$(`//div[text()="Sauce Labs Fleece Jacket"]`)
-      this.$checkoutButton=()=>$(`//button[text()="Checkout"]`)
-        this.$checkoutInputs=(values)=>$(`//input[@id="${values}"]`)
-        this.$checkoutContinueButton=()=>$(`//input[@class="submit-button btn btn_primary cart_button btn_action"]`)
-        this.$finishButton=()=>$(`//button[text()="Finish"]`)
+      this.$selectedCartItemName=()=>$(`//div[text()="Sauce Labs Fleece Jacket"]`)       
         this.$thankYouTitle=()=>$(`//h2[text()="Thank you for your order!"]`)
 
     }
@@ -29,6 +25,7 @@ class launch extends Common{
         await this.$filterSelect(hightoLow).click()
         
     }
+    // function for getting the highest price product
     async sortValidation(){
         let priceArray=[];
         priceArray=await this.$$priceOfItems().map(item=>item.getText())
@@ -61,23 +58,23 @@ class launch extends Common{
     {
         await this.$cartIcon().click()
     }
-    async clickOnCheckoutButton()
-    {
-        await this.$checkoutButton().click()
+    //async clickOnCheckoutButton()
+    // {
+    //     await this.$checkoutButton().click()
         
-    }
-    async fillCheckoutForm(firstName,lastName,postalCode)
-    {
-        await this.$checkoutInputs("first-name").setValue(firstName)
-        await this.$checkoutInputs("last-name").setValue(lastName)
-        await this.$checkoutInputs("postal-code").setValue(postalCode)
-        await this.$checkoutContinueButton().click()
-    }
-    async clickOnFinish()
-    {
-        await this.$finishButton().click()
-        await browser.pause(3000);
-    }
+    // }
+    // async fillCheckoutForm(firstName,lastName,postalCode)
+    // {
+    //     await this.$checkoutInputs("first-name").setValue(firstName)
+    //     await this.$checkoutInputs("last-name").setValue(lastName)
+    //     await this.$checkoutInputs("postal-code").setValue(postalCode)
+    //     await this.$checkoutContinueButton().click()
+    // }
+    // async clickOnFinish()
+    // {
+    //     await this.$finishButton().click()
+    //     await browser.pause(3000);
+    // }
 
 
 }

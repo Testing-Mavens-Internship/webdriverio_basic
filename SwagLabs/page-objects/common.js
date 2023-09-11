@@ -2,11 +2,13 @@ export default class Common{
     constructor()
     //locators
     {
+    
         this.$header=()=>$(`//div[text()="Swag Labs"]`) //Swag Labs Title
         this.$credentials=(inputs)=>$(`//input[@placeholder="${inputs}"]`)
         this.$loginButton=()=>$(`//input[@class="submit-button btn_action"]`)
         this.$productTitle=(title)=>$(`//span[text()="${title}"]`)
       //  this.$yourCartTitle=()=>$(`//span[text()="Your Cart"]`)
+      this.$thankYouTitle=()=>$(`//h2[text()="Thank you for your order!"]`)// thank you message
 
 
 

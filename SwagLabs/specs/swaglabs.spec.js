@@ -1,4 +1,8 @@
 import { homePage } from "../page-objects/home-page.js"
+import { checkoutPage } from "../page-objects/checkout-page.js"
+import { checkoutInformation } from "../page-objects/check-your-information-page.js"
+import { checkoutOverview } from "../page-objects/checkout-overview-page.js"
+
 
 let userName="standard_user"
 let password="secret_sauce"
@@ -7,6 +11,7 @@ let AtoZ="Name (A to Z)"
 let ZtoA="Name (Z to A)"
 let lowtoHigh="Price (low to high)"
 let hightoLow="Price (high to low)"
+
  let title1="Products"
  let title2="Your Cart"
  let title3="Checkout: Your Information"
@@ -42,15 +47,16 @@ describe('Swag Labs application',()=>{
        expect(await homePage.$selectedCartItemName().isDisplayed()).withContext("Expect the cart contain name of the product added").toBe(true)
     })
     it("Click on the checkout button",async()=>{
-        await homePage.clickOnCheckoutButton()
+        await checkoutPage.clickOnCheckoutButton()
         expect(await homePage.$productTitle(title3).isDisplayed()).withContext("Expect the checkout page conatin 'Checkout: Your Information' title").toBe(true)
+        expect(await checkoutPage.$checkOutProductname().isDisplayed()).withContext("Expect name of item in the cart").toBe(true)
     })
     it("Fill the checkout form",async()=>{
-        await homePage.fillCheckoutForm(firstName,lastName,postalCode)
+        await checkoutInformation.fillCheckoutForm(firstName,lastName,postalCode)
         expect(await homePage.$productTitle(title4).isDisplayed()).withContext("Expect checkout overview page conatin the Checkout: Overview heading").toBe(true)
     })
     it("Click on finish Button",async()=>{
-        await homePage.clickOnFinish()
+        await checkoutOverview.clickOnFinish()
         expect(await homePage.$productTitle(title5).isDisplayed()).withContext("Expect the Thank you page contain Checkout: Complete! heading").toBe(true)
         expect(await homePage.$thankYouTitle().isDisplayed()).withContext("Expect the Thank you page contain Thank you for your order heading ").toBe(true)
 
