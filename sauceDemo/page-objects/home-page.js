@@ -2,8 +2,9 @@ import Common from "./commonFIle-page.js";
 let array1=[];
 let intArray = [];
 let array2=[];
-let v;
+let priceOfProduct;
 class HomePage extends Common {
+  
   constructor() {
     super();
     this.$clickDropDown = () => $('//select[@class="product_sort_container"]');
@@ -37,10 +38,15 @@ this.$priceOfItem=(product)=>$(`//div[text()="${product}"]/../../..//div[@class=
 
   }
 async addToCart(product){
+//   priceOfProduct=this.$priceOfItem(product).getText()
+// priceOfProduct=priceOfProduct.replace("$","")
+// priceOfProduct=priceOfProduct.parseInt(priceOfProduct)
 await this.$addToCart(product).click();
 
 }
-
+async clickOnCartIcon(){
+  await homePage.$cartIcon().click();
+}
   }
 
 

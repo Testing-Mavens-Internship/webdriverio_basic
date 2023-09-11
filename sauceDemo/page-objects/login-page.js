@@ -6,7 +6,11 @@ constructor(){
     this.$credentials = (credentials) => $(`//input[@id="${credentials}"]`)
 
 }
-
+/**
+ * Login to the application
+ * @param {String} userName 
+ * @param {String} passWord 
+ */
 async loginToApplication(userName,passWord){
 await this.$credentials("user-name").setValue(userName)
 await this.$credentials("password").setValue(passWord)

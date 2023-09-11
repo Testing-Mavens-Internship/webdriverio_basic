@@ -1,6 +1,12 @@
 import { loginPage } from '../page-objects/login-page.js';
 import { homePage } from '../page-objects/home-page.js';
-
+import {cartPage} from '../page-objects/cart-page.js'
+import { yourInformationPage } from '../page-objects/yourInformantion-page.js';
+import { checkOutOverview } from '../page-objects/checkOutOverview-page.js';
+import { checkoutCompletePage } from '../page-objects/checkOutcomplete-page.js';
+let firstName="Test"
+let lastName="Tester"
+let zipCode="78905"
 describe("Sauce Demo Application Text Box automation", () => {
     
     
@@ -29,5 +35,29 @@ describe("Sauce Demo Application Text Box automation", () => {
         .withContext("Expect Remove not displayed")
         .toBe(true)
       })
+      it("click on cart icon",async()=>{
+        await homePage.clickOnCartIcon();
+        expect(await homePage.$header().isDisplayed()).withContext("Header not displayed").toBe(true)
+        expect(await homePage.$cartIcon().isDisplayed()).withContext("Cart icon not displayed").toBe(true)
+
+      })
+      it("Click on checkout button",async()=>{
+        await cartPage.clickOnCheckoutButton();
+      })
+      it("Fill check out infromation",async()=>{
+        await yourInformationPage.fillCheckoutInformation(firstName,lastName,zipCode)
+        expect (await yourInformationPage.$header().isDisplayed()).withContext("Header not displayed").toBe(true)
+        expect(await yourInformationPage.$secondaryHeader("Checkout: Overview").isDisplayed()).toBe(true)
+      })
+      it("Click on Finish button",async()=>{
+await checkOutOverview.finishButton();
+expect (await checkOutOverview.$header().isDisplayed()).withContext("Header is displayed").toBe(true)
+expect (await checkOutOverview.$secondaryHeader("Checkout: Complete!").isDisplayed()).withContext("Checkout: Overview is not displayed").toBe(true)
+      })
+      it("Click on Back to home button",async()=>{
+        await checkoutCompletePage.clickBackHome();
+        expect (await checkoutCompletePage.$header().isDisplayed()).toBe(true)
+      })
       
 })
+
