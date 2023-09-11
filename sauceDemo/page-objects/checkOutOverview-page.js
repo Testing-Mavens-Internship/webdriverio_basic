@@ -1,4 +1,5 @@
 import Common from "./commonFIle-page.js";
+import { homePage } from "./home-page.js";
 let total,itemTotal,tax
 
 class CheckOutOverview extends Common{
@@ -11,12 +12,27 @@ class CheckOutOverview extends Common{
 
     }
     /**
+     * compare price of the product 
+     * @returns boolean
+     */
+    async priceComparison(){
+        itemTotal= await this.$itemTotal().getText()
+itemTotal=itemTotal.replace("Item total: $","")
+itemTotal=Number(itemTotal)
+tax= await this.$tax().getText()
+total=itemTotal+tax
+if(homePage.priceOfProduct==itemTotal){
+    return true;
+}
+else{
+    return false
+}
+    }
+    /**
      *Click on the Finish button to complete the transaction
      */
     async finishButton(){
-// itemTotal=Number(this.$itemTotal.getText())
-// tax=Number(this.$tax.getText())
-// total=itemTotal+tax
+
 await this.$finishButton().scrollIntoView()
 await this.$finishButton().click()
     }

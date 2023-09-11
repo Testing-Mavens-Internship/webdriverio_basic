@@ -49,8 +49,13 @@ describe("Sauce Demo Application Text Box automation", () => {
         expect (await yourInformationPage.$header().isDisplayed()).withContext("Header not displayed").toBe(true)
         expect(await yourInformationPage.$secondaryHeader("Checkout: Overview").isDisplayed()).toBe(true)
       })
+      it("Price comparison",async()=>{
+        await checkOutOverview.priceComparison();
+        expect(await checkOutOverview.priceComparison()).toBe(true)
+      })
       it("Click on Finish button",async()=>{
 await checkOutOverview.finishButton();
+
 expect (await checkOutOverview.$header().isDisplayed()).withContext("Header is displayed").toBe(true)
 expect (await checkOutOverview.$secondaryHeader("Checkout: Complete!").isDisplayed()).withContext("Checkout: Overview is not displayed").toBe(true)
       })

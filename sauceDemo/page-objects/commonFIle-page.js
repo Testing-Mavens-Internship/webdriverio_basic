@@ -1,4 +1,4 @@
-
+let priceOfProduct
 export default class Common {
 
     constructor() {
@@ -16,6 +16,14 @@ export default class Common {
         await browser.maximizeWindow();
         await this.$header().waitForDisplayed({ timeout: 2000 });
     }
-
+    /**
+     * get price of desired product
+     */
+// async price(p){
+//     priceOfProduct=await this.$priceOfItem(p).getText()
+//     priceOfProduct= await priceOfProduct.replace("$","")
+//      priceOfProduct=await Number(priceOfProduct)
+//      this.$priceOfItem=(product)=>$(`//div[text()="${product}"]/../../..//div[@class="inventory_item_price"]`)
+// }
 }
 

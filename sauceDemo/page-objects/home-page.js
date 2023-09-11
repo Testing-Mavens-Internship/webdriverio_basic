@@ -37,13 +37,20 @@ this.$priceOfItem=(product)=>$(`//div[text()="${product}"]/../../..//div[@class=
           }
 
   }
+  /**
+   * Add product to cart
+   * @param {String} product 
+   */
 async addToCart(product){
-//   priceOfProduct=this.$priceOfItem(product).getText()
-// priceOfProduct=priceOfProduct.replace("$","")
-// priceOfProduct=priceOfProduct.parseInt(priceOfProduct)
+//  priceOfProduct=await this.$priceOfItem(product).getText()
+// priceOfProduct= await priceOfProduct.replace("$","")
+//  priceOfProduct=await Number(priceOfProduct)
 await this.$addToCart(product).click();
 
 }
+/**
+ * click on the cart icon to navigate to the cart page
+ */
 async clickOnCartIcon(){
   await homePage.$cartIcon().click();
 }
