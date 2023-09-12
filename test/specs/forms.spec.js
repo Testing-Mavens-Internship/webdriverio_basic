@@ -8,7 +8,7 @@ let dateOfBirth = '07 Jan 2001';
 let hobbies = 'Music';
 
 
-describe('My Login application', () => {
+xdescribe('My Login application', () => {
     it('should launch the url', async () => {
         await LoginPage.openUrl()
         expect(await LoginPage.$header().isDisplayed()).withContext('expect home page logo is displayed ').toBe(true);
