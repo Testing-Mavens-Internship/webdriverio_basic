@@ -1,3 +1,4 @@
+import { checkOutPage } from "./checkout-page.js";
 import Common from "./common.js";
 class HomePage extends Common {
     constructor() {
@@ -9,7 +10,6 @@ class HomePage extends Common {
         this.$itemPrice = () => $(`//div[contains(text(),"Backpack")]/..//..//..//div[@class="inventory_item_price"]`);
         this.$item1 = () => $(`//a//div[text()="Sauce Labs Fleece Jacket"]`);
         this.$addCart = () => $(`//div[contains(text(),"Backpack")]/..//..//..//button`);
-        this.$remove = () => $(`//button[text()="Remove"]`);
         this.$cart = () => $(`//div//a[contains(@class,"shopping_cart")]`);
     }
 
@@ -26,8 +26,8 @@ class HomePage extends Common {
      * add to cart
      */
     async addToCart() {
-        await this.$addCart().click();
-        await this.$remove().waitForDisplayed({ timeout: 20000 });
+        await this. $addCart().click();
+        await this.$button("Remove").waitForDisplayed({ timeout: 20000 });
     }
 
     /**
@@ -52,14 +52,6 @@ class HomePage extends Common {
                 return false;
             }
         }
-    }
-
-    /**
-     * verifying item price is same
-     */
-    async verifyPrice(){
-        let priceOfItem = await this.$itemPrice().getText();
-        
     }
 }
 export const homePage = new HomePage();

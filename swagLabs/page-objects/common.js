@@ -5,6 +5,7 @@ export default class Common {
     this.$header = () => $(`//div[text()="Swag Labs"]`);
     this.$credentials = (field) => $(`//input[@placeholder="${field}"]`);
     this.$loginButton = () => $(`//input[@class="submit-button btn_action"]`);
+    this.$button = (buttonName) => $(`//button[text()="${buttonName}"]`);
   }
   /**
    * launch url

@@ -29,7 +29,7 @@ describe("Swag Labs automation", () => {
 
   it("Add item to cart", async () => {
     await homePage.addToCart();
-    expect(await homePage.$remove().isDisplayed())
+    expect(await homePage.$button("Remove").isDisplayed())
       .withContext("Expect remove button to be displayed")
       .toBe(true);
   });
@@ -46,7 +46,7 @@ describe("Swag Labs automation", () => {
 
   it("Click on checkout", async () => {
     await cartPage.clickOnCheckout();
-    expect(await checkOutPage.$sideHeading().isDisplayed()).withContext("Expect side heading to be displayed").toBe(true);
+    expect(await checkOutPage.$sideHeading("Checkout: Your Information").isDisplayed()).withContext("Expect side heading to be displayed").toBe(true);
     expect(await checkOutPage.$header().isDisplayed()).withContext("Expect header to be displayed").toBe(true);
     expect(await checkOutPage.$continue().isDisplayed()).withContext("Expect continue button to be displayed").toBe(true);
   })
@@ -55,12 +55,17 @@ describe("Swag Labs automation", () => {
     await checkOutPage.enterDetails();
     expect(await checkOutPage.$header().isDisplayed()).withContext("Expect header to be displayed");
     expect(await homePage.$item().isDisplayed()).withContext("Expect product to be same").toBe(true);
-    expect(await checkOutPage.$sideHeading1().isDisplayed()).withContext("Expect side heading to be displayed").toBe(true);
+    expect(await checkOutPage.$sideHeading("Checkout: Overview").isDisplayed()).withContext("Expect side heading to be displayed").toBe(true);
+  })
+
+  it("Verify price", async() => {
+    await checkOutPage.verifyPrice();
+    expect(await checkOutPage.verifyPrice()).withContext("Expect the price should same").toBe(true);
   })
 
   it("Click on finish", async() => {
     await checkOutPage.clickFinish();
-    expect(await checkOutPage.$sideHeading2().isDisplayed()).withContext("Expect sideheading2 to be displayed").toBe(true);
+    expect(await checkOutPage.$sideHeading("Checkout: Complete!").isDisplayed()).withContext("Expect sideheading2 to be displayed").toBe(true);
     expect(await checkOutPage.$headingFinish().isDisplayed()).withContext("Expect finish heading to be displayed").toBe(true);
     expect(await checkOutPage.$header().isDisplayed()).toBe(true);
   })

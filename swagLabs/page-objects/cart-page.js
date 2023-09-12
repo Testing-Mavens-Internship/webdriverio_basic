@@ -4,7 +4,6 @@ import { checkOutPage } from "./checkout-page.js";
 class CartPage extends Common {
   constructor() {
     super();
-    this.$checkOut = () => $(`//button[text()="Checkout"]`);
   }
 
   /**
@@ -19,8 +18,8 @@ class CartPage extends Common {
    * click on  checkout
    */
   async clickOnCheckout(){
-    await this.$checkOut().click();
-    await checkOutPage.$sideHeading().waitForDisplayed({timeout: 20000});
+    await this.$button("Checkout").click();
+    await checkOutPage.$sideHeading("Checkout: Your Information").waitForDisplayed({timeout: 20000});
   }
 }
 export const cartPage = new CartPage();
