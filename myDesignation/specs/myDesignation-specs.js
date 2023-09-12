@@ -2,6 +2,7 @@ import { landingPage } from "../page-objects/landing-page.js";
 import { productPage } from "../page-objects/product-page.js";
 import { cartPage } from "../page-objects/cart-page.js";
 import { billingDetailsPage } from "../page-objects/billingDetails-page.js";
+import { paymentPage } from "../page-objects/payment-page.js";
 let product="Gojo Co-Ords Set for Men"
 let errorArray=[]
 let fname="Test"
@@ -50,16 +51,19 @@ it("click on proceed to checkout button and validate navigation",async()=>{
   
 
 })
-it("Click on place order button ", async()=>{
+it("Click on place order button without filling mandatory fields", async()=>{
 await billingDetailsPage.clickOnPaceOrder()
 errorArray= await billingDetailsPage.$$errorMessages().map(item => item.getText())
 for (let item of errorArray) {
   expect(await billingDetailsPage.$errorMessage(item).isDisplayed()).withContext("text is not displayed").toBe(true);
-  //await billingDetailsPage.fillForm(fname,lname,StreetAaddress1,StreetAaddress2,townCity,state,pinCode,phone,email)
-
 }
-})
 
+
+})
+it("Click on the place order butoon after entering all the madatory fiels",async()=>{
+  await billingDetailsPage.fillForm(fname,lname,StreetAaddress1,StreetAaddress2,townCity,state,pinCode,phone,email)
+expect(await paymentPage.$payNowButton().isDisplayed()).withContext("Pay Now button is not visible").toBe(true)
+})
 
 
 });
