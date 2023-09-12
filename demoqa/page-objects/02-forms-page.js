@@ -9,11 +9,13 @@ class FormsPage extends Common{
         this.$date =() => $('//label[text()="Date of Birth"]/../following-sibling::div//input')
         this.$address = () => $('//label[text()="Current Address"]/../following-sibling::div//textarea[contains(@id,"Address")]')
         this.$gender = (value) => $(`//input[@name="gender"]/following-sibling::label[text()="${value}"]`)
-        this.$checkBoxHobbie = (Value) => $(`//label[text()="Hobbies"]/../following-sibling::div//label[text()="${value}"]`)
+        this.$checkBoxHobbie = () => $('//label[text()="Hobbies"]/../following-sibling::div//label[text()="Music"]')
         this.$submitButton = () => $('//button[text()="Submit"]');
         this.$stateAndCity = (value) => $(`//label[text()="State and City"]/../following-sibling::div//div[@id="${value}"]`)
         this.$resultRow = () => $(`//td[contains(text(),"${value}")]`)
         this.$resultHeader = () => $('//div[@class="modal-header"]//div')
+        this.$clickDate =()=> $('//div[@id="dateOfBirth"]')
+        this.$selectDate = () => $('//div[@aria-label="Choose Thursday, September 7th, 2023"]')
 
 
     }
@@ -36,7 +38,12 @@ class FormsPage extends Common{
         await this.$gender("Female").waitForClickable();
         await this.$gender("Female").click();
         await this.$field("Mobile","Number").setValue(mobileNumber);
+        await this.$clickDate().click();
+        // await this.$selectDate().click();
         await this.$field("Subjects","subjects").setValue(subject);
+        await this.$checkBoxHobbie().scrollIntoView({block:'center'});
+        await this.$checkBoxHobbie().waitForClickable();
+        await this.$checkBoxHobbie().click();
         await this.$address().setValue("Kayees Home, Kochi");
         await browser.keys(['Tab']);
         await browser.keys(["Tab"]);

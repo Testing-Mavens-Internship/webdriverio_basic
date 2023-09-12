@@ -1,27 +1,33 @@
-class LoginPage {
+import { elementPage }  from "./01-element-page.js";
+
+class LaunchPage{
     constructor() {
-        this.$tileName = (name) => $(`//div[@class="category-cards"]//h5[text()="${name}"]`);
-        this.$header = () => $('div[id="app"] header img');
+        this.$logo = () => $('//div[@id="app"]//header//img');
+        this.$tile = (name) => $(`//div[@class="category-cards"]//h5[text()="${name}"]`)
+
+
     }
 
-
-    /**
-     * loading the url
-     */
+   /**
+    * Launch the url
+    */
+   
     async openUrl() {
         await browser.url('https://demoqa.com/');
         await browser.maximizeWindow();
-        await browser.pause(5000);
+        await this.$logo().waitForDisplayed({timeout:20000})
+        
     }
-
     /**
-     * click on tiles
+     * click on the element tile
      * @param {string} tileName 
      */
-    async clickOnTile(tileNameInPage) {
-        await this.$tileName(tileNameInPage).scrollIntoView({block: 'center'});
-        await this.$tileName(tileNameInPage).click();
-        await browser.pause(10000);
+
+    async clickOnTile(tileName) {
+        await this.$tile(tileName).scrollIntoView({block:"center"});
+        await this.$tile(tileName).click();
+        await elementPage.$header("Elements").waitForDisplayed({timeout:20000});
+        // await elementPage.$button("Web Table").waitForDisplayed({timeout:20000});
     }
-}
-export const landingPage = new LoginPage();
+} 
+ export const launchPage= new LaunchPage()
