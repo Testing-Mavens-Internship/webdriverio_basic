@@ -55,7 +55,7 @@ await billingDetailsPage.clickOnPaceOrder()
 errorArray= await billingDetailsPage.$$errorMessages().map(item => item.getText())
 for (let item of errorArray) {
   expect(await billingDetailsPage.$errorMessage(item).isDisplayed()).withContext("text is not displayed").toBe(true);
-  await billingDetailsPage.fillForm(fname,lname,StreetAaddress1,StreetAaddress2,townCity,state,pinCode,phone,email)
+  //await billingDetailsPage.fillForm(fname,lname,StreetAaddress1,StreetAaddress2,townCity,state,pinCode,phone,email)
 
 }
 })

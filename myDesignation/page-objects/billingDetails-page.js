@@ -30,7 +30,9 @@ async fillForm(fname,lname,StreetAaddress1,StreetAaddress2,townCity,state,pinCod
     await this.$fillForm("billing_postcode_field").setValue(pinCode)
     await this.$fillForm("billing_phone_field").setValue(phone)
     await this.$fillForm("billing_email_field").setValue(email)
-  
+    await this.$placeOrderButton().scrollIntoView();
+    await this.$placeOrderButton().waitForClickable({ timeout: 2000 });
+  await this.$placeOrderButton().click()
     
 }
 }
