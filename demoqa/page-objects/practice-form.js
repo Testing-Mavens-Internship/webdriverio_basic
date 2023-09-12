@@ -1,4 +1,3 @@
-
 class PracticePage {
 
     constructor() {
@@ -39,7 +38,7 @@ async fillFormData(firstName, lastName,email,gender)
 
         await this.$inputField('userEmail').setValue(email);
 
-       
+        await this.$radioButtonField(gender).scrollIntoView({ block : 'center'});
 
         await this.$radioButtonField(gender).waitForClickable({ timeout: 1000 });
 

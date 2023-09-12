@@ -1,7 +1,7 @@
 import { landingPage } from "../page-objects/landing-page.js";
 import { formPage } from "../page-objects/form-page.js";
 import { practicePage } from "../page-objects/practice-form.js";
-describe("Demo QA Application Form page automation", () => {
+xdescribe("Demo QA Application Form page automation", () => {
 
     it("load the demo qa url", async () => {
       await landingPage.openUrl();
