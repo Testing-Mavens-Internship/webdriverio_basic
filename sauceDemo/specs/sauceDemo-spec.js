@@ -4,6 +4,7 @@ import { cartPage } from "../page-objects/cart-page.js";
 import { yourInformationPage } from "../page-objects/yourInformantion-page.js";
 import { checkOutOverview } from "../page-objects/checkOutOverview-page.js";
 import { checkoutCompletePage } from "../page-objects/checkOutcomplete-page.js";
+
 let firstName = "Test";
 let lastName = "Tester";
 let zipCode = "78905";
@@ -22,8 +23,8 @@ describe("Sauce Demo Application Text Box automation", () => {
       .toBe(true);
   });
   it("Sort all the products", async () => {
-    await homePage.sortProducts();
-    expect(await homePage.sortProducts()).toBe(true);
+    let value = await homePage.sortProducts();
+    expect(await value).toBe(true);
   });
   it("Add item to cart", async () => {
     await homePage.addToCart("Sauce Labs Fleece Jacket");
@@ -32,6 +33,9 @@ describe("Sauce Demo Application Text Box automation", () => {
       await homePage.$verifyRemove("Sauce Labs Fleece Jacket").isDisplayed()
     )
       .withContext("Expect Remove not displayed")
+      .toBe(true);
+    expect(await cartPage.$itemname("Sauce Labs Fleece Jacket").isDisplayed())
+      .withContext("item in cart not same as item selected")
       .toBe(true);
   });
   it("click on cart icon", async () => {
@@ -62,13 +66,13 @@ describe("Sauce Demo Application Text Box automation", () => {
     ).toBe(true);
   });
   it("Price comparison in product overview page", async () => {
-   let a=  await checkOutOverview.priceComparison("Sauce Labs Fleece Jacket");
+    let a = await checkOutOverview.priceComparison("Sauce Labs Fleece Jacket");
     expect(await a).toBe(true);
   });
   it("Price comparison after adding tax in product overview page", async () => {
-    let b=  await checkOutOverview.totalPrice();
-     expect(await b).toBe(true);
-   });
+    let b = await checkOutOverview.totalPrice();
+    expect(await b).toBe(true);
+  });
   it("Click on Finish button", async () => {
     await checkOutOverview.finishButton();
 

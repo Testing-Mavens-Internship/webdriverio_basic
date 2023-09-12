@@ -5,6 +5,7 @@ constructor(){
     super();
     this.$youCartText=()=>$('//span[text()="Your Cart"]')
     this.$checkOutButton=()=>$('//button[text()="Checkout"]')
+    this.$itemname=(a)=>$(`//div[text()="${a}"]`)
 }
 /**
  * click on the check out button in the cart page
