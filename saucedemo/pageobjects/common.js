@@ -4,9 +4,9 @@ export default class Common {
     }
 
     async openUrl() {
-        await browser.url('https://www.saucedemo.com/'); // Launch the site
+        await browser.url('https://www.saucedemo.com/'); 
         await browser.maximizeWindow();
-        await browser.pause(5000); // time in millis
+        await browser.pause(2000); 
     }
 
 }

@@ -8,8 +8,14 @@ class Products extends Common {
         this.$cartButton = (button) => $ (`//button[@id="${button}"]`);
         this.$cart = () => $ ('//a[@class="shopping_cart_link"]');
         this.$yourCart = () => $ ('//span[text()="Your Cart"]');
+        this.$value1 = () => $ (`//div[@class="inventory_item_price"]`);
+        
     }
 
+    /**
+     * 
+     * Click on sort button and comaprison
+     */
     async clickOnSort() {
         await this.$order().click();
         let price=[];
@@ -27,15 +33,36 @@ class Products extends Common {
         }
     }
 
+    /**
+     * Click on add to cart button
+     */
     async ClickOnCart() {
         await this.$cartButton('add-to-cart-sauce-labs-backpack').click();
         await this.$cart().click();
+        await browser.pause(2000);
     }
 
+    /**
+     * Click on cart icon
+     */
     async ClickCart() {
         await this.$cart().click();
+        await browser.pause(2000);
     }
-    
-}
 
+    /**
+     * To get value of the selected product
+     * @param {string} p 
+     */
+    async price(p) {
+        let price1=[];
+        price1 = await this.$value1(p).getText();
+        price1 = await price1.replace("$", "");
+        price1 = await Number(price1);
+        return price1;
+    
+      }
+    
+ }
+    
 export const product = new Products();
