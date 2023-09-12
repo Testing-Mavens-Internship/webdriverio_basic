@@ -22,7 +22,7 @@ export const config = {
     // will be called from there.
     //
     specs: [
-        './demoqa/specs/forms-practise.spec.js'
+        './sauceDemo/specs/**/*.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -61,7 +61,8 @@ export const config = {
                 args: [
                     '--window-size=1920,1080',
                     '--incognito',
-                    '--headless=new',
+                   '--headless=new',
+                //    ...(isCI ? ['--headless'] : []),
                     '--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36',
                 ],
                 excludeSwitches: ['enable-automation'],
@@ -72,7 +73,7 @@ export const config = {
                 // },
             },
             // If outputDir is provided WebdriverIO can capture driver session logs
-            // it is possible to configure which logTypes to include/exclude.
+            // it is possible to configure which logTypes to include/exclude. 
             // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
             // excludeDriverLogs: ['bugreport', 'server'],
     }],
