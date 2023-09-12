@@ -38,6 +38,9 @@ class CheckOutOverview extends Common {
   async finishButton() {
     await this.$finishButton().scrollIntoView();
     await this.$finishButton().click();
+    expect(await checkOutOverview.$thankYouText().isDisplayed())
+    .withContext("Header is displayed")
+    .toBe(true);
   }
 }
 

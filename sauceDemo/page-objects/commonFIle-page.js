@@ -5,7 +5,7 @@ export default class Common {
         this.$header = () => $('//div[text()="Swag Labs"]')
     this.$cartIcon =() =>$('//a[@class="shopping_cart_link"]') 
     this.$secondaryHeader=(name)=>$(`//span[text()="${name}"]`)
-    
+    this.$thankYouText=()=>$('//h2[text()="Thank you for your order!"]')
     }
 
     /**

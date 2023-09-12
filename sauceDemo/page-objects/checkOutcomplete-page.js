@@ -11,6 +11,9 @@ class CheckoutCompletePage extends Common {
   async clickBackHome() {
     await this.$backHomeButton().scrollIntoView();
     await this.$backHomeButton().click();
+    expect(await checkoutCompletePage.$header().isDisplayed())
+    .withContext("Header is displayed")
+    .toBe(true);
   }
 }
 export const checkoutCompletePage = new CheckoutCompletePage();
