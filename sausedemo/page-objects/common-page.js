@@ -3,6 +3,7 @@ export default class CommonPage{
         this.$header = () => $('//div[text()="Swag Labs"]')
         this.$userLogin = (user) => $(`//input[@id="${user}"]`)
         this.$submit = () => $('//input[@type="submit"]')
+        this.$secondHeader = (title) => $(`//span[text()="${title}"]`);
     }
     /**
      * load url
@@ -22,5 +23,4 @@ export default class CommonPage{
         await this.$userLogin("password").setValue(password);
         await this.$submit().click();
     }
-
 }

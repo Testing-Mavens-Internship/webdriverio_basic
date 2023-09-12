@@ -1,13 +1,16 @@
 import CommonPage from "./common-page.js";
-
+let originalPrice = 0;
 class LandingPage extends CommonPage {
   constructor() {
     super();
     this.$sort = () => $('//select[@class="product_sort_container"]//option[@value="hilo"] ');
     this.$$sortPrice = () => $$('//div[@class="inventory_item_price"]');
-    this.$clickCart = (product) => $(`//div[text()="${product}"]//ancestor::div//div//button[text()="Add to cart"]`)
-    this.$$getPrice = (product) => $$(`//div[text()="${product}"]/../../..//div[@class="inventory_item_price"]`)
-    this.$verifyRemove = (product) => $(`//div[text()="${product}"]//ancestor::div//button[text()="Remove"]`)
+    this.$clickAddToCart = (product) => $(`//div[text()="${product}"]//ancestor::div//div//button[text()="Add to cart"]`);
+    this.$getPrice = (product) => $(`//div[text()="${product}"]/../../..//div[@class="inventory_item_price"]`);
+    this.$verifyRemove = (product) => $(`//div[text()="${product}"]//ancestor::div//button[text()="Remove"]`);
+    this.$clickCart = () => $('//a[@class="shopping_cart_link"]');
+   
+    
   }
   /**
    * to sort price highest to lowest
@@ -28,13 +31,29 @@ class LandingPage extends CommonPage {
             }
         }
   }
+  /**
+   * pass the product to be purchased
+   * @param {string} product 
+   */
 
   async clickOnAddToCart(product){
-    await this.$clickCart(product).click();
-    //let productprice = await this.$$getPrice().map(item => item.getText());
-
+    await this.$clickAddToCart(product).click();
+    //await this.$verifyRemove().waitForDisplayed({ timeout: 5000 });
   }
-  
+
+  async productPrice(product){
+    originalPrice= await this.$getPrice(product).getText();
+    originalPrice = originalPrice.replace("$","");
+    originalPrice = Number(originalPrice);
+    return originalPrice;
+  }
+  /**
+   * click cart icon
+   */
+  async clickCart(){
+    await this.$clickCart().click();
+  }
+ 
 }   
 
 export const landingPage = new LandingPage();
