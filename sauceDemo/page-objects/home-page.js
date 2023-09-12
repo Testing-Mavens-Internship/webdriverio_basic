@@ -37,6 +37,17 @@ this.$priceOfItem=(product)=>$(`//div[text()="${product}"]/../../..//div[@class=
           }
 
   }
+   /**
+    * retrives price of the oroduct
+    * @param {String} p 
+    * @returns price of the chosen product
+    */
+async price(p){
+    priceOfProduct=await this.$priceOfItem(p).getText()
+    priceOfProduct= await priceOfProduct.replace("$","")
+     priceOfProduct=await Number(priceOfProduct)
+     return  priceOfProduct;
+}
   /**
    * Add product to cart
    * @param {String} product 

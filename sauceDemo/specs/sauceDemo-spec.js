@@ -7,6 +7,7 @@ import { checkoutCompletePage } from '../page-objects/checkOutcomplete-page.js';
 let firstName="Test"
 let lastName="Tester"
 let zipCode="78905"
+let productChosen="Sauce Labs Fleece Jacket"
 describe("Sauce Demo Application Text Box automation", () => {
     
     
@@ -49,8 +50,8 @@ describe("Sauce Demo Application Text Box automation", () => {
         expect (await yourInformationPage.$header().isDisplayed()).withContext("Header not displayed").toBe(true)
         expect(await yourInformationPage.$secondaryHeader("Checkout: Overview").isDisplayed()).toBe(true)
       })
-      it("Price comparison",async()=>{
-        await checkOutOverview.priceComparison();
+      it("Price comparison in product overview page",async()=>{
+        await checkOutOverview.priceComparison("Sauce Labs Fleece Jacket");
         expect(await checkOutOverview.priceComparison()).toBe(true)
       })
       it("Click on Finish button",async()=>{

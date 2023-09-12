@@ -15,13 +15,14 @@ class CheckOutOverview extends Common{
      * compare price of the product 
      * @returns boolean
      */
-    async priceComparison(){
+    async priceComparison(productName){
         itemTotal= await this.$itemTotal().getText()
 itemTotal=itemTotal.replace("Item total: $","")
 itemTotal=Number(itemTotal)
-tax= await this.$tax().getText()
-total=itemTotal+tax
-if(homePage.priceOfProduct==itemTotal){
+//tax= await this.$tax().getText()
+//total=itemTotal+tax
+let initialPrice= await homePage.price(productName)
+if(initialPrice==itemTotal){
     return true;
 }
 else{
