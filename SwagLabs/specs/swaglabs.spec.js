@@ -22,7 +22,7 @@ let hightoLow="Price (high to low)"
  let lastName="Somaraj"
  let postalCode="686020"
 
-describe('Swag Labs application',()=>{
+describe('Swag Labs application: ',()=>{
 
     it("It should lauch the Swag Labs application",async ()=>{
         await homePage.launchUrl()
@@ -49,11 +49,14 @@ describe('Swag Labs application',()=>{
     it("Click on the checkout button",async()=>{
         await checkoutPage.clickOnCheckoutButton()
         expect(await homePage.$productTitle(title3).isDisplayed()).withContext("Expect the checkout page conatin 'Checkout: Your Information' title").toBe(true)
-        expect(await checkoutPage.$checkOutProductname().isDisplayed()).withContext("Expect name of item in the cart").toBe(true)
+      //  expect(await checkoutPage.$checkOutProductname().isDisplayed()).withContext("Expect name of item in the cart").toBe(true)
     })
     it("Fill the checkout form",async()=>{
         await checkoutInformation.fillCheckoutForm(firstName,lastName,postalCode)
+        await checkoutOverview.priceCalculation()
         expect(await homePage.$productTitle(title4).isDisplayed()).withContext("Expect checkout overview page conatin the Checkout: Overview heading").toBe(true)
+        expect(await checkoutOverview.$checkOutProductname().isDisplayed()).withContext("Expect name of item in the overview page with price details").toBe(true) 
+        expect(await checkoutOverview.priceCalculation()).withContext("Expect the sum of item price and tax should be equal to total price").toBe(true)
     })
     it("Click on finish Button",async()=>{
         await checkoutOverview.clickOnFinish()

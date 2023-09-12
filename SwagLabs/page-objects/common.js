@@ -8,6 +8,7 @@ export default class Common{
         this.$loginButton=()=>$(`//input[@class="submit-button btn_action"]`)
         this.$productTitle=(title)=>$(`//span[text()="${title}"]`)
       //  this.$yourCartTitle=()=>$(`//span[text()="Your Cart"]`)
+      this.$checkOutProductname=()=>$(`//div[text()="Sauce Labs Fleece Jacket"]`) // name of product in checkout page
       this.$thankYouTitle=()=>$(`//h2[text()="Thank you for your order!"]`)// thank you message
 
 
