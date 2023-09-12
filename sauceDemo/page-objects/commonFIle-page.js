@@ -17,11 +17,6 @@ export default class Common {
         await this.$header().waitForDisplayed({ timeout: 2000 });
     }
  
-// async price(p){
-//     priceOfProduct=await this.$priceOfItem(p).getText()
-//     priceOfProduct= await priceOfProduct.replace("$","")
-//      priceOfProduct=await Number(priceOfProduct)
-//      this.$priceOfItem=(product)=>$(`//div[text()="${product}"]/../../..//div[@class="inventory_item_price"]`)
-// }
+
 }
 
