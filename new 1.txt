@@ -1,0 +1,18 @@
+https://www.mydesignation.com/
+validate header 
+select item 
+size 
+add to cart : message verifiation 
+cart icon
+check out
+validate mandatory fields
+place order
+
+
+
+CSS selector 
+
+id anengi  htmltag#  ittal mathi  or #id-value
+class anengi htmltag. classname ittal mathi or .classname
+parentilerke povan ayit parent>childtag
+
