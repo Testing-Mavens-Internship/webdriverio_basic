@@ -5,7 +5,7 @@ class HomePage extends Common {
             super();
             this.$sort = () => $(`//option[@value="hilo"]`)
             this.$$price = () => $$(`//div[@class="inventory_item_price"]`)
-
+            this.$productPrice = () => $(`//div[text()='49.99']`)
         }
         /**
          * 
@@ -18,7 +18,7 @@ class HomePage extends Common {
             price = await this.$$price().map(item => item.getText());
             let newPrice = [];
             newPrice = await price.map(item => item.replace("$", " ")).map(Number)
-                // newPrice.sort((a, b) => b - a);
+                //newPrice === newPrice.sort((a, b) => b - a);//descending order
             for (let i = 0; i < newPrice.length; i++) {
                 if (newPrice[i] > newPrice[i + 1]) {
                     return (true)
@@ -29,10 +29,10 @@ class HomePage extends Common {
 
         }
         /**
-         * Click on Cart Button
+         * Add the products to the cart
          */
     async clickOnAddToCart() {
-        await this.$addButton('add-to-cart-sauce-labs-backpack').click()
+        await this.$addButton('add-to-cart-sauce-labs-fleece-jacket').click()
     }
 
 }
