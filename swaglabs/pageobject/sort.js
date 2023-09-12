@@ -14,7 +14,7 @@ class Sort extends LoginPage{
         this.$button = (buttonName) => $(`//button[text()="${buttonName}"]`);
     }
     /**
-     * For the sorting purpose
+     * Sorting
      */
     async sorting(){
         await this.$sortButton().click();

@@ -15,7 +15,7 @@ class Login extends LoginPage{
         await this.$input('user-name').setValue('standard_user');
         await this.$input('password').setValue('secret_sauce');
         await this.$clickButton().click();
-        await browser.pause(2000);
+        
     }
 }
 export const landing=new Login();
