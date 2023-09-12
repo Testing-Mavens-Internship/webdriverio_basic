@@ -18,7 +18,7 @@ class HomePage extends Common {
       );
     this.$addToCart = () => $('//div[@class="shopping_cart_container"]//a');
     this.$productPrice = () =>
-      $('//div[@class="inventory_item_price" and text()="49.99"]');
+      $('//div[@class="pricebar"]//div');
   }
 
   /**

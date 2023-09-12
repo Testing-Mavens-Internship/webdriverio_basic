@@ -17,6 +17,7 @@ class YourInfo {
     await this.$yourInfo("lastName").setValue(lname);
     await this.$yourInfo("postalCode").setValue(zip);
     await this.$continueButton().click();
+    
   }
 }
 export const yourInfo = new YourInfo();
