@@ -19,7 +19,7 @@ class CheckoutSummary extends CommonPage {
    * check whether item price equals to item total
    * @param {number} itemPrice 
    * @param {number} itemTotal 
-   * @returns 
+   * @returns boolean
    */
   async verifyPrice(itemPrice, itemTotal){
     if(itemPrice == itemTotal){
@@ -32,7 +32,7 @@ class CheckoutSummary extends CommonPage {
    * @param {number} itemPrice 
    * @param {number} tax 
    * @param {number} total 
-   * @returns 
+   * @returns boolean
    */
   async verifyTotalPrice(itemPrice, tax, total){
     if(total == itemPrice + tax){

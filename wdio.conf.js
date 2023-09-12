@@ -67,15 +67,15 @@ export const config = {
             excludeSwitches: ['enable-automation'],
             // prefs: {
             //  'download.prompt_for_download': false,
-             'directory_upgrade': true,
-             'download.default_directory': downloadsFolder,
-            },
+            //  'directory_upgrade': true,
+            //  'download.default_directory': downloadsFolder,
+            // },
         },
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
         // excludeDriverLogs: ['bugreport', 'server'],
-        // },
+        },
     ],
 
     //
@@ -154,7 +154,7 @@ export const config = {
     // Options to be passed to Jasmine.
     jasmineOpts: {
         // Jasmine default timeout
-        defaultTimeoutInterval: 60000,
+        defaultTimeoutInterval: 70000,
         //
         // The Jasmine framework allows interception of each assertion in order to log the state of the application
         // or website depending on the result. For example, it is pretty handy to take a screenshot every time

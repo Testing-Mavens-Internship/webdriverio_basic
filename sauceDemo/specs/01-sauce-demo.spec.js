@@ -43,9 +43,8 @@ describe("Sauce Demo Application automation", () => {
       .toBe(true);
   });
 
-  it("Add an item to Cart", async () => {
+  it("Add an product to Cart", async () => {
     await productPage.addToCart(product);
-
     productPrice = await productPage.$price(product).getText();
 
     let cartCount = await productPage.$cartCount().getText();
@@ -91,8 +90,10 @@ describe("Sauce Demo Application automation", () => {
 
     let itemTotal = await checkOutSummary.$priceField("Item total").getText();
     let itemTotalNew = await parseFloat(itemTotal.slice(13, 18));
+
     let tax = await checkOutSummary.$priceField("Tax").getText();
     let taxNew = await parseFloat(tax.slice(6, 13));
+
     let total = await checkOutSummary.$totalPrice().getText();
     let totalNew = await parseFloat(total.slice(8, 15));
     let productPriceNew = await parseFloat(productPrice.slice(1, 9));
@@ -101,9 +102,7 @@ describe("Sauce Demo Application automation", () => {
       .withContext("Expect item price equals to item total")
       .toBe(true);
 
-    expect(
-      await checkOutSummary.verifyTotalPrice(itemTotalNew, taxNew, totalNew)
-    )
+    expect(await checkOutSummary.verifyTotalPrice(itemTotalNew, taxNew, totalNew))
       .withContext("Expect total price is addition of tax and item total")
       .toBe(true);
   });
