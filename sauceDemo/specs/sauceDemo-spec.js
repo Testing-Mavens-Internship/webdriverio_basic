@@ -65,6 +65,10 @@ describe("Sauce Demo Application Text Box automation", () => {
    let a=  await checkOutOverview.priceComparison("Sauce Labs Fleece Jacket");
     expect(await a).toBe(true);
   });
+  it("Price comparison after adding tax in product overview page", async () => {
+    let b=  await checkOutOverview.totalPrice();
+     expect(await b).toBe(true);
+   });
   it("Click on Finish button", async () => {
     await checkOutOverview.finishButton();
 

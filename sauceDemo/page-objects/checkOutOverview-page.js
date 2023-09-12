@@ -1,6 +1,6 @@
 import Common from "./commonFIle-page.js";
 import { homePage } from "./home-page.js";
-let total, itemTotal, tax;
+let totalPrice, itemTotal, tax, total;
 
 class CheckOutOverview extends Common {
   constructor() {
@@ -23,10 +23,30 @@ class CheckOutOverview extends Common {
     itemTotal = await this.$itemTotal().getText();
     itemTotal = itemTotal.replace("Item total: $", "");
     itemTotal = Number(itemTotal);
-    //tax= await this.$tax().getText()
-    //total=itemTotal+tax
+
     let initialPrice = await homePage.price(productName);
     if (initialPrice == itemTotal) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  /**
+   *compares price
+   * @returns boolean
+   */
+  async totalPrice() {
+    itemTotal = await this.$itemTotal().getText();
+    itemTotal = itemTotal.replace("Item total: $", "");
+    itemTotal = Number(itemTotal);
+    tax = await this.$tax().getText();
+    tax = tax.replace("Tax: $", "");
+    tax = Number(tax);
+    total = await this.$total().getText();
+    total = total.replace("Total: $", "");
+    total = Number(total);
+    totalPrice = itemTotal + tax;
+    if (total == totalPrice) {
       return true;
     } else {
       return false;
@@ -39,8 +59,8 @@ class CheckOutOverview extends Common {
     await this.$finishButton().scrollIntoView();
     await this.$finishButton().click();
     expect(await checkOutOverview.$thankYouText().isDisplayed())
-    .withContext("Header is displayed")
-    .toBe(true);
+      .withContext("Header is displayed")
+      .toBe(true);
   }
 }
 
