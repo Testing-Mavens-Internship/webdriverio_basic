@@ -17,7 +17,10 @@ class HomePage extends Common {
         '//div[contains(text(),"Fleece Jacket")]/../../following-sibling::div/button[contains(text(),"Remove")]'
       );
     this.$addToCart = () => $('//div[@class="shopping_cart_container"]//a');
+    this.$productPrice = () =>
+      $('//div[@class="inventory_item_price" and text()="49.99"]');
   }
+
   /**
    * sort the array
    */
@@ -46,8 +49,12 @@ class HomePage extends Common {
    */
   async addProduct() {
     await this.$addProduct().click();
+
   }
 
+  /**
+   * going to cart page
+   */
   async addToCart() {
     await this.$addToCart().click();
   }
