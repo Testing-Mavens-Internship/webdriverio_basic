@@ -49,6 +49,16 @@ describe("Sauce Demo Application Text Box automation", () => {
   });
   it("Click on checkout button", async () => {
     await cartPage.clickOnCheckoutButton();
+    expect(await cartPage.$header().isDisplayed())
+    .withContext("Header not displayed")
+    .toBe(true);
+    expect(
+      await checkOutOverview
+        .$secondaryHeader("Checkout: Your Information")
+        .isDisplayed()
+    )
+      .withContext("Checkout: Your Information is not displayed")
+      .toBe(true);
   });
   it("Fill check out infromation", async () => {
     await yourInformationPage.fillCheckoutInformation(
