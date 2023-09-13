@@ -13,6 +13,7 @@ class ProductPage extends CommonPage {
     this.$cartIcon = () => $(`//div[@class="shopping_cart_container"]`);
     
   }
+
   /**
    * sort products
    * @param {string} value 
@@ -45,8 +46,8 @@ class ProductPage extends CommonPage {
   async addToCart(item){
     await this.$addToCart(item).scrollIntoView({block : 'center'});
     await this.$addToCart(item).click();
-
   }
+
   /**
    * check cart icon count
    * @param {number} count 
@@ -57,6 +58,7 @@ class ProductPage extends CommonPage {
       return true;
     }
   }
+
   /**
    * go to cart page
    */

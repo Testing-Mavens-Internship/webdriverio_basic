@@ -55,7 +55,7 @@ class BillingPage extends CommonPage {
   async fillTown(town) {
     await this.$inputValues("billing_city").setValue(town);
   }
-/** set state*/
+  /** set state*/
   async fillState(state) {
     await this.$verifyStateErrorMessage(state).click();
   }
@@ -68,9 +68,9 @@ class BillingPage extends CommonPage {
     await this.$inputValues("billing_postcode").setValue(pinCode);
   }
   /**
-     * set mobile number
-     * @param {Number} phone
-     */
+   * set mobile number
+   * @param {Number} phone
+   */
   async fillPhone(phone) {
     await this.$inputValues("billing_phone").setValue(phone);
   }

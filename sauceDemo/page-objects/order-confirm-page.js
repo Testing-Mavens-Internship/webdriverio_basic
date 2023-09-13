@@ -5,6 +5,7 @@ class OrderConfirmPage extends CommonPage {
     super();
     this.$confirmMessage = () => $(`//h2[contains(text(),'Thank you')]`);
   }
+
   /**
    * click back to home button
    */
