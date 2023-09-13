@@ -15,8 +15,7 @@ class Checkout extends Common{
     }
     async finishOrdering(){
         await this.$route("Finish").click()
-        await browser.pause(5000)
-        // await this.$confirmation().waitForDisplayed({timeout:20000})
+        await this.$confirmation().waitForDisplayed({timeout:20000})
     }
     async backHome(){
         await this.$route("Back Home").click()

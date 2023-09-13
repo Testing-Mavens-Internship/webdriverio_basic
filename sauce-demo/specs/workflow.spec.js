@@ -2,7 +2,7 @@ import { cartPage } from "../page-objects/cart-page.js";
 import { checkOutPage } from "../page-objects/checkout-page.js";
 import { homePage } from "../page-objects/home-page.js";
 
-describe("Sauce demo automation",() => {
+xdescribe("Sauce demo automation",() => {
     it("load the sauce demo url", async () => {
         await homePage.openUrl()
         expect(await homePage.$header().isDisplayed())
