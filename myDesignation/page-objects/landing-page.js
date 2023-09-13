@@ -7,7 +7,9 @@ this.$$navigationBar=()=>$$('//a[text()="MYDESIGNATION"]/ancestor::div//nav/ul/l
 this.$menuItem=(name)=>$(`//a[text()="MYDESIGNATION"]/ancestor::div//nav/ul/li/a[text()="${name}"]`)
 this.$productSelected=()=>$('//a[@href="https://www.mydesignation.com/product/gojo-co-ords-set-for-men/"]/ancestor::div[@class="owl-item cloned"]')
     }
-
+/**
+ * select a product from landing page
+ */
     async clickOnProduct(){
         //await this.$productSelected({ timeout: 30000 });
 await this.$productSelected().scrollIntoView()

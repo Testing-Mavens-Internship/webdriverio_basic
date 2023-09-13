@@ -9,6 +9,11 @@ constructor(){
     this.$cartIcon=()=>$('//li[@class="menu-item menu-item-cart"]/a')
     
 }
+/**
+ * Adds a product to cart after gining size
+ * @param {String} a 
+ * @param {String} b 
+ */
 async addToCart(a,b){
 await this.$sizeOfProduct(a).click();
 await this.$sizeOfProduct(b).click();
