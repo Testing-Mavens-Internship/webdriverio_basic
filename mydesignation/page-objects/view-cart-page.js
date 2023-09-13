@@ -1,6 +1,6 @@
-import CommonPage from "./common-page.js";
+import CommonPage from "./common.js";
 
-class ViewCartPage extends CommonPage{
+class ViewCartPage extends Common{
     constructor(){
         super();
         this.$verifyCartPage = () => $('//a[text()="Shopping Cart"]');
@@ -8,7 +8,7 @@ class ViewCartPage extends CommonPage{
         this.$clickProceedCheckout = () => $('//a[@class="checkout-button button alt wc-forward"]')
     }
     /**
-     * click proceed checkout
+     * Method to click proceed checkout
      */
     async clickProceedCheckout(){
         await this.$clickProceedCheckout().waitForClickable(2000);

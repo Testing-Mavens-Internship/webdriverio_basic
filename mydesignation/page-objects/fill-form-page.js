@@ -1,6 +1,6 @@
-import CommonPage from "./common-page.js";
+import CommonPage from "./common.js";
 
-class FillFormPage extends CommonPage {
+class FillFormPage extends Common {
   constructor() {
     super();
     this.$verifyProceedCheckout = () => $('//h3[text()="Billing Details"]');
@@ -19,27 +19,27 @@ class FillFormPage extends CommonPage {
       $(`//span//select[@id="billing_state"]/option[text()="${state}"]`);
   }
   /**
-   * click place order button
+   *Method to click place order button
    */
   async clickPlaceOrder() {
     await this.$placeOrderButton().click();
   }
   /**
-   * set first name
+   * Method to set first name
    * @param {string} firstName
    */
   async fillFirstName(firstName) {
     await this.$fillFormField("billing_first_name").setValue(firstName);
   }
   /**
-   * set last name
+   * Method to set last name
    * @param {string} lastName
    */
   async fillLastName(lastName) {
     await this.$fillFormField("billing_last_name").setValue(lastName);
   }
   /**
-   * set street address and appartment
+   * Method to set street address and appartment
    * @param {string} streetAddress
    * @param {string} appartment
    */
@@ -48,35 +48,35 @@ class FillFormPage extends CommonPage {
     await this.$fillFormField("billing_address_2").setValue(appartment);
   }
   /**
-   * set town
+   * Method to set town
    * @param {string} town
    */
   async fillTown(town) {
     await this.$fillFormField("billing_city").setValue(town);
   }
   /**
-   * set state
+   * Method to set state
    * @param {string} state
    */
   async fillState(state) {
     await this.$verifyStateErrorMessage(state).click();
   }
   /**
-   * set pincode
+   * Method to set pincode
    * @param {Number} pinCode
    */
   async fillPinCode(pinCode) {
     await this.$fillFormField("billing_postcode").setValue(pinCode);
   }
   /**
-   * set mobile number
+   * Method to set mobile number
    * @param {Number} phone
    */
   async fillPhone(phone) {
     await this.$fillFormField("billing_phone").setValue(phone);
   }
   /**
-   * set email
+   * Method to set email
    * @param {string} email
    */
   async fillEmail(email) {

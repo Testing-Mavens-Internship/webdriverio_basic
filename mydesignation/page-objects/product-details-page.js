@@ -1,6 +1,6 @@
-import CommonPage from "./common-page.js";
+import CommonPage from "./common.js";
 
-class ProductDetailsPage extends CommonPage {
+class ProductDetailsPage extends Common  {
   constructor() {
     super();
     this.$tShirtSize = (tShirt) =>
@@ -18,7 +18,7 @@ class ProductDetailsPage extends CommonPage {
     this.$clickViewCart = () => $('//a[text()="View cart"]');
   }
   /**
-   * pass tshirt and shorts size
+   * Method to pass tshirt and shorts size
    * @param {string} tShirt
    * @param {Number} shorts
    */
@@ -30,7 +30,7 @@ class ProductDetailsPage extends CommonPage {
     await this.$addToCartButton().waitForClickable(2000);
   }
   /**
-   * pass product name
+   * Method to pass product name
    * @param {string} productName
    */
   async clickAddToCart(productName) {
@@ -38,7 +38,7 @@ class ProductDetailsPage extends CommonPage {
     await this.$verifyAddToCart(productName).waitForClickable(5000);
   }
   /**
-   * click on view cart
+   * Method to click on view cart
    */
   async clickViewCart() {
     await this.$clickViewCart().click();

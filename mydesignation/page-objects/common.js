@@ -1,9 +1,9 @@
-export default class CommonPage{
+export default class Common{
     constructor(){
         this.$header = () => $('//a[@class="logo"]')   
     }
     /**
-     * launch url
+     * Method to launch url
      */
 async openUrl() {
     await browser.url('https://www.mydesignation.com/');

@@ -1,6 +1,6 @@
-import CommonPage from "./common-page.js";
+import CommonPage from "./common.js";
 
-class HomePage extends CommonPage {
+class HomePage extends Common {
   constructor() {
     super();
     this.$selectProduct = (productName) =>
@@ -8,12 +8,11 @@ class HomePage extends CommonPage {
     this.$verifyProduct = (productName) => $(`//h1[text()="${productName}"]`);
   }
   /**
-   * pass productname
+   * Method to pass product name 
    * @param {string} productName
    */
   async selectProduct(productName) {
     await this.$selectProduct(productName).scrollIntoView({ block: "center" });
-    //await this.$verifyProduct(productName).waitForClickable(3000);
     await this.$selectProduct(productName).click();
     await this.$verifyProduct(productName).waitForClickable(3000);
   }

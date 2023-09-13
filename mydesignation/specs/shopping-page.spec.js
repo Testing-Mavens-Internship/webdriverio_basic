@@ -16,7 +16,7 @@ let state = "Kerala";
 let pinCode = 680683;
 let phone = 1234567890;
 let email = "anisha@gmail.com";
-describe("MYDESIGNATION Application Automation", () => {
+describe("End to end flow for the application mydesignation", () => {
   it("load the url", async () => {
     await homePage.openUrl();
     expect(await homePage.$header().isDisplayed())
@@ -24,7 +24,7 @@ describe("MYDESIGNATION Application Automation", () => {
       .toBe(true);
   });
 
-  it("Select product", async () => {
+  it("Select product and verify navigation", async () => {
     await homePage.selectProduct(productName);
     expect(await homePage.$verifyProduct(productName).isDisplayed())
       .withContext("Expect header to be displayed")
@@ -51,7 +51,7 @@ describe("MYDESIGNATION Application Automation", () => {
       .withContext("Expected 'Shopping cart' to be displayed")
       .toBe(true);
     expect(
-      await viewCart.$verifyProduct(productName, tShirt, shorts).isDisplayed()
+      await viewCart.$verifyProduct(productName).isDisplayed()
     )
       .withContext("Expect product to be displayed")
       .toBe(true);
@@ -72,7 +72,7 @@ describe("MYDESIGNATION Application Automation", () => {
     for (let item of errorMessage) {
       expect(await fillForm.$verifyErrorMessages(item).isDisplayed())
         .withContext("Expected error message to be displayed")
-        .toBe(true);
+        .toBe(true  );
     }
   });
 
@@ -107,7 +107,6 @@ describe("MYDESIGNATION Application Automation", () => {
     await fillForm.fillLastName(lastName);
     await fillForm.fillStreetAddress(streetAddress, appartment);
     await fillForm.clickPlaceOrder();
-    await browser.pause(2000);
     expect(
       await fillForm
         .$verifyEachErrorMessage("Billing First name")
@@ -244,7 +243,7 @@ describe("MYDESIGNATION Application Automation", () => {
         .$verifyEachErrorMessage("Billing Street address")
         .waitForDisplayed({ timeout: 5000, reverse: true })
     );
-    expect(
+    expect(  
       await fillForm
         .$verifyEachErrorMessage("Billing Town / City")
         .waitForDisplayed({ timeout: 5000, reverse: true })
@@ -260,7 +259,7 @@ describe("MYDESIGNATION Application Automation", () => {
         .waitForDisplayed({ timeout: 5000, reverse: true })
     );
   });
-  
+
   it("enter email and verify error message", async () => {
     await fillForm.fillFirstName(firstName);
     await fillForm.fillLastName(lastName);
