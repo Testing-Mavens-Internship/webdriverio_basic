@@ -14,7 +14,7 @@ class ProductPage extends Common{
         this.$inputField =(value) => $(`//label[@for="${value}"]/following-sibling::span//input`)
         this.$state = (value) => $(`//label[@for="billing_state"]/following-sibling::span//select//option[contains(.,"${value}")]`)
         this.$payButton = () => $('//button[@class="svelte-13mgn3i"][text()="Pay Now"]')
-        this.$$warningmessages = () => $$(`//div[@class="box-content"]//li`)
+        this.$$warningMessages = () => $$(`//div[@class="box-content"]//li`)
     }/**
      * Enter size and click addToCart button
      */

@@ -1,6 +1,14 @@
 import { launchPage } from "../page-object/login-page.js";
 import { productPage } from "../page-object/product-page.js";
 
+// let firstName = "Aparna"
+// let lastName = "Udayan"
+// let address = "Kayees home, kochi"
+// let city = "Kochi"
+// let pincode = "683020"
+// let mobileNumber = "2233445566"
+// let email = "aparna@gmail.com"
+
 describe('Buy an item from the mydesignation website and validate', () => {
     it('launch the website', async () => {
         await launchPage.openUrl();
@@ -22,6 +30,11 @@ describe('Buy an item from the mydesignation website and validate', () => {
     it('click proceed to checkout and place order button and validate the list of fields to be entered', async() => {
         await productPage.proceedToCheckout();
         await productPage.placeOrder();
+        // let  warning = [];
+        // warning = await this.$$warningMessages().map(item => item.getText());
+        // for(let i of warning){
+            
+        // }
         await productPage.$mandatoryFieldInfo("Billing First name").waitForDisplayed({timeout:2000});
         expect(await productPage.$mandatoryFieldInfo("Billing First name").isDisplayed()).withContext('Expect the mandatory field info to be displayed').toBe(true);
         await productPage.$mandatoryFieldInfo("Billing Last name").waitForDisplayed({timeout:2000});
@@ -39,7 +52,7 @@ describe('Buy an item from the mydesignation website and validate', () => {
         await productPage.$mandatoryFieldInfo("Billing Email address").waitForDisplayed({timeout:2000});
         expect(await productPage.$mandatoryFieldInfo("Billing Email address").isDisplayed()).withContext('Expect the mandatory field info to be displayed').toBe(true);
     })
-    
+
     it('Validating the mandatory field', async () => {
         await productPage.billingDetails();
         
