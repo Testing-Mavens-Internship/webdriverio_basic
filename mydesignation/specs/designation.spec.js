@@ -9,6 +9,27 @@ let product = "Gojo";
 let tsize = "XS";
 let ssize = 32;
 
+let errorMessageContent = [
+  "Phone Number",
+  "First name",
+  "Last name",
+  "Street address",
+  "Town / City",
+  "State",
+  "PIN Code",
+  "Email address",
+];
+
+let firstName = "Vaishnav";
+let lastName = "S";
+let houseName = " House";
+let streetName = "17th Miles";
+let city = "Thrissur";
+let state = "Kerala";
+let pin = 673307;
+let phone = 9188826401;
+let email = "vsn@gmail.com";
+
 describe("automating the website mydesignation", () => {
   it("Open url", async () => {
     await home.openUrl();
@@ -50,7 +71,91 @@ describe("automating the website mydesignation", () => {
       .toBe(true);
   });
 
-  it("fill details and place order", async () => {
-    await billingPage.clickOnPlaceOrderButton();
+  it("click place order", async () => {
+    await billingPage.clickOnPlaceOrder();
+
+    for (let content of errorMessageContent) {
+      expect(await billingPage.$errorMessageBox(content).isDisplayed())
+        .withContext("error message is expected")
+        .toBe(true);
+    }
+  });
+
+  it("Enter First Name and Click on Place Order", async () => {
+    await billingPage.fillBillingField("billing_first_name", firstName);
+    await billingPage.clickOnPlaceOrder();
+    expect(await billingPage.$errorMessageBox("First name").isDisplayed())
+      .withContext(`Expect First name is required message not displayed`)
+      .toBe(false);
+
+    for (let content of errorMessageContent) {
+      if (content != "First name") {
+        expect(await billingPage.$errorMessageBox(content).isDisplayed())
+          .withContext(`Expect ${content} required message to be displayed`)
+          .toBe(true);
+      }
+    }
+  });
+
+  it("Enter Last Name and Click on Place Order", async () => {
+    await billingPage.fillBillingField("billing_last_name", lastName);
+    await billingPage.clickOnPlaceOrder();
+    expect(await billingPage.$errorMessageBox("Last name").isDisplayed())
+      .withContext(`Expect First name is required message not displayed`)
+      .toBe(false);
+  });
+
+  it("Enter Street Adress and Click on Place Order", async () => {
+    await billingPage.fillBillingField("billing_address_1", houseName);
+    await billingPage.fillBillingField("billing_address_2", streetName);
+    await billingPage.clickOnPlaceOrder();
+
+    expect(await billingPage.$errorMessageBox("Street address").isDisplayed())
+      .withContext(`Expect First name is required message not displayed`)
+      .toBe(false);
+  });
+
+  it("Enter Town / City and Click on Place Order", async () => {
+    await billingPage.fillBillingField("billing_city", city);
+    await billingPage.clickOnPlaceOrder();
+
+    expect(await billingPage.$errorMessageBox("Town / City").isDisplayed())
+      .withContext(`Expect Town / City is required message not displayed`)
+      .toBe(false);
+  });
+
+  it("Enter state and Click on Place Order", async () => {
+    await billingPage.selectState(state);
+    await billingPage.clickOnPlaceOrder();
+
+    expect(await billingPage.$errorMessageBox("State").isDisplayed())
+      .withContext(`Expect First name is required message not displayed`)
+      .toBe(false);
+  });
+
+  it("Enter Postal Code and Click on Place Order", async () => {
+    await billingPage.fillBillingField("billing_postcode", pin);
+    await billingPage.clickOnPlaceOrder();
+
+    expect(await billingPage.$errorMessageBox("PIN Code").isDisplayed())
+      .withContext(`Expect PIN Code is required message not displayed`)
+      .toBe(false);
+  });
+
+  it("Enter Phone Number and Click on Place Order", async () => {
+    await billingPage.fillBillingField("billing_phone", phone);
+    await billingPage.clickOnPlaceOrder();
+    expect(await billingPage.$errorMessageBox("Phone Number").isDisplayed())
+      .withContext(`Expect Phone Number is required message not displayed`)
+      .toBe(false);
+  });
+
+  it("Enter Email and Click on Place Order", async () => {
+    await billingPage.fillBillingField("billing_email", email);
+    await billingPage.clickOnPlaceOrder();
+
+    expect(await billingPage.$errorMessageBox("Email address").isDisplayed())
+      .withContext(`Expect Email address is required message not to displayed`)
+      .toBe(false);
   });
 });
