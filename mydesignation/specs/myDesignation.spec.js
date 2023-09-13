@@ -8,11 +8,13 @@ describe('My Login application', () => {
         await homePage.openUrl()
         expect(await homePage.$header().isDisplayed()).withContext('expect home page logo is displayed ').toBe(true);
     })
+
     it('select item and validate', async () => {
         await homePage.selectItem()
         expect(await homePage.$subHeader("Sukuna Co-Ords Set for Women").isDisplayed()).withContext('expect text is displayed ').toBe(true);
 
     })
+
     it('select sizes and click on add to cart ', async () => {
         await homePage.selectSizes()
         await homePage.clickOnCartIcon()
@@ -25,6 +27,7 @@ describe('My Login application', () => {
         expect(await cartPage.$billingHeader().isDisplayed()).withContext("Expect billing header is displayed").toBe(true);
 
     })
+
     it("Click on place order button", async () => {
         await checkOutPage.clickOnPlaceOrderButton()
         await checkOutPage.$errorMessage("Billing First name").waitForDisplayed({timeout:2000});
@@ -45,9 +48,9 @@ describe('My Login application', () => {
         expect(await checkOutPage.$errorMessage("Billing Email address").isDisplayed()).withContext("Expect error messages are displayed ").toBe(true);
         
     })
+
     it("Enter the details" , async () =>{
         await checkOutPage.enterDetails();
-        
         expect(await checkOutPage.$errorMessage("Billing First name").waitForDisplayed({reverse:true})).withContext("Expect error messages disappeared ");
         expect(await checkOutPage.$enterFields("Billing Last name").waitForDisplayed({reverse:true})).withContext("Expect error messages disappeared ");
         expect(await checkOutPage.$errorMessage("Billing Street address").waitForDisplayed({reverse:true})).withContext("Expect error messages are displayed ");
@@ -56,16 +59,7 @@ describe('My Login application', () => {
         expect(await checkOutPage.$errorMessage("Billing PIN Code").waitForDisplayed({reverse:true})).withContext("Expect error messages are displayed ");
         expect(await checkOutPage.$errorMessage("Billing Phone").waitForDisplayed({reverse:true})).withContext("Expect error messages are displayed ");
         expect(await checkOutPage.$errorMessage("Billing Email address").waitForDisplayed({reverse:true})).withContext("Expect error messages are displayed ");
-        // await checkOutPage.$payNowText().waitForDisplayed({timeout:2000});
-        // expect(await checkOutPage.$payNowText().isDisplayed()).withContext("Expect pay now text is displayed").toBe(true);
-
-
-        
     })
-
-
-
-
 })
 
 

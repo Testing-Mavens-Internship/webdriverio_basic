@@ -1,8 +1,6 @@
 export default class CommonPage {
     //locator
     constructor(){
-
-  
       this.$header = () => $(`//div[@class="sober-container clearfix"]`);
       this.$selectItem=(link)=>$(`//a[@href="${link}"]/ancestor::div[@class="owl-item cloned"]`);
       this.$subHeader = (text) => $(`//h1[@class="product_title entry-title"][text()="${text}"]`);

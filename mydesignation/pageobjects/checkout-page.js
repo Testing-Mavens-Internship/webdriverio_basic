@@ -1,5 +1,4 @@
 import CommonPage from "./common.js";
-
 class CheckOutPage extends CommonPage{
     constructor(){
         super()
@@ -8,8 +7,6 @@ class CheckOutPage extends CommonPage{
         this.$enterFields=(text)=>$(`//input[@id="${text}"]`)
         this.$selectState=(text)=>$(`//label[@for="billing_state"]/following-sibling::span//select//option[contains(.,"${text}")]`)
         this.$payNowText=()=>$('//button[@class="svelte-13mgn3i"][text()="Pay Now"]')
-
-        
     }
     /**
      * function for clicking place order button
@@ -26,8 +23,6 @@ class CheckOutPage extends CommonPage{
      */
     async enterDetails()
      {
-        // await this.$enterFields().scrollIntoView({block : 'center'});
-        // await this.$enterFields().waitForClickable()
         await this.$enterFields("billing_first_name").setValue("Anchana")
         await this.$placeOrderButton().click()
         await this.$enterFields("billing_last_name").setValue("Babu")
@@ -46,6 +41,5 @@ class CheckOutPage extends CommonPage{
         await this.$placeOrderButton().click()
         
     }
-
 }
 export const checkOutPage = new CheckOutPage() 
