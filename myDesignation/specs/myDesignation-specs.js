@@ -14,25 +14,13 @@ let pinCode = "898989";
 let phone = "9898989898";
 let email = "test@gmail.com";
 let state = "KL";
-describe("MYDESIGNATION automation", () => {
+describe("End to end flow of buying a product in MYDESIGNATION website", () => {
   it("Load url", async () => {
     await landingPage.openUrl();
     expect(await landingPage.$header().isDisplayed())
       .withContext("Expect header to be displayed")
       .toBe(true);
   });
-  // it("Validating whether all the menu items are displayed", async()=>{
-
-  //   let menuItems = [];
-  //   let newArray=[];
-  //   menuItems = await landingPage.$$navigationBar().map(item => item.getText())
-
-  //       newArray = await menuItems.map(item=>item.replace("\nNEW",""))
-  //   for (let item of newArray) {
-  //     expect(await landingPage.$menuItem(item).isDisplayed()).withContext("menu item  is not displayed").toBe(true);
-
-  //   }
-  //         })
 
   it("click on a product and validate navigation ", async () => {
     await landingPage.clickOnProduct();
@@ -55,7 +43,7 @@ describe("MYDESIGNATION automation", () => {
     expect(await billingDetailsPage.$secondaryHeader().isDisplayed()).toBe(
       true
     );
-    //expect(await billingDetailsPage.$placeOrderButton().isDisplayed()).toBe(true)
+   
   });
   it("Click on place order button without filling mandatory fields", async () => {
     await billingDetailsPage.clickOnPaceOrder();
@@ -176,7 +164,7 @@ describe("MYDESIGNATION automation", () => {
       phone,
       email
     );
-    // await paymentPage.$payNowButton().waitForDisplayed({timeout:3000})
+ 
     expect(await paymentPage.$payNowButton().isDisplayed())
       .withContext("Pay Now button is not visible")
       .toBe(true);

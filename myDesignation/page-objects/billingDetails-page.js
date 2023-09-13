@@ -17,13 +17,13 @@ class BillingDetailsPage extends Common {
       $(
         `//div[@class="woocommerce-billing-fields__field-wrapper"]//input[@id="${field}"]`
       );
-    //this.$fillFormfield=(field)=>$(`//div[@class="woocommerce-billing-fields__field-wrapper"]//input[@id="${field}"]`)
+
     this.$stateField = (state) =>
       $(`//span//select[@id="billing_state"]/option[@value="${state}"]`);
     this.$dropDown = () => $('//select[@id="billing_state"]/..');
   }
   /**
-   * Clicks the place order button without giving any input
+   * Method to click on Place Order button without giving any input
    */
   async clickOnPaceOrder() {
     await this.$placeOrderButton().scrollIntoView();
@@ -31,7 +31,7 @@ class BillingDetailsPage extends Common {
     await this.$placeOrderButton().click();
   }
   /**
-   * click on place order without filling one mandatory page at a time
+   * Method click on Place Order button after filling one mandatory at a time
    * @param {string} field
    * @param {String} fname
    */
@@ -40,15 +40,14 @@ class BillingDetailsPage extends Common {
     await this.$placeOrderButton().scrollIntoView();
     await this.$placeOrderButton().waitForClickable({ timeout: 20000 });
     await this.$placeOrderButton().click();
-    //await this.$errorMessage(field).scrollIntoVIew()
   }
   /**
-   * clicks on place order after adding all the mandatory field
+   * Method to click on Place Order button after filling all the mandatory fields
    * @param {String} fname
    * @param {String} lname
    * @param {String} StreetAaddress1
    * @param {String} StreetAaddress2
-   * @param {*String townCity
+   * @param {String townCity
    * @param {String} state
    * @param {String} pinCode
    * @param {String} phone
@@ -65,7 +64,6 @@ class BillingDetailsPage extends Common {
     phone,
     email
   ) {
-    // await this.$fillForm("billing_first_name").waitForDisplayed({ timeout: 20000 });
     await this.$fillForm("billing_first_name").setValue(fname);
     await this.$fillForm("billing_last_name").setValue(lname);
     await this.$fillForm("billing_address_1").scrollIntoView();
@@ -83,13 +81,13 @@ class BillingDetailsPage extends Common {
     await this.$fillForm("billing_postcode").waitForClickable({
       timeout: 2000,
     });
-    // await this.$proceedToCheckOutButton().waitForClickable({ timeout: 2000 });
+
     await this.$fillForm("billing_postcode").setValue(pinCode);
     await this.$fillForm("billing_phone").setValue(phone);
     await this.$fillForm("billing_email").setValue(email);
     await this.$dropDown().scrollIntoView();
     await this.$dropDown().waitForClickable({ timeout: 2000 });
-    //await browser.pause(2000)
+
     await this.$dropDown().click();
     await this.$stateField(state).scrollIntoView();
     await this.$stateField(state).click();
@@ -98,7 +96,7 @@ class BillingDetailsPage extends Common {
     await this.$placeOrderButton().click();
   }
   /**
-   * clocks on place order button after filling only state
+   * Method to verify the error messages after clicking on Place Order button after filling only state field
    * @param {String} state
    */
   async stateValidation(state) {

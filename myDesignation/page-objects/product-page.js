@@ -10,17 +10,17 @@ class ProductPage extends Common {
     this.$cartIcon = () => $('//li[@class="menu-item menu-item-cart"]/a');
   }
   /**
-   * Adds a product to cart after gining size
-   * @param {String} a
-   * @param {String} b
+   * Method to add a product to cart after giving size
+   * @param {String} size1
+   * @param {String} size2
    */
-  async addToCart(a, b) {
-    await this.$sizeOfProduct(a).click();
-    await this.$sizeOfProduct(b).click();
+  async addToCart(size1, size2) {
+    await this.$sizeOfProduct(size1).click();
+    await this.$sizeOfProduct(size2).click();
     await this.$addToCartButton().scrollIntoView();
     await this.$addToCartButton().waitForClickable({ timeout: 2000 });
     await this.$addToCartButton().click();
-    await browser.pause(2000);
+
     await this.$cartIcon().scrollIntoView();
     await this.$cartIcon().waitForClickable({ timeout: 2000 });
     await this.$cartIcon().click();

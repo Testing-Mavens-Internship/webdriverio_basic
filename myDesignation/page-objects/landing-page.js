@@ -15,15 +15,13 @@ class LandingPage extends Common {
       );
   }
   /**
-   * select a product from landing page
+   * Method to select a product from landing page
    */
   async clickOnProduct() {
-    //await this.$productSelected({ timeout: 30000 });
     await this.$productSelected().scrollIntoView();
     await this.$productSelected().waitForClickable({ timeout: 2000 });
-    //await this.$productSelected().isClickable();
+
     await this.$productSelected().click();
-    browser.pause(2000);
   }
 }
 

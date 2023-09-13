@@ -3,12 +3,12 @@ export default class Common {
     this.$header = () => $('//a[text()="MYDESIGNATION"]');
   }
   /**
-   * loads the url
+   * Method to load url
    */
   async openUrl() {
     await browser.url("https://www.mydesignation.com/");
     await browser.maximizeWindow();
-    //browser.pause(2000)
+   
     await this.$header().waitForDisplayed({ timeout: 2000 });
   }
 }

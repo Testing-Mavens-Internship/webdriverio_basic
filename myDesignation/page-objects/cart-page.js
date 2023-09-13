@@ -8,7 +8,7 @@ class CartPage extends Common {
       $('//a[@class="checkout-button button alt wc-forward"]');
   }
   /**
-   * clicks on proceed to check out button from cart page
+   * Method to click on proceed to check out button
    */
   async clickOnProceedToCheckOutButton() {
     await this.$proceedToCheckOutButton().scrollIntoView();
