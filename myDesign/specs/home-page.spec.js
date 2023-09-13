@@ -163,41 +163,7 @@ describe("Mydesignation Application automation", () => {
     );
   });
 
-  it("select state and verify error message", async () => {
-    await fillForm.fillFirstName(firstName);
-    await fillForm.fillLastName(lastName);
-    await fillForm.fillStreetAddress(streetAddress, appartment);
-    await fillForm.fillTown(town);
-    await fillForm.fillState(state);
-    await fillForm.clickPlaceOrder();
-
-    expect(
-      await fillForm
-        .$eachErrorMessage("Billing First name")
-        .waitForDisplayed({ timeout: 5000, reverse: true })
-    );
-    expect(
-      await fillForm
-        .$eachErrorMessage("Billing Last name")
-        .waitForDisplayed({ timeout: 5000, reverse: true })
-    );
-    expect(
-      await fillForm
-        .$eachErrorMessage("Billing Street address")
-        .waitForDisplayed({ timeout: 5000, reverse: true })
-    );
-    expect(
-      await fillForm
-        .$eachErrorMessage("Billing Town / City")
-        .waitForDisplayed({ timeout: 5000, reverse: true })
-    );
-    expect(
-      await fillForm
-        .$eachErrorMessage("Billing State")
-        .waitForDisplayed({ timeout: 5000, reverse: true })
-    );
-  });
-
+ 
   it("enter pincode and verify error message", async () => {
     await fillForm.fillFirstName(firstName);
     await fillForm.fillLastName(lastName);

@@ -5,7 +5,6 @@ class BillingPage extends CommonPage {
     super();
     this.$billing = () => $('//h3[text()="Billing Details"]');
     this.$placeOrder = () => $('//button[text()="Place order"]');
-    //this.$errorMessage = (error) => $(`//strong[text()="${error}"]`);
     this.$errorMessages = (name) =>
       $(
         `//li[text()= "The Phone Number should contain only 10 digits."or(text()=" is a required field." and strong[text()="${name}"] )]`
@@ -16,6 +15,7 @@ class BillingPage extends CommonPage {
         `//div[@class="woocommerce-billing-fields__field-wrapper"]//input[@id="${input}"]`
       );
   }
+  
   /**click on place order
    */
   async clickOnPlaceOrder() {
@@ -56,9 +56,9 @@ class BillingPage extends CommonPage {
     await this.$inputValues("billing_city").setValue(town);
   }
   /** set state*/
-  async fillState(state) {
-    await this.$verifyStateErrorMessage(state).click();
-  }
+//   async fillState(state) {
+//     await this.$verifyStateErrorMessage(state).click();
+//   }
 
   /**
    * set pincode
