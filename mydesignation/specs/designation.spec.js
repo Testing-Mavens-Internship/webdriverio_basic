@@ -29,14 +29,18 @@ describe("automating the website mydesignation", () => {
     //expect (shoppingCartPage.$shoppingCartHeader().isDisplayed()).withContext("expect shopping cart header to be displayed ").toBe(true);
   });
 
-  it ("add to cart ", async ()  =>{
+  it("add to cart ", async () => {
     await productPage.addToCart();
-    expect (await productPage.$itemAddedMessage().isDisplayed()).withContext("expect shopping cart value to be displayed ").toBe(true);
+    expect(await productPage.$itemAddedMessage().isDisplayed())
+      .withContext("expect shopping cart value to be displayed ")
+      .toBe(true);
   });
 
-  it ("go to cart ", async ()  =>{
+  it("go to cart ", async () => {
     await productPage.goToCart();
-    expect (await shoppingCartPage.$productInCart().isDisplayed()).withContext("expect shopping cart header to be displayed ").toBe(true);
+    expect(await shoppingCartPage.$productInCart().isDisplayed())
+      .withContext("expect shopping cart header to be displayed ")
+      .toBe(true);
   });
 
   it("Proceed to checkout", async () => {
@@ -46,7 +50,7 @@ describe("automating the website mydesignation", () => {
       .toBe(true);
   });
 
-  it("fill details and place order", async () =>{
+  it("fill details and place order", async () => {
     await billingPage.clickOnPlaceOrderButton();
-  })
+  });
 });
