@@ -5,7 +5,14 @@ class ViewCartPage extends CommonPage{
         super();
         this.$verifyCartPage = () => $('//a[text()="Shopping Cart"]');
         this.$verifyProduct = (productName) => $(`//a[text()="${productName}"]`)
-        //this.$verifyProduct = (productName,tShirt,shorts) => $(`//a[text()="${productName}"]//..//p[text()="${tShirt}"]//..//..//p[text()="${shorts}//ancestor::td"]`)
+        this.$clickProceedCheckout = () => $('//a[@class="checkout-button button alt wc-forward"]')
+    }
+    /**
+     * click proceed checkout
+     */
+    async clickProceedCheckout(){
+        await this.$clickProceedCheckout().waitForClickable(2000);
+        await this.$clickProceedCheckout().click();
     }
 }
 export const viewCart = new ViewCartPage()
