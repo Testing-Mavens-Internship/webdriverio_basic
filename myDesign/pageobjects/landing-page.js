@@ -26,14 +26,14 @@ class landing {
     }
 
     async clickOnsize() {
-        await this.$size().scrollIntoView({block : 'center'});
+        //await this.$size().scrollIntoView({block : 'center'});
         await this.$size().click();
         await this.$addCart().click();
         
     }
 
     async clickOnCartIcon () {
-        //await this.$cartIcon().scrollIntoView( { block : 'start'} );
+        await this.$cartIcon().scrollIntoView( { block : 'start'} );
         await this.$cartIcon().click();
     }
 

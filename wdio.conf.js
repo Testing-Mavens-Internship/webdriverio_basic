@@ -44,7 +44,7 @@ export const config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same test should run tests.
     //
-    maxInstances: 10,
+    maxInstances: 1,
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
@@ -60,21 +60,21 @@ export const config = {
             // 5 instances get started at a time.
             'maxInstances': 1,
             'browserName': 'chrome',
-            // 'acceptInsecureCerts': true,
-            // 'goog:chromeOptions': {
-            //     args: [
-            //         '--window-size=1920,1080',
-            //         '--incognito',
-            //         '--headless=new',
-            //         '--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36',
-            //     ],
-            //     excludeSwitches: ['enable-automation'],
+            'acceptInsecureCerts': true,
+            'goog:chromeOptions': {
+                args: [
+                    '--window-size=1920,1080',
+                    '--incognito',
+                    '--headless=new',
+                    '--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36',
+                ],
+                excludeSwitches: ['enable-automation'],
             //     // prefs: {
             //     //  'download.prompt_for_download': false,
             //     //  'directory_upgrade': true,
             //     //  'download.default_directory': downloadsFolder,
             //     // },
-            // },
+             },
             // If outputDir is provided WebdriverIO can capture driver session logs
             // it is possible to configure which logTypes to include/exclude.
             // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
