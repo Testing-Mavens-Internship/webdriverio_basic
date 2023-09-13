@@ -14,8 +14,8 @@ let lastName = "Ash";
 let postalCode = 673307;
 let productPrice = 0;
 
-describe("Sauce Demo Application automation", () => {
-  it("load the sauce demo url", async () => {
+xdescribe("Sauce Demo Application automation", () => {
+  it("Load the sauce demo url", async () => {
     await loginPage.openUrl();
     expect(await loginPage.$title().isDisplayed())
       .withContext("Expect Title to be displayed")

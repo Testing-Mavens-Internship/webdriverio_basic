@@ -22,7 +22,7 @@ export const config = {
     // will be called from there.
     //
     specs: [
-        './sauceDemo/specs/01-sauce-demo.spec.js'
+        './myDesignation/specs/01-my-designation.spec.js'
     ],
     // Patterns to exclude.
     exclude: [
