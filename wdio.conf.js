@@ -22,7 +22,7 @@ export const config = {
     // will be called from there.
     //
     specs: [
-        './myDesignation/specs/end-to-end-page.spec.js'
+        'mavenKonnect/specs/mavenKonnect-page.spec.js'
     ],
     // Patterns to exclude.
     exclude: [
