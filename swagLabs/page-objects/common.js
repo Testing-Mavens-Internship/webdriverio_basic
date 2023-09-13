@@ -1,5 +1,3 @@
-import { homePage } from "./home-page.js";
-
 export default class Common {
   constructor() {
     this.$header = () => $(`//div[text()="Swag Labs"]`);
