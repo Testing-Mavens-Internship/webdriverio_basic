@@ -58,6 +58,7 @@ describe("Automation the sauce demo website", () => {
     expect(await checkOut.$header().isDisplayed())
       .withContext("Expect overview header to be displayed")
       .toBe(true);
+      
   });
 
   it("Validating the item name in the overveiw page", async () => {

@@ -22,9 +22,9 @@ export const config = {
     // will be called from there.
     //
     specs: [
-        './sauceDemo/specs/**/*.js'
+        // './sauceDemo/specs/**/*.js'
         // './demoqa/specs/links.spec.js'
-        //'./myDesignation/specs/home.spec.js'
+        './myDesignation/specs/home.spec.js'
     ],
     // Patterns to exclude.
     exclude: [
