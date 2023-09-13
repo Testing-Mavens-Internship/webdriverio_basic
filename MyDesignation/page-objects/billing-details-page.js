@@ -11,6 +11,7 @@ class BillingDetails extends Common{
 
 
     }
+    //function for clicking place order button
     async clickOnPlaceOrderButton()
     {
         await this.$placeOrderButton().scrollIntoView({block: 'center'});
@@ -21,6 +22,17 @@ class BillingDetails extends Common{
 
 
     }
+    /**
+     * function for inputing values in fields
+     * @param {String} firstName 
+     * @param {String} lastName 
+     * @param {String} address1 
+     * @param {String} address2 
+     * @param {String} city 
+     * @param {String} pinCode 
+     * @param {String} phone 
+     * @param {String} email 
+     */
     async fillingInputFields(firstName,lastName,address1,address2,city,pinCode,phone,email){
         await this.$inputFields(firstName).setValue("Adhithya")
         await this.clickOnPlaceOrderButton()

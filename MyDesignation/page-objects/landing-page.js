@@ -6,6 +6,7 @@ class LandingPage extends Common{
         this.$purchaseItem=()=>$(`//a[@href="https://www.mydesignation.com/product/gojo-co-ords-set-for-men/"]/ancestor::div[@class="owl-item cloned"]`)
         
     }
+    //function for clicking an item
     async clickOnItem(){
         await this.$purchaseItem().scrollIntoView({block: 'center'});
         await this.$purchaseItem().waitForClickable()

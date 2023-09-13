@@ -52,7 +52,12 @@ describe("MyDesignation application: ", () => {
 
    it("Click on the first name field and enter the first name",async()=>{
       await billingDetailsPage.fillingInputFields(firstName,lastName,address1,address2,city,pinCode,phone,email)
-      expect(await billingDetailsPage.$inputFields(firstName).isDisplayed()).withContext(`Expect show warning of other fields when firstname field only fill and click on the place order`).toBe(true)
+      let arr=[firstName,lastName,address1,address2,city,pinCode,phone,email]
+      for(let item of arr){
+        expect(await billingDetailsPage.$inputFields(item).isDisplayed()).withContext(`Expect show warning of other fields when ${item} only fill and click on the place order`).toBe(true)
+      }
+
+     // expect(await billingDetailsPage.$billFormWarningFields(item).isDisplayed()).withContext(`Expect the warning contain empty mandatory field "${item}"`).toBe(true)
         })
 
 

@@ -8,6 +8,7 @@ class ProceedCheckout extends Common{
         this.$detailedAddressMessage=()=>$(`//div[@class="col-md-12 col-xs-12"]//p`) // heading above the address form
 
     }
+    //function for clicking the proceed checkout button
     async clickOnProceedCheckout(){
         await this.$clickToProceedButton().scrollIntoView({block: 'center'});
         await this.$clickToProceedButton().click()
