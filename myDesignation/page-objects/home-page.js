@@ -25,15 +25,13 @@ class Home {
    */
   async clickOnOk() {
     await this.$okClick().click();
+    await this.$particularProduct().waitForClickable();
   }
   /**
    * Clicking on Gojo Co-ORds product
    */
   async clickOnTheProduct() {
-    // await this.$particularProduct().scrollIntoView({ block: "center" });
-    await this.$particularProduct().waitForClickable();
     await this.$particularProduct().click();
-    await browser.pause(2000);
   }
   /**
    * Click on the size which is required for purchasing and adding to cart
