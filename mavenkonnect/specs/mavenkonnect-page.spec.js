@@ -55,7 +55,6 @@ describe("End to end flow for the application mavenKonnect", () => {
 
     it("Fill personal details and click submit", async () => {
         await checkOut.fillFormField(fullName,email,address,city,state,zip,fullName,cardnumber,expmonth,expyear,cvv);
-        await browser.acceptAlert()
         expect(await checkOut.$verifyThankYou().isDisplayed())
         .withContext("Expect contact us header to be displayed")
         .toBe(true);  
