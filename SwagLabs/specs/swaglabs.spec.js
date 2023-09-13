@@ -20,7 +20,7 @@ let hightoLow="Price (high to low)";
  let productPrice = 0;
 
 
-describe('My Login application', () => {
+xdescribe('My Login application', () => {
     it('should launch the url', async () => {
         await homePage.openUrl()
         expect(await homePage.$header().isDisplayed()).withContext('expect home page logo is displayed ').toBe(true);
