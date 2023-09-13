@@ -5,6 +5,7 @@ class HomePage extends CommonPage{
         super();
         this.$product = () => $('//a[@href="https://www.mydesignation.com/product/gojo-co-ords-set-for-men/"]/ancestor::div[@class="owl-item cloned"]');
     }
+    
 /**click on the desired product */
         async viewProduct(){
             await this.$product().scrollIntoView({ block : 'center'});

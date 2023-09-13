@@ -6,6 +6,7 @@ class CartPage extends CommonPage{
         this.$viewCartPage = () => $('//a[text()="Shopping Cart"]');
         this.$checkout = () => $('//div[@class="wc-proceed-to-checkout"]');
     }
+    
     /**click on check out  */
     async proceedToCheckout(){
         await this.$checkout().scrollIntoView({ block : 'center'});
