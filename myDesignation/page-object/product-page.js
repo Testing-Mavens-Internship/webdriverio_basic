@@ -15,7 +15,9 @@ class ProductPage extends Common{
         this.$state = (value) => $(`//label[@for="billing_state"]/following-sibling::span//select//option[contains(.,"${value}")]`)
         this.$payButton = () => $('//button[@class="svelte-13mgn3i"][text()="Pay Now"]')
         this.$$warningmessages = () => $$(`//div[@class="box-content"]//li`)
-    }
+    }/**
+     * Enter size and click addToCart button
+     */
     async selectSize(){
         await this.$size("S").click();
         await this.$size("32").scrollIntoView({block: 'center'});
@@ -25,15 +27,23 @@ class ProductPage extends Common{
         await this.$addToCartButton().waitForClickable();
         await this.$addToCartButton().click();
     }
+    /**
+     * Click view cart buton
+     */
     async viewCart(){
     await this.$viewCart().click();
    
     }
+    /**
+     * click proceed button to move to the place order page
+     */
     async proceedToCheckout(){
         await this.$proceedButton().scrollIntoView({block:'center'});
         await this.$proceedButton().click();
     }
-
+    /**
+     * click on placeorder button
+     */
     async placeOrder(){
    
      await this.$placeOrder().scrollIntoView({block:'center'});
@@ -42,7 +52,9 @@ class ProductPage extends Common{
     //  let warnings = [];
     //  warnings = await this.$$warningmessages().map(item => item.getText());
     }
-
+    /**
+     * enter the details in each field and click placeorder button cccc 
+     */
     async billingDetails(){
         await this.$inputField("billing_first_name").setValue("APARNA")
         await this.placeOrder();
