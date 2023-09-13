@@ -31,7 +31,7 @@ await this.$placeOrderButton().click();
 
 }
 async fillForm(fname,lname,StreetAaddress1,StreetAaddress2,townCity,state,pinCode,phone,email){
-    await this.$fillForm("billing_first_name").waitForClickable({ timeout: 20000 });
+   // await this.$fillForm("billing_first_name").waitForDisplayed({ timeout: 20000 });
     await this.$fillForm("billing_first_name").setValue(fname)
     await this.$fillForm("billing_last_name").setValue(lname)
     await this.$fillForm("billing_address_1").scrollIntoView();

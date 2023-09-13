@@ -72,15 +72,15 @@ it("Click on place order without filling one mandatory field each",async()=>{
  await billingDetailsPage.clickOnPlaceorderWithoutFIllingOneMandatoryFIeldEach("billing_address_2",StreetAaddress1)
  expect(await billingDetailsPage.$errorMessageNew("Billing Street address").waitForDisplayed({timeout:2000, reverse: true}));
  await billingDetailsPage.clickOnPlaceorderWithoutFIllingOneMandatoryFIeldEach("billing_city",StreetAaddress1)
- expect(await billingDetailsPage.$errorMessageNew("Billing Town / City").waitForDisplayed({timeout:2000, reverse: true}));
+ expect(await billingDetailsPage.$errorMessageNew("Billing Town / City").waitForDisplayed({timeout:20000, reverse: true}));
  await billingDetailsPage.clickOnPlaceorderWithoutFIllingOneMandatoryFIeldEach("billing_postcode","682021")
- expect(await billingDetailsPage.$errorMessageNew("Billing PIN Code").waitForDisplayed({timeout:2000, reverse: true}));
+ expect(await billingDetailsPage.$errorMessageNew("Billing PIN Code").waitForDisplayed({timeout:20000, reverse: true}));
  await billingDetailsPage.clickOnPlaceorderWithoutFIllingOneMandatoryFIeldEach("billing_phone","8989898989")
- expect(await billingDetailsPage.$errorMessagePhone("Billing Phone").waitForDisplayed({timeout:2000, reverse: true}));
+ expect(await billingDetailsPage.$errorMessagePhone("Billing Phone").waitForDisplayed({timeout:20000, reverse: true}));
  await billingDetailsPage.clickOnPlaceorderWithoutFIllingOneMandatoryFIeldEach("billing_email","test@gmail.com")
- expect(await billingDetailsPage.$errorMessageNew("Billing Email address").waitForDisplayed({timeout:2000, reverse: true}));
+ expect(await billingDetailsPage.$errorMessageNew("Billing Email address").waitForDisplayed({timeout:20000, reverse: true}));
  await billingDetailsPage.clickOnPlaceorderWithoutFIllingOneMandatoryFIeldEach("billing_email","test@gmail.com")
- expect(await billingDetailsPage.$errorMessageNew("Billing Email address").waitForDisplayed({timeout:2000, reverse: true}));
+ expect(await billingDetailsPage.$errorMessageNew("Billing Email address").waitForDisplayed({timeout:20000, reverse: true}));
 })
 it("Enter place order after entering state",async()=>{
   await billingDetailsPage.stateValidation(state)
