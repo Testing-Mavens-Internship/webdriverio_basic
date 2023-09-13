@@ -9,7 +9,7 @@ class ProductPage {
       $(`//label[text()="Shorts Size"]/../..//span[text()="${size}"]//..`);
     this.$addToCartButton = () =>
       $('//button[@class="single_add_to_cart_button button alt"]');
-    this.$gotoCart = () => $('//li[@class="menu-item menu-item-cart"]/..');
+    this.$gotoCart = () => $('//li[@class="menu-item menu-item-cart"]/a');
     this.$productHeader = (value) => $(`//h1[contains(text(),"${value}")]`);
     this.$itemAddedMessage = () =>
       $('//div[@class="box-content" and contains(text(),"Gojo")]');

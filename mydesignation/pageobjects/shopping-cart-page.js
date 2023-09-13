@@ -4,7 +4,7 @@ class ShoppingCart {
      * elements
      */
     this.$clickOnCheckOutButton = () =>
-      $('//li[@class="menu-item menu-item-cart"]//a');
+      $('//div[@class="wc-proceed-to-checkout"]/a');
     this.$shoppingCartHeader = () => $('//li//a[text()="Shopping Cart"]');
     this.$productInCart = () =>
       $(
