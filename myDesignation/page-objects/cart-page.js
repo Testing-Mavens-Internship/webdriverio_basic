@@ -6,6 +6,9 @@ constructor(){
 this.$productNameInCart=(name)=>$(`//a[text()="${name}"]`)
 this.$proceedToCheckOutButton=()=>$('//a[@class="checkout-button button alt wc-forward"]')
 }
+/**
+ * clicks on proceed to check out button from cart page
+ */
 async clickOnProceedToCheckOutButton(){
     await this.$proceedToCheckOutButton().scrollIntoView();
     await this.$proceedToCheckOutButton().waitForClickable({ timeout: 2000 });
