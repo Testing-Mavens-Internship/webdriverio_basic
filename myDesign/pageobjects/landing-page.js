@@ -11,12 +11,19 @@ class landing {
         this.$cartIcon = () => $('//div[@class="box-content"]//a[@href="https://www.mydesignation.com/cart/"]');
         this.$cartItem = () => $('//a[text()="Theyyam Tshirt - Kathakali Theyyam Fusion - XS"]');
     }
-
+    
+    /**
+     * Launch url
+     */
     async openUrl() {
         await browser.url('https://www.mydesignation.com/'); 
         await browser.maximizeWindow();
         await browser.pause(2000);
     }
+
+    /**
+     * Click on product
+     */
 
     async clickOnProduct () {
         await this.$product().scrollIntoView({block : 'center'});
@@ -25,12 +32,20 @@ class landing {
         await browser.pause(2000);
     }
 
+    /***
+     * Click on item size
+     */
+
     async clickOnsize() {
         //await this.$size().scrollIntoView({block : 'center'});
         await this.$size().click();
         await this.$addCart().click();
         
     }
+
+    /**
+     * Click on Cart icon
+     */
 
     async clickOnCartIcon () {
         await this.$cartIcon().scrollIntoView( { block : 'start'} );

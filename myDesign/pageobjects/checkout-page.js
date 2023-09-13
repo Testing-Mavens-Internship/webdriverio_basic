@@ -9,16 +9,27 @@ class checkOut {
 
     }
 
+    /**
+     * Click on proceed button
+     */
+
     async clickOnProceed () {
         await this.$proceed().scrollIntoView({block : 'center'});
         await this.$proceed().click();
     }
+
+    /**
+     * Click on place order button
+     */
 
     async clickOnPlaceOrder(){
         await this.$placeOrder().scrollIntoView({ block : 'end'});
         await this.$placeOrder().click()
     }
 
+    /**
+     * To enter text in fields
+     */
     async enterText() {
         await this.$field('billing_first_name').setValue("Athira");
         await this.clickOnPlaceOrder();
