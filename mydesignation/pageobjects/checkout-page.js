@@ -11,6 +11,9 @@ class CheckOutPage extends CommonPage{
 
         
     }
+    /**
+     * function for clicking place order button
+     */
     async clickOnPlaceOrderButton()
     {
         await this.$placeOrderButton().scrollIntoView({block : 'center'});
@@ -18,6 +21,9 @@ class CheckOutPage extends CommonPage{
         await this.$placeOrderButton().click()
         
     }
+    /**
+     * function for entering the details in the checkout page
+     */
     async enterDetails()
      {
         // await this.$enterFields().scrollIntoView({block : 'center'});

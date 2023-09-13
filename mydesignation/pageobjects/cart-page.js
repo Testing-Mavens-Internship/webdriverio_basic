@@ -8,7 +8,10 @@ class CartPage extends CommonPage{
         this.$billingHeader=()=>$(`//h3[text()="Billing Details"]`)
 
     }
-    //function for clicking checkout button
+    /**
+     * function for clicking checkout button
+     */
+    
     async clickOnCheckoutButton()
     {
         await this.$checkoutButton().click()
