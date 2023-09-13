@@ -5,7 +5,7 @@ class Billing {
     this.$inputDetails = (details) => $(`//input[@id ="${details}"]`);
     this.$stateField = (value) => $(`//label[@for="billing_state"]/following-sibling::span//select//option[contains(.,"${value}")]`)
     this.$errorMessage = (values)  =>$(`//strong[text()="${values}"]`)
-    this.$paymentHeader = () => $('//h3[@class = "title svelte-1z0zzkn"]');
+    //this.$paymentTab = () => $('//div[@class = "one-cc header-expanded"]');
   }
   /**
    * Click on the placeorder button

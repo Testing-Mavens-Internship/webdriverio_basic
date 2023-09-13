@@ -71,7 +71,7 @@ describe("Automation the sauce demo website", () => {
       expect (await billPages.$errorMessage('Billing Email address').waitForDisplayed({reverse:true})).withContext("Expect the error message is not to be displayed");
    });
     // it("Validating the paynow page",async() =>{
-    //   expect (await billPages.$paymentHeader().waitForDisplayed({timeout:10000}))
+    //   expect (await billPages.$paymentTab().waitForDisplayed({timeout:10000}))
     //   .withContext("The payment header is displayed")
     //   .toBe(true)
     // })
