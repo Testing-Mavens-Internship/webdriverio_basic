@@ -5,7 +5,6 @@ class LaunchPage extends Common{
         super();
         this.$product = () => $('//a[@href="https://www.mydesignation.com/product/gojo-co-ords-set-for-men/"]/ancestor::div[@class="owl-item cloned"]')
         this.$productHeader = () => $('//h1[text()="Gojo Co-Ords Set for Men"]')
-
     }
     /**
      * launch the url

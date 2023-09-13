@@ -6,16 +6,19 @@ describe('Buy an item from the mydesignation website and validate', () => {
         await launchPage.openUrl();
         expect(await launchPage.$itemsHeader().isDisplayed()).withContext('Expect the header to be displayed').toBe(true);
     })
+
     it('select the product and verify', async () => {
         await launchPage.selectProduct();
         await productPage.selectSize();
         expect(await launchPage.$productHeader().isDisplayed()).withContext('Expect header to be displayed').toBe(true);
         expect(await productPage.$productNotification().isDisplayed()).withContext('Expect product notification to be displayed').toBe(true);
     })
+
     it('click view cart and fill up the details', async () => {
         await productPage.viewCart();
         expect(await productPage.$productName().isDisplayed()).withContext('Expect product name to be displayed').toBe(true);
     })
+
     it('click proceed to checkout and place order button and validate the list of fields to be entered', async() => {
         await productPage.proceedToCheckout();
         await productPage.placeOrder();
@@ -36,6 +39,7 @@ describe('Buy an item from the mydesignation website and validate', () => {
         await productPage.$mandatoryFieldInfo("Billing Email address").waitForDisplayed({timeout:2000});
         expect(await productPage.$mandatoryFieldInfo("Billing Email address").isDisplayed()).withContext('Expect the mandatory field info to be displayed').toBe(true);
     })
+    
     it('Validating the mandatory field', async () => {
         await productPage.billingDetails();
         

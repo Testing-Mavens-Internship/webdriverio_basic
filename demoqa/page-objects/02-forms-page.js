@@ -16,18 +16,28 @@ class FormsPage extends Common{
         this.$resultHeader = () => $('//div[@class="modal-header"]//div')
         this.$clickDate =()=> $('//div[@id="dateOfBirth"]')
         this.$selectDate = () => $('//div[@aria-label="Choose Thursday, September 7th, 2023"]')
-
-
-    }
-
+    }/**
+     * click ON form tile
+     */
     async clickOnFormTile(){
         await this.$tabTile("Forms").scrollIntoView();
         await this.$tabTile("Forms").click();
     }
+    /**
+     * click on the practice form
+     */
     async clickOnPracticeForm(){
         await this.$tabButton("Practice Form").scrollIntoView();
         await this.$tabButton("Practice Form").click();
     }
+    /**
+     * fill the forms
+     * @param {string} fname 
+     * @param {string} lname 
+     * @param {string} email 
+     * @param {string} mobileNumber 
+     * @param {string} subject 
+     */
     async fillForm(fname,lname,email,mobileNumber,subject){
         await this.$field("Name","first").scrollIntoView({block:'center'});
         await this.$field("Name","first").waitForClickable();
@@ -48,20 +58,15 @@ class FormsPage extends Common{
         await browser.keys(['Tab']);
         await browser.keys(["Tab"]);
         await browser.keys('Enter');
-       
-
-      //  await this.$submitButton().scrollIntoView({block:'center'});
-      //  await this.$submitButton().waitForClickable({timeout:10000});
-       // await this.$submitButton().click();
-        
+  
     }
+    /**
+     * close the result form
+     */
     async resultFormClose(){
         await browser.keys(["Tab"]);
         await browser.keys('Enter');
         await browser.pause(3000);
-
     }
-    
-
 }
 export const formPage = new FormsPage()

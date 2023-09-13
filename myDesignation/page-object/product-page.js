@@ -31,8 +31,7 @@ class ProductPage extends Common{
      * Click view cart buton
      */
     async viewCart(){
-    await this.$viewCart().click();
-   
+     await this.$viewCart().click();
     }
     /**
      * click proceed button to move to the place order page
@@ -45,12 +44,9 @@ class ProductPage extends Common{
      * click on placeorder button
      */
     async placeOrder(){
-   
      await this.$placeOrder().scrollIntoView({block:'center'});
      await this.$placeOrder().waitForClickable();
      await this.$placeOrder().click();
-    //  let warnings = [];
-    //  warnings = await this.$$warningmessages().map(item => item.getText());
     }
     /**
      * enter the details in each field and click placeorder button cccc 
@@ -58,30 +54,20 @@ class ProductPage extends Common{
     async billingDetails(){
         await this.$inputField("billing_first_name").setValue("APARNA")
         await this.placeOrder();
-    
         await this.$inputField("billing_last_name").setValue("UDAYAN")
         await this.placeOrder();
-
         await this.$inputField("billing_address_1").setValue("Kayees home, kochi")
         await this.placeOrder();
-
         await this.$inputField("billing_city").setValue("Kochi")
         await this.placeOrder();
-
         await this.$state("Kerala").click();
         await this.placeOrder();
-
         await this.$inputField("billing_postcode").setValue("683020")
         await this.placeOrder();
-
         await this.$inputField("billing_phone").setValue("8078426144")
         await this.placeOrder();
-
         await this.$inputField("billing_email").setValue("aparna@gmail.com")
         await this.placeOrder();
-
     }
-
-
 }
 export const productPage = new ProductPage()

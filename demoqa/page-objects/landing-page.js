@@ -4,8 +4,6 @@ class LaunchPage{
     constructor() {
         this.$logo = () => $('//div[@id="app"]//header//img');
         this.$tile = (name) => $(`//div[@class="category-cards"]//h5[text()="${name}"]`)
-
-
     }
 
    /**
@@ -15,8 +13,7 @@ class LaunchPage{
     async openUrl() {
         await browser.url('https://demoqa.com/');
         await browser.maximizeWindow();
-        await this.$logo().waitForDisplayed({timeout:20000})
-        
+        await this.$logo().waitForDisplayed({timeout:20000}) 
     }
     /**
      * click on the element tile
