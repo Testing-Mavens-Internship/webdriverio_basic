@@ -33,6 +33,7 @@ it("Enter input fields",async () => {
     expect(await practicePage.$inputField("userEmail").getValue()).withContext("Expect email to be displayed").toBe(email);
     expect(await practicePage.$radioButtonField("Male").isDisplayed()).withContext("Expect radio to be clicked").toBe(true);
   });
+  
 
   });  
     

@@ -6,6 +6,7 @@ class CheckoutPage extends CommonPage {
     this.$checkOutField = (value) => $(`//input[@id="${value}"]`);
   }
   /**
+   * 
    * click button for continue checkout process
    */
   async clickOnContinue() {
@@ -14,10 +15,10 @@ class CheckoutPage extends CommonPage {
   }
 
   /**
-   * fill up checkout information form
-   * @param {string} firstName
-   * @param {string} lastName
-   * @param {number} postalCode
+   * fill checkout form
+   * @param {*} firstName 
+   * @param {*} lastName 
+   * @param {*} postalCode 
    */
   async fillCheckoutForm(firstName, lastName, postalCode) {
     await this.$checkOutField("first-name").setValue(firstName);
