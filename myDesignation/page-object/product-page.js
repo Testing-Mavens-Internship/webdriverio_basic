@@ -49,7 +49,7 @@ class ProductPage extends Common{
      await this.$placeOrder().click();
     }
     /**
-     * enter the details in each field and click placeorder button cccc 
+     * enter the details in each field and click placeorder button 
      */
     async billingDetails(){
         await this.$inputField("billing_first_name").setValue("APARNA")
