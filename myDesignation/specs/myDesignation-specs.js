@@ -90,7 +90,7 @@ it("Enter place order after entering state",async()=>{
 
 it("Click on the place order button after entering all the madatory fiels",async()=>{
   await billingDetailsPage.fillForm(fname,lname,StreetAaddress1,StreetAaddress2,townCity,state,pinCode,phone,email)
-  await paymentPage.$payNowButton().waitForDisplayed({timeout:3000})
+ // await paymentPage.$payNowButton().waitForDisplayed({timeout:3000})
 expect(await paymentPage.$payNowButton().isDisplayed()).withContext("Pay Now button is not visible").toBe(true)
 })
 
