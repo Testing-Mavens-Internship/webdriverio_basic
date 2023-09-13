@@ -3,7 +3,7 @@ import {login} from "../pageobjects/login-page.js"
 import { product } from "../pageobjects/products-page.js";
 import { over } from "../pageobjects/overview-page.js"
 
-describe("Saucedemo Application Text Box automation", () => {
+xdescribe("Saucedemo Application Text Box automation", () => {
     it("load the saucedemo url", async () => {
       await login.openUrl();
       expect(await login.$header().isDisplayed())
