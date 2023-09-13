@@ -48,6 +48,12 @@ describe("automating the website mydesignation", () => {
   it("select size", async () => {
     await productPage.selectSize(tsize, ssize);
     //expect (shoppingCartPage.$shoppingCartHeader().isDisplayed()).withContext("expect shopping cart header to be displayed ").toBe(true);
+    expect(await productPage.$checkIfSelectedTshirt().isDisplayed())
+      .withContext("expect size to be selected")
+      .toBe(true);
+    expect(await productPage.$checkIfSelectedShorts().isDisplayed())
+      .withContext("expect size to be selected")
+      .toBe(true);
   });
 
   it("add to cart ", async () => {

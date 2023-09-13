@@ -13,6 +13,8 @@ class ProductPage {
     this.$productHeader = (value) => $(`//h1[contains(text(),"${value}")]`);
     this.$itemAddedMessage = () =>
       $('//div[@class="box-content" and contains(text(),"Gojo")]');
+      this.$checkIfSelectedShorts=()=>$(`//li[contains(@class,"f-selected") and @data-value="S"]`)
+        this.$checkIfSelectedTshirt=()=>$(`//li[contains(@class,"f-selected") and @data-value="30"]`)
   }
   /**
    *
