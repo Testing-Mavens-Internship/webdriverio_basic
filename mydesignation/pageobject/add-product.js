@@ -1,8 +1,6 @@
 
-
 class Add{
     constructor(){
-    
         this.$product=()=>$('//a[@href="https://www.mydesignation.com/product/gojo-co-ords-set-for-men/"]/ancestor::div[@class="owl-item cloned"]');
         this.$sizeTshirt=()=>$(`//li/span[text()="S"]`);
         this.$sizeShorts=()=>$(`//li/span[text()="30"]`);
@@ -27,7 +25,6 @@ class Add{
     async clickSize(){
         await this.$sizeTshirt().click();
         await this.$sizeShorts().click();
-       
     }
     /**
      * Click on addtocart
@@ -42,7 +39,6 @@ class Add{
     async viewCart(){
         await this.$viewCart().click();
         await this.$headerCheckCArt().click();
-
     }
 }
 export const addProduct=new Add();

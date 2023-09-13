@@ -2,7 +2,6 @@ class BillingPage{
     constructor(){
         this.$input=(value)=>$(`//input[contains(@id,"${value}")]`);
         this.$placeOrder=()=>$(`//button[@id="place_order"]`);
-        // this.$dropDownState=()=>$(`//span[@aria-label="State"]`);
         this.$state = () => $(`//label[@for="billing_state"]/following-sibling::span//select//option[contains(.,"Goa")]`);
         this.$numberError=()=>$(`//ul/li[text()="The Phone Number should contain only 10 digits."]`);
         this.$errorDisplay=(value)=>$(`//ul/li/strong[contains(.,"${value}")]`);
