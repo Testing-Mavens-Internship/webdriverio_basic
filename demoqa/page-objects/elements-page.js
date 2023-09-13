@@ -13,8 +13,6 @@ class ElementsPage {
         await this.$textBox().click();
         await textBoxPage.$text().waitForDisplayed({timeout: 20000})
     }
-    
 
 }
 export const elementsPage = new ElementsPage()
- 

@@ -12,8 +12,12 @@ class Home extends Common {
       $('//button [@id = "remove-sauce-labs-fleece-jacket"]');
     this.$clickOnCart = () => $('//a[@class ="shopping_cart_link" ]');
     this.$$getPrice = () => $$(`//div[@class ="inventory_item_price"]`);
-    this.$price = (item) => $(`//div[contains(text(),'${item}')]/../../following-sibling::div//div`)
-    this.$priceOfItem = (product) =>$(`//div[text()="${product}"]/../../..//div[@class="inventory_item_price"]`);
+    this.$price = (item) =>
+      $(`//div[contains(text(),'${item}')]/../../following-sibling::div//div`);
+    this.$priceOfItem = (product) =>
+      $(
+        `//div[text()="${product}"]/../../..//div[@class="inventory_item_price"]`
+      );
   }
   /**
    * Click on the add to cart button

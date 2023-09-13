@@ -4,6 +4,9 @@ class Complete extends Common {
     super();
     this.$backToHome = () => $('//button[@id ="back-to-products"]');
   }
+  /**
+   * Click on the back to home
+   */
   async clickOnBackToHome() {
     await this.$backToHome().click();
   }

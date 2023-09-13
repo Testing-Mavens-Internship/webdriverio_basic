@@ -3,8 +3,11 @@ class Billing {
     this.$header = () => $('//h3[text()="Billing Details"]');
     this.$clickOnPlaceOrder = () => $('//button[@id = "place_order"]');
     this.$inputDetails = (details) => $(`//input[@id ="${details}"]`);
-    this.$stateField = (value) => $(`//label[@for="billing_state"]/following-sibling::span//select//option[contains(.,"${value}")]`)
-    this.$errorMessage = (values)  =>$(`//strong[text()="${values}"]`)
+    this.$stateField = (value) =>
+      $(
+        `//label[@for="billing_state"]/following-sibling::span//select//option[contains(.,"${value}")]`
+      );
+    this.$errorMessage = (values) => $(`//strong[text()="${values}"]`);
     //this.$paymentTab = () => $('//div[@class = "one-cc header-expanded"]');
   }
   /**
@@ -17,7 +20,7 @@ class Billing {
   /**
    * Entering each details and clicking the placeorder button to validate the error message is dissapearing
    */
-  async enterThDetails() { 
+  async enterThDetails() {
     await this.placeOrderButton();
     await this.$inputDetails("billing_first_name").setValue("Testing");
     await this.placeOrderButton();

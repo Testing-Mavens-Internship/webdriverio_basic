@@ -3,9 +3,7 @@ import { landingPage } from ("../page-objects/landing-page.js");
 import { elementsPage } from ("../page-objects/elements-page.js");
 let name = ["Desktop", "Documents", "Downloads", "Notes", "Commands", "WorkSpace", "Office", "Word File.doc",
     "Excel File.doc", "React", "Angular", "Veu", "Public", "Private", "Classified", "General"]
-
-
-
+    
 describe("Demo QA Application Text Box automation", () => {
   
   it("load the demo qa url", async () => {

@@ -2,7 +2,8 @@ import Common from "./common-page.js";
 class CheckOut extends Common {
   constructor() {
     super();
-    this.$inputInformation = (information) =>$(`//input[@id = "${information}"]`);
+    this.$inputInformation = (information) =>
+      $(`//input[@id = "${information}"]`);
     this.$itemName = () => $('//div[@class="inventory_item_name"]');
     this.$itemPrice = () => $('//div[@class = "inventory_item_price"]');
     this.$buttonFinish = () => $('//button[@id = "finish"]');
@@ -29,7 +30,10 @@ class CheckOut extends Common {
    * Viewing the price of the item which is being checked out
    * @returns {number}
    */
-
+  /**
+   * View the item price
+   * @returns itemPrice
+   */
   async viewPrice() {
     let itemPrice = await this.$itemPrice().getText();
     return itemPrice;

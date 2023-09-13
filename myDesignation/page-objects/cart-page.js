@@ -6,7 +6,9 @@ class Cart {
     this.$cartHeader = () =>
       $('//li[@class = "shopping-cart-link line-hover active"]');
   }
-
+  /**
+   * click on proceed button
+   */
   async clickOnProceedToCheckout() {
     await this.$proceedToCheckOut().click();
   }
