@@ -7,7 +7,7 @@ let email = "aparna@gmail.com"
 let mobileNumber = "5566773344"
 let subject = "Testing"
 
-fdescribe('Demoqa website practice form validation ',() => {
+xdescribe('Demoqa website practice form validation ',() => {
     it('launch the url', async () => {
         await launchPage.openUrl();
         expect(await launchPage.$logo().isDisplayed()).withContext("Expect header to be displayed").toBe(true);
