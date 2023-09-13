@@ -1,7 +1,10 @@
 export default class Common {
   constructor() {
     this.$header = () => $(`//a[text()="MYDESIGNATION"]`);
-    this.$menuBar =  () => $(`//div[contains(@class,"mobile-nav-toggle")]/..//..//div[@class="row"]`);
+    this.$menuBar = () =>
+      $(
+        `//div[contains(@class,"mobile-nav-toggle")]/..//..//div[@class="row"]`
+      );
   }
   /**
    * launch url
