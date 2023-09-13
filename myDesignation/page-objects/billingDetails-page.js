@@ -24,13 +24,14 @@ await this.$placeOrderButton().click();
 async clickOnPlaceorderWithoutFIllingOneMandatoryFIeldEach(field,fname){
     await this.$fillForm(field).setValue(fname)
     await this.$placeOrderButton().scrollIntoView();
-    await this.$placeOrderButton().waitForClickable({ timeout: 2000 });
+    await this.$placeOrderButton().waitForClickable({ timeout: 20000 });
 await this.$placeOrderButton().click();   
 //await this.$errorMessage(field).scrollIntoVIew()
 
 
 }
 async fillForm(fname,lname,StreetAaddress1,StreetAaddress2,townCity,state,pinCode,phone,email){
+    await this.$fillForm("billing_first_name").waitForClickable({ timeout: 20000 });
     await this.$fillForm("billing_first_name").setValue(fname)
     await this.$fillForm("billing_last_name").setValue(lname)
     await this.$fillForm("billing_address_1").scrollIntoView();
@@ -50,14 +51,22 @@ async fillForm(fname,lname,StreetAaddress1,StreetAaddress2,townCity,state,pinCod
     await this.$fillForm("billing_email").setValue(email)
     await this.$dropDown().scrollIntoView();
     await this.$dropDown().waitForClickable({ timeout: 2000 });
-    await browser.pause(2000)
+    //await browser.pause(2000)
     await this.$dropDown().click()
     await this.$stateField(state).scrollIntoView();
     await this.$stateField(state).click()
     await this.$placeOrderButton().scrollIntoView();
-    await this.$placeOrderButton().waitForClickable({ timeout: 2000 });
+    await this.$placeOrderButton().waitForClickable({ timeout: 20000 });
   await this.$placeOrderButton().click()
     
+}
+async stateValidation(state){
+    await this.$dropDown().click()
+    await this.$stateField(state).scrollIntoView();
+    await this.$stateField(state).click()
+    await this.$placeOrderButton().scrollIntoView();
+    await this.$placeOrderButton().waitForClickable({ timeout: 20000 });
+  await this.$placeOrderButton().click()   
 }
 }
 
