@@ -24,7 +24,8 @@ export const config = {
     specs: [
         // './sauceDemo/specs/**/*.js'
         // './demoqa/specs/links.spec.js'
-        './myDesignation/specs/**/*.js'
+        // './myDesignation/specs/**/*.js'
+        './mavenkonect/specs/**/*.js'
     ],
     // Patterns to exclude.
     exclude: [
