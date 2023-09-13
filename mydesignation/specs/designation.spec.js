@@ -89,11 +89,9 @@ describe("automating the website mydesignation", () => {
       .toBe(false);
 
     for (let content of errorMessageContent) {
-      if (content != "First name") {
-        expect(await billingPage.$errorMessageBox(content).isDisplayed())
-          .withContext(`Expect ${content} required message to be displayed`)
-          .toBe(true);
-      }
+      expect(await billingPage.$errorMessageBox(content).isDisplayed())
+        .withContext(`Expect ${content} required message to be displayed`)
+        .toBe(false);
     }
   });
 
