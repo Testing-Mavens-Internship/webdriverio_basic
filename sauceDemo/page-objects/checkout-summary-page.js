@@ -18,7 +18,7 @@ class CheckoutSummary extends CommonPage {
   /**
    * To get the item price after removing the $ sign
    * @param {string} productName
-   * @returns boolean
+   * @returns {boolean}
    */
   async priceComparison(productName) {
     itemTotal = await this.$itemTotal().getText();
@@ -33,7 +33,7 @@ class CheckoutSummary extends CommonPage {
   }
   /**
    * To get the final price after removing the $
-   * @returns boolean
+   * @returns {boolean}
    */
   async totalPrice() {
     itemTotal = await this.$itemTotal().getText();
