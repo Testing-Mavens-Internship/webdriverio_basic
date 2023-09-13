@@ -2,7 +2,7 @@ import { homePage } from "../page-objects/home-page.js";
 import { cartPage } from "../page-objects/cart-page.js";
 import { billPages } from "../../myDesignation/page-objects/bill-details-page.js";
 
-describe("Automation the sauce demo website", () => {
+describe("Automation the mydesignation website", () => {
   it("load the mydesignation url", async () => {
     await homePage.openUrl();
     await homePage.clickOnOk();
