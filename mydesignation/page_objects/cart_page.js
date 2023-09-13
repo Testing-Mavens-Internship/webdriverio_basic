@@ -5,7 +5,10 @@ class Cart extends Common {
             super();
             this.$size = (size) => $(`//span[text()="${size}"]`)
             this.$addToCart = () => $(` //button[text()=" Add to cart "]`)
-            this.$cartHeader = () => $(`//div[text()=" “Gojo Co-Ords Set for Men” has been added to your cart."]`) this.$cartContents = () => $(`//a[@class="cart-contents"]`) this.$checkOut = () => $(`//a[@class="checkout-button button alt wc-forward"]`) this.$billingHeader = () => $(`//h3[text()="Billing Details"]`);
+            this.$cartHeader = () => $(`//div[text()=" “Gojo Co-Ords Set for Men” has been added to your cart."]`)
+            this.$cartContents = () => $(`//a[@class="cart-contents"]`)
+            this.$checkOut = () => $(`//a[@class="checkout-button button alt wc-forward"]`)
+            this.$billingHeader = () => $(`//h3[text()="Billing Details"]`);
 
         }
         /**
@@ -18,7 +21,7 @@ class Cart extends Common {
             await this.$addToCart().click();
         }
         /**
-         * Click on cart icon
+         * Click on cart 
          */
     async clickOnCartContents() {
         await this.$cartContents().click();
