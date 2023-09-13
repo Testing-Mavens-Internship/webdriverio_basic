@@ -64,7 +64,7 @@ export const config = {
                 '--headless=new',
                 '--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36',
             ],
-            excludeSwitches: ['enable-automation'],
+            excludeSwitches: ['enable-auto`mation'],
             // prefs: {
             //  'download.prompt_for_download': false,
             //  'directory_upgrade': true,
@@ -85,7 +85,7 @@ export const config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'info',
+    logLevel: 'silent',
     //
     // Set specific log levels per logger
     // loggers:
