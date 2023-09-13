@@ -8,6 +8,9 @@ class CartPage extends CommonPage {
     this.$header = () => $(`//a[text()="Shopping Cart"]`);
     this.$checkOutButton = () => $(`//div[@class="wc-proceed-to-checkout"]//a`);
   }
+  /**
+   * Click on checkout button
+   */
   async clickOnCheckout() {
     await this.$checkOutButton().scrollIntoView({ block: "center" });
     await this.$checkOutButton().click();

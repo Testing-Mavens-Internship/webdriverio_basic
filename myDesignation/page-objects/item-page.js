@@ -24,7 +24,6 @@ class ItemPage extends CommonPage {
     await this.$sizeOfItem("T-shirt Size", tshirtSize).click();
     await this.$sizeOfItem("Shorts Size", shortsSize).click();
   }
-
   /**
    * click add to cart button
    */
@@ -32,7 +31,6 @@ class ItemPage extends CommonPage {
     await this.$button(" Add to cart ").scrollIntoView({ block: "center" });
     await this.$button(" Add to cart ").click();
   }
-
   /**
    * click on cart icon
    */

@@ -6,7 +6,6 @@ export default class CommonPage{
         this.$itemName = (item) => $(`//h1[contains(text(),'${item}')]`);
         this.$button = (value)  => $(`//button[text()='${value}']`);
         this.$cartIcon = () => $(`//li[@class="menu-item menu-item-cart"]//a`);
-
     }
     /**
      * load url of My Designation
@@ -15,6 +14,5 @@ export default class CommonPage{
         await browser.url('https://www.mydesignation.com/');
         await browser.maximizeWindow();
         await this.$logo().waitForDisplayed({ timeout: 2000 });
-
     }
 }

@@ -16,7 +16,7 @@ class CheckoutPage extends CommonPage {
   async clickOnPlaceOrder() {
     await this.$button("Place order").scrollIntoView({ block: "center" });
     await this.$button("Place order").click();
-    await browser.pause(2000);
+    await browser.pause(500);
   }
   /**
    * fill up billing fields

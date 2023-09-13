@@ -16,7 +16,6 @@ let errorMessageContent = [
   "PIN Code",
   "Email address",
 ];
-
 let firstName = "Hanan";
 let lastName = "Ash";
 let houseName = "M.V House";
@@ -26,8 +25,6 @@ let state = "Kerala";
 let pin = 673307;
 let phone = 9188826401;
 let email = "hanan@gmail.com";
-// let navbarElements = ['Men', 'Women', 'Kids', 'Couple Tees & Combos', 'Accessories',
-// 'Plus Size Store', 'Track Order', 'Custom Print', 'Wishlist'];
 
 describe("My Designation Application automation", () => {
   it("Load the My designation url", async () => {
@@ -37,7 +34,6 @@ describe("My Designation Application automation", () => {
       .toBe(true);
   });
 
-  // it('Verify navigation bar')
   it(`Click on item : ${item}`, async () => {
     await landingPage.clickOnItem(item);
 
@@ -46,6 +42,14 @@ describe("My Designation Application automation", () => {
       .toBe(true);
   });
 
+  // it("Click on Add to Cart", async () => {
+  //   await itemPage.clickOnAddToCart();
+
+  //   expect(await itemPage.$warningMessage().isDisplayed())
+  //     .withContext("Expect Si message box to be displayed")
+  //     .toBe(true);
+  // });
+  
   it("Choose Item Sizes and Click Add to Cart", async () => {
     await itemPage.clickOnItemSize(tshirtSize, shortsSize);
     await itemPage.clickOnAddToCart();
@@ -80,7 +84,7 @@ describe("My Designation Application automation", () => {
 
     for (let content of errorMessageContent) {
       expect(await checkoutPage.$errorMessageBox(content).isDisplayed())
-        .withContext(`Expect ${content}  required message to be displayed`)
+        .withContext(`Expect ${content} required message to be displayed`)
         .toBe(true);
     }
   });
