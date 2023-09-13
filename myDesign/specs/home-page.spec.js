@@ -78,7 +78,5 @@ describe ("Mydesignation application automation", () => {
       expect (await checkoutPage.$error('Billing Phone').waitForDisplayed({reverse:true})).withContext("Expect the error message is not to be displayed");
       await checkoutPage.enterText();
       expect (await checkoutPage.$error('Billing Email address').waitForDisplayed({reverse:true})).withContext("Expect the error message is not to be displayed");
-
     });
-
 });

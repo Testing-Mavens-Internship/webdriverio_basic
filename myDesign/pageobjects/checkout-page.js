@@ -6,27 +6,21 @@ class checkOut {
         this.$error = (text) => $(`//strong[text()="${text}"]`);
         this.$field = (val) => $(`//input[@id="${val}"]`);
         this.$state =  (state) => $ (`//label[@for="billing_state"]/following-sibling::span//select//option[contains(.,"${state}")]`);
-
     }
-
     /**
      * Click on proceed button
      */
-
     async clickOnProceed () {
         await this.$proceed().scrollIntoView({block : 'center'});
         await this.$proceed().click();
     }
-
     /**
      * Click on place order button
      */
-
     async clickOnPlaceOrder(){
         await this.$placeOrder().scrollIntoView({ block : 'end'});
         await this.$placeOrder().click()
     }
-
     /**
      * To enter text in fields
      */
@@ -49,5 +43,4 @@ class checkOut {
         await this.clickOnPlaceOrder();
     }
 }
-
 export const checkoutPage = new checkOut();
