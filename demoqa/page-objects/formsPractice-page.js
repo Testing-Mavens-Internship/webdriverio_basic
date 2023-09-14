@@ -50,6 +50,7 @@ class FormsPage {
       await browser.pause(1000);
       await browser.pause(1000);
       await this.$subjectInput().setValue("Hi")
+      await this.$subjectSelect().isClickable();
       await this.$subjectSelect().click();
       await browser.pause(2000);
 
