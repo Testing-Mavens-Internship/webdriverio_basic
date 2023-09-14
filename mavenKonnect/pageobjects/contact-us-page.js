@@ -1,6 +1,6 @@
 import Common from "./common.js";
 
-class ContactUs extends Common{
+class ContactUs extends Common {
   constructor() {
     /**elements */
     super();

@@ -1,6 +1,6 @@
 import Common from "./common.js";
 
-class CartPage extends Common{
+class CartPage extends Common {
   constructor() {
     /**elements */
     super();
@@ -10,7 +10,6 @@ class CartPage extends Common{
       $(`//div[@class="row"]//label[text()="${value}"]`);
     this.$inputField = (id) => $(`//input[@id="${id}"]`);
     this.$checkOutButton = () => $(`//input[@class="btn"]`);
-    
   }
   /**
    * Method for fill up checkout form
@@ -54,7 +53,7 @@ class CartPage extends Common{
     await this.$inputField("cvv").setValue(cvv);
     await this.$checkOutButton().click();
   }
-  async clickOnHomeButton(){
+  async clickOnHomeButton() {
     await this.$homeButton();
   }
 }

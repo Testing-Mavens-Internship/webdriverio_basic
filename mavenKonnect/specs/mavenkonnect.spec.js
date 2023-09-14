@@ -73,10 +73,10 @@ describe("End to end flow of maven konnect", () => {
       .toBe(true);
   });
 
-  it("Go Back to Home Page",async()=>{
+  it("Go Back to Home Page", async () => {
     await homePage.clickOnHomePage();
     expect(await homePage.$header().isDisplayed())
       .withContext("Expect MavenKonnect title to be displayed")
       .toBe(true);
-  })
+  });
 });

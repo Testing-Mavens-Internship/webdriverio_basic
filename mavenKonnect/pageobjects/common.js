@@ -2,7 +2,7 @@ export default class Common {
   constructor() {
     /**elements */
     this.$header = () => $('//span[contains(text(),"MavenKonnect")]');
-    this.$homeButton = () => $('//a[contains(text(),"Home")]')
+    this.$homeButton = () => $('//a[contains(text(),"Home")]');
   }
 
   /**method to open url */
@@ -11,7 +11,7 @@ export default class Common {
     await browser.maximizeWindow();
     await this.$header().waitForDisplayed({ timeout: 2000 });
   }
-  async clickOnHomePage(){
+  async clickOnHomePage() {
     await this.$homeButton();
     await this.$header().waitForDisplayed({ timeout: 2000 });
   }
