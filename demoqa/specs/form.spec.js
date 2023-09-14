@@ -21,7 +21,6 @@ describe("Demo QA Application Text Box automation", () => {
     it("Click on practice form and enter details",async ()=>{
         await elementsPage.clickOnFormSection()
         expect(await elementsPage.$header().isDisplayed()).toBe(true)
-        
     })
     it("Enter data to input fields",async ()=>{
         await elementsPage.enterDetails()

@@ -22,7 +22,7 @@ export const config = {
     // will be called from there.
     //
     specs: [
-        'maven-konnect/specs/workflow.spec.js',
+        'demoqa/specs/upload-and-download.spec.js',
 
     ],
     // Patterns to exclude.
@@ -63,7 +63,7 @@ export const config = {
                 args: [
                     '--window-size=1920,1080',
                     '--incognito',
-                     '--headless=new',
+                    // '--headless=new',
                     '--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36',
                 ],
                 excludeSwitches: ['enable-automation'],

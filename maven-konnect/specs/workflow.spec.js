@@ -46,4 +46,5 @@ describe("End to end flow of maven konnect", () => {
       .withContext("Expecting Thank you message to be displayed")
       .toBe(true)
   })
+  
 });

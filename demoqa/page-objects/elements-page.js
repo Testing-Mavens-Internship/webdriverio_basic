@@ -25,5 +25,5 @@ class ElementsPage {
         await this.$formTextarea("Permanent Address").waitForDisplayed({timeout:20000})
     }
 }
-// export const elementsPage = new ElementsPage();
-module.exports = new ElementsPage();
+export const elementsPage = new ElementsPage();
+// module.exports = new ElementsPage();
