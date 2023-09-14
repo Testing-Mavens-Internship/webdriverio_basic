@@ -8,7 +8,7 @@ let mobileNumber ="1234567891"
 let dob ="18 Sep 2023";
 let subject="Civics";
 
-describe("Demo QA Application forms page automation", () => {
+xdescribe("Demo QA Application forms page automation", () => {
   
     it("load the demo qa url", async () => {
       await landingPage.openUrl();

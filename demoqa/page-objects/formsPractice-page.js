@@ -12,6 +12,8 @@ class FormsPage {
         this.$subjectInput=()=>$('//div[@id="subjectsContainer"]//input[@id="subjectsInput"]')
         this.$subjectSelect=()=>$('//div[@class="subjects-auto-complete__menu css-26l3qy-menu"]//div[@class="subjects-auto-complete__menu-list subjects-auto-complete__menu-list--is-multi css-11unzgr"]//div[@id="react-select-2-option-0"]')
         this.$$state=()=>$$(".//*[@id='Select State']/form/select[1]/option[3]")
+        this.$chooseFileButton=()=>$('//input[@id="uploadPicture"]')
+        this.$dateOfBirth=()=>$('//label[@id="dateOfBirth-label"]')
     }
 
     /**
@@ -47,11 +49,16 @@ class FormsPage {
        
        await this.$hobbies("Hobbies","Sports").click();
        //await this.$form("State and City",).click();
-      await browser.pause(1000);
-      await browser.pause(1000);
+  
+     // await this.$form("Date of Birth","dateOfBirthInput").click();
       await this.$subjectInput().setValue("Hi")
       await this.$subjectSelect().isClickable();
       await this.$subjectSelect().click();
+      await this.$dateOfBirth().isClickableclick()
+      await this.$dateOfBirth().click()
+
+      await this.$chooseFileButton().isClickable();
+      await this.$chooseFileButton().click();
       await browser.pause(2000);
 
 

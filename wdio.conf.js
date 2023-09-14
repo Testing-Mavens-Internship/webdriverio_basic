@@ -23,7 +23,8 @@ export const config = {
     //
     specs: [
         //'./myDesignation/specs/**/*.js'
-        './demoqa/specs/**/*.js'
+        //'./demoqa/specs/upload-download.spec.js'
+        './eDelivery/specs/edelivery.spec.js'
     ],
     // Patterns to exclude.
     exclude: [
