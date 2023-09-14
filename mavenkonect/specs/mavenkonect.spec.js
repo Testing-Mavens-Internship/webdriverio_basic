@@ -76,7 +76,7 @@ describe("End to End automation of mavenkonect website", () => {
 
   it("Clicking on proceed to checkout", async () => {
     await cartPage.clickCheckout();
-    if(browser.isAlertOpen()){
+    if(await browser.isAlertOpen()){
       await browser.acceptAlert();
       expect(await cartPage.$checkOutHeader().isDisplayed())
       .withContext("Thank you header is displayed")
