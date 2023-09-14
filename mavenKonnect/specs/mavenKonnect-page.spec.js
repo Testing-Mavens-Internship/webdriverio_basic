@@ -49,7 +49,7 @@ describe("Fill the contact and payment details in the mavenKonnect website and v
       .withContext("Expect header to be displayed")
       .toBe(true);
     await paymentPage.clickOnCartIcon();
-    expect(await paymentPage.$chechOutHeader().isDisplayed())
+    expect(await paymentPage.$checkOutHeader().isDisplayed())
       .withContext("Expect header to be displayed")
       .toBe(true);
   });

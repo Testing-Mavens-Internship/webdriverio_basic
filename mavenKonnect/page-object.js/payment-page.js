@@ -4,9 +4,9 @@ class PaymentPage extends Common{
     constructor(){
         super();
         this.$cartIcon = () => $('//i[@class="fa fa-cart-plus"]')
-        this.$chechOutHeader = () => $('//h1[contains(text(),"Check Out karo !")]')
+        this.$checkOutHeader = () => $('//h1[contains(text(),"Check Out karo !")]')
         this.$paymentInput =(value) => $(`//input[@name="${value}"]`)
-        this.$CheckOutButton = () => $('//input[@class="btn"]')
+        this.$checkOutButton = () => $('//input[@class="btn"]')
     }
     /**
      * Method to click on the cart icon
@@ -50,8 +50,8 @@ class PaymentPage extends Common{
         await this.$paymentInput("expmonth").setValue(expiryMonth);
         await this.$paymentInput("expyear").setValue(expiryYear);
         await this.$paymentInput("cvv").setValue(cvv);
-        await this.$CheckOutButton().scrollIntoView({block:'center'});
-        await this.$CheckOutButton().click();
+        await this.$checkOutButton().scrollIntoView({block:'center'});
+        await this.$checkOutButton().click();
     }
 }
 export const paymentPage = new PaymentPage()
