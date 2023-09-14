@@ -48,13 +48,13 @@ describe("Maven Konnect Autoamtion", () => {
     });
 
     it("click on cart page and verify navigate", async() => {
-        await homePage.$cartButton();
+        await homePage.clickOnCartButton();
         expect(await homePage.$header().isDisplayed())
             .withContext("expected header to be displayed").toBe(true);
 
     })
     it("Fill the billing fileds", async() => {
-        await cartPage.$continueToCheckoutButton(
+        await cartPage.continueToCheckout(
             fullName,
             emailId,
             nameOncard,

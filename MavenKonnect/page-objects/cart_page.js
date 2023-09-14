@@ -51,7 +51,7 @@ class CartPage extends Common {
             await browser.acceptAlert();
 
         }
-        await this.$validationMessage().waitForDisplayed({ timeout: 1000 })
+        await this.$thankyouHeader().waitForDisplayed({ timeout: 1000 })
     }
 
 }

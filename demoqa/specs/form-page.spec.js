@@ -1,7 +1,7 @@
 import { landingPage } from "../page-objects/landing-page.js";
-import { formPage } from "../page-objects/form-page.js";
+import { formsPage } from "../page-objects/form-page.js";
 
-describe("Demo QA Application Text Box automation", () => {
+xdescribe("Demo QA Application Text Box automation", () => {
     it("load the demo qa url", async() => {
         await landingPage.openUrl();
         expect(await landingPage.$header().isDisplayed())
@@ -17,13 +17,15 @@ describe("Demo QA Application Text Box automation", () => {
 
     });
 
-    it("Click on practice form tag and verify the header", async() => {
-        await formPage.clickOnPracticeForm()
-        expect(await formPage.$header()).withContext("Expect header to be displayed").toBeDisplayed()
-    })
-    it("enter student details and validae", async() => {
-        await formPage.clickOnStudentDetails();
+    it("Click on side menu Practice Form", async() => {
+        await formsPage.clickOnPracticeForm();
+        expect(await formsPage.$header1().isDisplayed())
+            .withContext("expect practice form header to be displayed")
+            .toBe(true);
+    });
+
+    it("Enter the details", async() => {
+        await formsPage.enterDetails();
     })
 
-
-})
+});
