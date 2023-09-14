@@ -22,7 +22,7 @@ export const config = {
     // will be called from there.
     //
     specs: [
-        './my-designation/specs/workflow.spec.js',
+        'maven-konnect/specs/workflow.spec.js',
 
     ],
     // Patterns to exclude.

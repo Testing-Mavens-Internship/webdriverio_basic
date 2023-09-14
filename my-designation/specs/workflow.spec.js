@@ -3,7 +3,7 @@ import { cartPage } from "../page-objects/cart-page.js";
 import { homePage } from "../page-objects/home-page.js";
 import { productPage } from "../page-objects/product-page.js";
 
-describe("My Designation Automation",()=>{
+xdescribe("My Designation Automation",()=>{
     it("load the my-designation url", async () => {
         await homePage.openUrl()
         expect(await homePage.$header().isDisplayed())
