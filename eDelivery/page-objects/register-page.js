@@ -11,6 +11,13 @@ class RegisterForm extends Common{
         this.$nameValidation=(name)=>$(`//span[contains(text(),"${name}")]`)
         
     }
+    /**
+     * Method to enter details to register
+     * @param {String} firstName 
+     * @param {String} lastName 
+     * @param {String} email 
+     * @param {String} phoneNumber 
+     */
 async fillForm(firstName,lastName,email,phoneNumber){
     await this.$fields('first_name').setValue(firstName)
     await this.$fields('last_name').setValue(lastName)
