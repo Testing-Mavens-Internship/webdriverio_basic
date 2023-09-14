@@ -79,7 +79,6 @@ describe("automating the website mydesignation", () => {
 
   it("click place order", async () => {
     await billingPage.clickOnPlaceOrder();
-
     for (let content of errorMessageContent) {
       expect(await billingPage.$errorMessageBox(content).isDisplayed())
         .withContext("error message is expected")
@@ -93,7 +92,6 @@ describe("automating the website mydesignation", () => {
     expect(await billingPage.$errorMessageBox("First name").isDisplayed())
       .withContext(`Expect First name is required message not displayed`)
       .toBe(false);
-
     for (let content of errorMessageContent) {
       expect(await billingPage.$errorMessageBox(content).isDisplayed())
         .withContext(`Expect ${content} required message to be displayed`)
@@ -113,7 +111,6 @@ describe("automating the website mydesignation", () => {
     await billingPage.fillBillingField("billing_address_1", houseName);
     await billingPage.fillBillingField("billing_address_2", streetName);
     await billingPage.clickOnPlaceOrder();
-
     expect(await billingPage.$errorMessageBox("Street address").isDisplayed())
       .withContext(`Expect First name is required message not displayed`)
       .toBe(false);
@@ -122,7 +119,6 @@ describe("automating the website mydesignation", () => {
   it("Enter Town / City and Click on Place Order", async () => {
     await billingPage.fillBillingField("billing_city", city);
     await billingPage.clickOnPlaceOrder();
-
     expect(await billingPage.$errorMessageBox("Town / City").isDisplayed())
       .withContext(`Expect Town / City is required message not displayed`)
       .toBe(false);
@@ -131,7 +127,6 @@ describe("automating the website mydesignation", () => {
   it("Enter state and Click on Place Order", async () => {
     await billingPage.selectState(state);
     await billingPage.clickOnPlaceOrder();
-
     expect(await billingPage.$errorMessageBox("State").isDisplayed())
       .withContext(`Expect First name is required message not displayed`)
       .toBe(false);
@@ -140,7 +135,6 @@ describe("automating the website mydesignation", () => {
   it("Enter Postal Code and Click on Place Order", async () => {
     await billingPage.fillBillingField("billing_postcode", pin);
     await billingPage.clickOnPlaceOrder();
-
     expect(await billingPage.$errorMessageBox("PIN Code").isDisplayed())
       .withContext(`Expect PIN Code is required message not displayed`)
       .toBe(false);
@@ -157,7 +151,6 @@ describe("automating the website mydesignation", () => {
   it("Enter Email and Click on Place Order", async () => {
     await billingPage.fillBillingField("billing_email", email);
     await billingPage.clickOnPlaceOrder();
-
     expect(await billingPage.$errorMessageBox("Email address").isDisplayed())
       .withContext(`Expect Email address is required message not to displayed`)
       .toBe(false);
