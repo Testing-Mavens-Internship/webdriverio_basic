@@ -11,6 +11,7 @@ class PracticeForm{
         this.$clickDateOfBirth=()=>$(`//div[@class="react-datepicker__input-container"]//input`);
         this.$selectDateOfBirth=()=>$(`//div[@aria-label="Choose Thursday, August 31st, 2023"]`)
         //this.$subjectDropDown=(subject)=>$(`//div[text()="${subject}"]/../..`)
+      // this.$uploadFile=()=>$(`//input[@id="uploadPicture"]`)
         this.$subjectDropDown=()=>$(`//div[@class="subjects-auto-complete__menu-list subjects-auto-complete__menu-list--is-multi css-11unzgr"]`)
     }
     async clickOnPracticeFormNav(PracticeFormNavTitle){
@@ -31,6 +32,9 @@ class PracticeForm{
         await this.$nameFields("Subjects").setValue(subject)
        await this.$subjectDropDown().click()
        await this.$hobbies(hobbie).click()
+     //  await this.$uploadFile().sendKeys(`c:\Users\adhit\Downloads\d3_adb_13_9_2023 16_57_21.json`)
+    //    const filePath = join(__dirname, 'c:\Users\adhit\Downloads\d3_adb_13_9_2023 16_57_21.json');
+    // await this.$uploadFile.uploadFile(filePath)
         await browser.pause(5000);
     }
 

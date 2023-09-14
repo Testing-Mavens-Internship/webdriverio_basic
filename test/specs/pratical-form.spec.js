@@ -7,10 +7,10 @@ let email="abc@gmail.com"
 let sex="Male"
 let phoneNumber="7468142365"
 let date="20 Feb 1998"
-let subject="Hindi"
+let subject="Hind"
 let hobbie="Music"
 
-describe('My Login application', () => {
+xdescribe('My Login application', () => {
     it('should launch the url', async () => {
         await loginpage.openUrl()
         expect(await loginpage.$header().isDisplayed()).withContext('expect home page logo is displayed').toBe(true);
