@@ -37,6 +37,16 @@ class ItemPage extends CommonPage {
   async clickOnCartIcon() {
     await this.$cartIcon().click();
   }
+//   /**
+//    * method for verifying warning message for skipping sizes
+//    * @param {string} message 
+//    * @returns 
+//    */
+//   async isMessageDisplayed(message){
+//     if(message == 'Please select your size before adding to cart.'){
+//         return true;
+//     }
+//   }
 }
 
 export const itemPage = new ItemPage();

@@ -56,7 +56,7 @@ describe("Maven Konnect Application automation", () => {
 
   it("Click on Cart Icon", async () => {
     await homePage.clickOnCartIcon();
-    
+
     expect(await cartPage.$header("Check Out").isDisplayed())
       .withContext("Expect header to be displayed")
       .toBe(true);

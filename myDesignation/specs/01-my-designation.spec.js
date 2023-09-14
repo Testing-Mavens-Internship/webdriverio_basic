@@ -42,13 +42,12 @@ describe("My Designation Application automation", () => {
       .toBe(true);
   });
 
-  // it("Click on Add to Cart", async () => {
-  //   await itemPage.clickOnAddToCart();
+  it("Click on Add to Cart", async () => {
+    await itemPage.clickOnAddToCart();
 
-  //   expect(await itemPage.$warningMessage().isDisplayed())
-  //     .withContext("Expect Si message box to be displayed")
-  //     .toBe(true);
-  // });
+    let alert =await browser.getAlertText();
+    expect(alert).toEqual('Please select your size before adding to cart.');
+  });
   
   it("Choose Item Sizes and Click Add to Cart", async () => {
     await itemPage.clickOnItemSize(tshirtSize, shortsSize);
