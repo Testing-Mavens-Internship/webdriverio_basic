@@ -3,7 +3,7 @@ import Common from "./common.js";
 class LandingPage extends Common {
   constructor() {
     super();
-    this.$contact = () => $('//a[text()="Contact Us"]');
+    this.$contact = () => $('(//a[@href="contact.html"])[2]');
     this.$contactUs = () => $('//h2[contains(.,"Contact Us")]');
     this.$text = (value) => $(`//input[@placeholder="${value}"]`);
     this.$send = () => $('//button[contains(text()," SEND ")]');

@@ -1,6 +1,7 @@
 import { checkout } from "../pageobjects/checkout-page.js";
 import { landingPage } from "../pageobjects/landing-page.js";
 
+let handle;
 describe("End-toend automation for MavenKonnet application", () => {
   it("Launch the url and verify header", async () => {
     await landingPage.launchUrl();
@@ -11,6 +12,8 @@ describe("End-toend automation for MavenKonnet application", () => {
 
   it("Click on contact us and validate navigation to contact us page", async () => {
     await landingPage.clickOnContact();
+    handle = await browser.getWindowHandles();
+    await browser.switchToWindow(handle[1]);
     expect(await landingPage.$contactUs().isDisplayed())
       .withContext("Expect navigation to contact us page")
       .toBe(true);
@@ -30,6 +33,9 @@ describe("End-toend automation for MavenKonnet application", () => {
 
   it("Click on home button and navigate to home page", async () => {
     await checkout.clickOnHome();
+    await browser.closeWindow();
+    handle = await browser.getWindowHandles();
+    await browser.switchToWindow(handle[0]);
     expect(await checkout.$header().isDisplayed())
       .withContext("Expect navigation to home page")
       .toBe(true);
