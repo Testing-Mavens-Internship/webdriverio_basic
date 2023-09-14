@@ -32,6 +32,4 @@ class CheckBox{
     }
 }
 
-module.exports = {
-    checkBox: new CheckBox()
-}
+export const checkBox = new CheckBox();

@@ -12,6 +12,4 @@ class LinkPage{
         await this.$homeLink().click();
     }
 }
-module.exports= {
-    link: new LinkPage()
-}
+export const link = new LinkPage();

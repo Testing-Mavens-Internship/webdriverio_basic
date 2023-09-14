@@ -1,5 +1,5 @@
-const { landingPage } = require ('../page-objects/landing-page.js');
-const { elementsPage } = require ('../page-objects/elements-page.js');
+import { landingPage } from '../page-objects/landing-page.js';
+import { elementsPage } from '../page-objects/elements-page.js';
 
 xdescribe("Demo QA Application Text Box automation", () => {
   it("load the demo qa url", async () => { // it block shows the action to be performed

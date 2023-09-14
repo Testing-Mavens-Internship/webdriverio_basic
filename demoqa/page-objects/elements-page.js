@@ -12,7 +12,4 @@
     //     await this.$option('Radio Button').click();
     // }
 }
-
-module.exports={
-    elementsPage : new ElementsPage()
-}
+export const elementsPage = new ElementsPage()

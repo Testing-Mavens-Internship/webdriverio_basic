@@ -24,7 +24,4 @@ class LoginPage {
         await browser.pause(10000);
     }
 }
-
-module.exports={
-    landingPage : new LoginPage()
-}
+export const landingPage = new LoginPage();

@@ -21,7 +21,5 @@ class FormsPage {
     }
 
 }
+export const formsPage = new FormsPage();
 
-module.exports={
-    formsPage : new FormsPage()
-}

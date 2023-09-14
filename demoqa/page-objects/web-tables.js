@@ -50,7 +50,5 @@ class WebTablesPage {
       await this.$deleteButton().click();
     }
   }
+  export const webTablesPage = new WebTablesPage(); 
   
-  module.exports = {
-    webTablesPage: new WebTablesPage()
-  }

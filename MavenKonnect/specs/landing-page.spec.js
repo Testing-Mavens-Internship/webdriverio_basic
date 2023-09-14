@@ -72,6 +72,9 @@ describe("End-toend automation for MavenKonnet application", () => {
     );
     await checkout.$continue().scrollIntoView({ block: "center" });
     await checkout.clickOnContinue();
+    if(await browser.isAlertOpen()){
+      await browser.acceptAlert();
+    }
     expect(await checkout.$thank().isDisplayed())
       .withContext("Expect navigation to thank you page")
       .toBe(true);

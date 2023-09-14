@@ -1,6 +1,6 @@
-const { textbox } = require ('../page-objects/text-box.js');
-const { elementsPage } = require ('../page-objects/elements-page.js');
-const { landingPage } = require ('../page-objects/landing-page');
+import { textbox } from '../page-objects/text-box.js';
+import { elementsPage } from '../page-objects/elements-page.js';
+import { landingPage } from '../page-objects/landing-page';
 
 
 

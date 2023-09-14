@@ -57,7 +57,4 @@ class TextBox{
         await this.$validatingfields(permanentAddress).scrollIntoView();
     }
 }
-
-module.exports = {
-    textbox : new TextBox()
-}
+export const textbox = new TextBox();

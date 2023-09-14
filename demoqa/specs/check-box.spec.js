@@ -1,6 +1,6 @@
-const { checkBox } = require("../page-objects/check-box");
-const { landingPage } = require("../page-objects/landing-page.js");
-const { elementsPage } = require("../page-objects/elements-page.js");
+import { checkBox } from "../page-objects/check-box";
+import { landingPage } from "../page-objects/landing-page.js";
+import { elementsPage } from "../page-objects/elements-page.js";
 let name = ["Desktop", "Documents", "Downloads", "Notes", "Commands", "WorkSpace", "Office", "Word File.doc",
     "Excel File.doc", "React", "Angular", "Veu", "Public", "Private", "Classified", "General"]
 

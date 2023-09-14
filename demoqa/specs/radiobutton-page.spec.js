@@ -1,6 +1,6 @@
-const { elementsPage } = require ('../page-objects/elements-page.js');
-const { landingPage } = require ('../page-objects/landing-page.js');
-const { radiobutton } = require ('../page-objects/radiobutton-page.js');
+import { elementsPage } from '../page-objects/elements-page.js';
+import { landingPage } from '../page-objects/landing-page.js';
+import { radiobutton } from '../page-objects/radiobutton-page.js';
 
 xdescribe("Radio button automation", () => {
     it("load the demo qa url", async () => { 

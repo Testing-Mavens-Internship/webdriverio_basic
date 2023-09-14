@@ -22,7 +22,5 @@ class RadioButton{
         await browser.pause(2000);
     }
 }
+export const radiobutton = new RadioButton();
 
-module.export = {
-    radiobutton : new RadioButton()
-}
