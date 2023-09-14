@@ -49,6 +49,9 @@ it('switch to home window , close the contact us window and validate the header 
 it('Fill the details and click on continue to check out button',async () =>{
     await cartPage.fillDetails(firstName,email,address,city,state,zip,cardName,cardNumber,expiryMonth,expiryYear,cvv)
     await cartPage.clickOnCheckOutButton()
-    expect(await contactPage.$thankYouMessage().isDisplayed()).withContext('expect thank you message is displayed ').toBe(true);      
+    if(await browser.isAlertOpen()){
+        await browser.acceptAlert();
+      }
+      expect(await contactPage.$thankYouMessage().isDisplayed()).withContext("Thank you header is displayed").toBe(true);     
 })
 })
