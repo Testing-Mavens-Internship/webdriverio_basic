@@ -5,8 +5,7 @@ class ContactUsPage extends Common{
         super();
         this.$contactHeader = () => $('//h2[contains(text(),"Contact")]');
         this.$fillForm = (input) => $(`//form[@name="myForm"]//input[@placeholder="${input}"]`);
-        this.$sendButton = () => $('//button[contains(text(),"SEND")]');
-        
+        this.$sendButton = () => $('//button[contains(text(),"SEND")]');    
     }
     /**
      * Method to input fields

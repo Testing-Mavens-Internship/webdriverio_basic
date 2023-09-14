@@ -1,5 +1,4 @@
 import Common from "./common.js";
-
 class CheckOutPage extends Common{
     constructor(){
         super();
