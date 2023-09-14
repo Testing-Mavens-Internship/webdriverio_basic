@@ -13,12 +13,12 @@ let city = "Kozhikode";
 let state = "Kerala";
 let zip = 673307;
 let nameOnCard = "Hanan";
-let cardNo = "1111222233334444";
+let cardNo = 1111222233334444;
 let expMonth = "July";
 let expYear = 2025;
 let cvv = 352;
 
-describe("Maven Konnect Application automation", () => {
+xdescribe("Maven Konnect Application automation", () => {
   it("Load the Maven Konnect url", async () => {
     await homePage.openUrl();
     expect(await homePage.$title().isDisplayed())

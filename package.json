@@ -9,5 +9,8 @@
   },
   "scripts": {
     "wdio": "wdio run ./wdio.conf.js"
+  },
+  "dependencies": {
+    "random": "^4.1.0"
   }
 }

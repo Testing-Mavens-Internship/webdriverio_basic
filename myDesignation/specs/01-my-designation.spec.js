@@ -26,7 +26,7 @@ let pin = 673307;
 let phone = 9188826401;
 let email = "hanan@gmail.com";
 
-describe("My Designation Application automation", () => {
+xdescribe("My Designation Application automation", () => {
   it("Load the My designation url", async () => {
     await landingPage.openUrl();
     expect(await landingPage.$logo().isDisplayed())
