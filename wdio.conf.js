@@ -22,9 +22,10 @@ export const config = {
     // will be called from there.
     //
     specs: [
+        './demoqa/specs/**/*.js'
         //'./sausedemo/specs/**/*.js'
         //'./mydesignation/specs/**/*.js'
-        './mavenKonnect/specs/**/*.js'
+        //'./mavenKonnect/specs/**/*.js'
 
     ],
     // Patterns to exclude.
