@@ -1,5 +1,5 @@
 import { homePage } from "../page-objects/home-page.js";
-import { productPageObj } from "../../myDesignation/page-objects/product-page.js";
+import { productPageObj } from "..././myDesignation/page-objects/product-page.js";
 import { checkoutPageObj } from "../../myDesignation/page-objects/checkout-page.js";
 describe("My Designation automation", () => {
   it("Launch URL", async () => {
