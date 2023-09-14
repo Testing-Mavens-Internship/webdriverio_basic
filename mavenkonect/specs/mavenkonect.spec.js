@@ -76,8 +76,16 @@ describe("End to End automation of mavenkonect website", () => {
 
   it("Clicking on proceed to checkout", async () => {
     await cartPage.clickCheckout();
-    expect(await cartPage.$checkOutHeader().isDisplayed())
+    if(browser.isAlertOpen()){
+      await browser.acceptAlert();
+      expect(await cartPage.$checkOutHeader().isDisplayed())
       .withContext("Thank you header is displayed")
-      .toBe(true);
+      .toBe(true);    
+    }
+    else{
+      expect(await cartPage.$checkOutHeader().isDisplayed())
+      .withContext("Thank you header is displayed")
+      .toBe(true);    
+    }
   });
 });
