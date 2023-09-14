@@ -46,7 +46,10 @@ class CartPage extends Common {
     await this.$cartFields("expyear").setValue(expYear);
     await this.$cartFields("cvv").setValue(cvv);
     await this.$continueToCheckoutButton().click();
+    if(await browser.isAlertOpen()){
     await browser.acceptAlert();
+    }
+    await this.$validationMessage().waitForDisplayed({timeout:1000})
   }
 }
 
