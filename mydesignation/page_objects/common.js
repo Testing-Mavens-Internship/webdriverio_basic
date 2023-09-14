@@ -1,14 +1,11 @@
 export default class Common {
-    constructor() {
-
-    }
+    constructor() {}
 
     /**
      * lanuch the web app
      */
     async openUrl() {
-        await browser.url('https://www.mydesignation.com/')
+        await browser.url("https://www.mydesignation.com/");
         await browser.maximizeWindow();
-
     }
 }

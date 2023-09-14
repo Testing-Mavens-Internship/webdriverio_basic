@@ -1,7 +1,7 @@
 import { billing } from "../page_objects/billing_page.js";
 import { cart } from "../page_objects/cart_page.js";
 import { homePage } from "../page_objects/home_page.js";
-firstName = tester1;
+let firstName = tester1;
 
 describe("My Desiganation Autaoamtion", () => {
     it("Launch the url", async() => {
