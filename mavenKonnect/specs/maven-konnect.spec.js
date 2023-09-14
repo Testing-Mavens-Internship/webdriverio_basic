@@ -38,7 +38,7 @@ describe("End to end flow automation of MavenKonnect", () => {
   });
 
   it("Click on home menu and verify navigation", async () => {
-    await contactPage.clickOnHomeMenu();
+    await contactPage.clickOnHome();
     expect(await homePage.$header().isDisplayed())
       .withContext("Expext homepage header to be displayed")
       .toBe(true);

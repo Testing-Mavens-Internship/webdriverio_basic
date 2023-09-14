@@ -6,7 +6,7 @@ class ContactPage extends Common {
     this.$sideHeader = () => $(`//h2[contains(text(),"Contact Us")]`);
     this.$inputField = (fieldName) => $(`//input[@placeholder="${fieldName}"]`);
     this.$sendButton = () => $(`//button[contains(text(),"SEND")]`);
-    this.$homeMenu = () => $(`//a[text()="Home "]`);
+    this.$home = () => $(`//a[text()="Home "]`);
   }
   /**
    * Method to enter details
@@ -23,13 +23,13 @@ class ContactPage extends Common {
     await this.$sendButton().click();
     await browser.acceptAlert();
     await this.$thankYou().waitForDisplayed({ timeout: 20000 });
-    await this.$homeMenu().waitForDisplayed({ timeout: 20000 });
+    await this.$home().waitForDisplayed({ timeout: 20000 });
   }
   /**
    * Method to click on home menu
    */
-  async clickOnHomeMenu() {
-    await this.$homeMenu().click();
+  async clickOnHome() {
+    await this.$home().click();
     await browser.closeWindow();
     let windowHandle = await browser.getWindowHandles();
     await browser.switchToWindow(windowHandle[0]);
