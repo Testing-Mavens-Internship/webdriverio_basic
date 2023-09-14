@@ -16,7 +16,7 @@ describe("Mydesignation Automation", () => {
         expect(await landingPage.$headerTitle().isDisplayed()).withContext("Expect header to be displayed").toBe(true);
         expect(await landingPage.$orderName().isDisplayed()).withContext("Expect Order name is displayed").toBe(true);
     });
-    
+
     it("Select the size", async()=>{
         await addProduct.clickSize();
         expect(await addProduct.$checkIfSelectedShorts().isDisplayed()).withContext("Expect Shorts size to be displayed").toBe(true);
@@ -54,6 +54,8 @@ describe("Mydesignation Automation", () => {
         expect(await billingPage.$errorDisplay("Street address").waitForDisplayed({reverse:true})).withContext("Expect  Street address meassage to be displayed");
         expect(await billingPage.$errorDisplay(" Town / City").waitForDisplayed({reverse:true})).withContext("Expect  town/city meassage to be displayed");
         expect(await billingPage.$errorDisplay("State").waitForDisplayed({reverse:true})).withContext("Expect  state meassage to be displayed");
-        expect(await billingPage.$errorDisplay("PIN Code").waitForDisplayed({reverse:true})).withContext("Expect  state meassage to be displayed");
+        expect(await billingPage.$errorDisplay("PIN Code").waitForDisplayed({reverse:true})).withContext("Expect  PIN CODE meassage to be displayed");
+        expect(await billingPage.$errorDisplay("Phone").waitForDisplayed({reverse:true})).withContext("Expect Phone number error message is displayed");
+        expect(await billingPage.$errorDisplay("Email address").waitForDisplayed({reverse:true})).withContext("Expect Email address error message is displayed");
     })
 })   

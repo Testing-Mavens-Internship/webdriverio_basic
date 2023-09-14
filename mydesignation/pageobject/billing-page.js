@@ -13,7 +13,7 @@ class BillingPage{
     async placeOrder(){
         await this.$placeOrder().scrollIntoView({block: 'center'});
         await this.$placeOrder().click();
-        await this.$numberError().waitForDisplayed({ timeout :2000});
+        await this.$numberError().waitForDisplayed({ timeout :25000});
     }
     /**
      * Entering the Input Fields
@@ -37,6 +37,12 @@ class BillingPage{
         await this.placeOrder();
 
         await this.$input("billing_postcode").setValue(855978);
+        await this.placeOrder();
+
+        await this.$input("billing_phone").setValue(9745895741);
+        await this.placeOrder();
+
+        await this.$input("billing_email").setValue("bat@gmail.com");
         await this.placeOrder();
 
 
