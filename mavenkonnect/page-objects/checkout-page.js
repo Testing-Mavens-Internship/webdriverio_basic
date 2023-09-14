@@ -34,7 +34,9 @@ class CheckOutPage extends Common{
         await this.$fillFields("expyear").setValue(expyear);
         await this.$fillFields("cvv").setValue(cvv);
         await this.$checkOutButton().click();
-        await browser.acceptAlert();
+        if(await browser.isAlertOpen()){
+            await browser.acceptAlert();
+        }
         await this.$verifyThankYou().waitForDisplayed({timeout: 1000});
     }   
 }

@@ -21,7 +21,9 @@ class ContactUsPage extends Common{
         await this.$fillForm("Phone number").setValue(phone);
         await this.$fillForm("Message").setValue(message);
         await this.$sendButton().click();
-        await browser.acceptAlert();
+        if(await browser.isAlertOpen()){
+            await browser.acceptAlert();
+        }
         await this.$verifyThankYou().waitForDisplayed({timeout: 1000});
     }
 }
