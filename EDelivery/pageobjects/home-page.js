@@ -3,23 +3,34 @@ class HomePage extends Common {
   constructor() {
     super();
     this.$login = () => $(`//button[contains(text(),"Login")]`);
-    this.$validateTitle = (text)=>$(`//div[contains(text(),"${text}")]`)
+    this.$loginTitle = () =>$(`//div[@class="pop_tle"]`)
     this.$signUpNow = () =>$(`//div[@class="sgn_up_btn"]`)
     this.$continueButton = () =>$(`//button[@class="btn btn-default show-res-btn"][text()="Continue"]`)
     this.$enterFields = (text) =>$(`//input[@id="${text}"]`)
-    this.$validateLoginText = ()=>$(`//a[contains(text(),"Log In")]`)
+    this.$loginButton = ()=>$(`//a[contains(text(),"Log In")]`)
+    this.$registerTitle = ()=>$(`//div[contains(text(),"Register")]`)
+    this.$verificationMessage = ()=>$(`//div[contains(text(),"Verification Message Sent")]`)
+    this.$registerMessage = ()=>$(`//div[text()="Registered Successfully"]`)
+    this.$hiText = ()=>$(`//span[contains(text(),"Hi")]`)
   }
   /**
-   * Method for clicking login and sign up button
+   * Method for clicking login button
    */
   async loginApplication() {
-    await this.$login().waitForClickable();
+    await this.$login().waitForDisplayed({timeout:7000});
     await this.$login().click()
-    await this.$signUpNow().waitForClickable();
+  }
+  /**
+   * Method for clicking signupnow button
+   */
+  async signUpApplication(){
+    await this.$signUpNow().waitForDisplayed({timeout:7000});
+    //await this.$signUpNow().isClickable();
     await this.$signUpNow().click()
- }
+  }
+ 
  /**
-  * Method for entering the details and click on continue button
+  * Method for entering the details
   * @param {string} firstName 
   * @param {string} lastName 
   * @param {string} email 
@@ -30,9 +41,20 @@ class HomePage extends Common {
  await this.$enterFields('last_name').setValue(lastName)
  await this.$enterFields('email').setValue(email + "@gmail.com")
  await this.$enterFields('tel').setValue("9"+number)
- //await browser.pause(5000)
- await this.$continueButton('Continue').waitForClickable();
- await this.$continueButton("Continue").click();
  }
+ /**
+  * Method for clicking continue button
+  */
+ async clickOnContinue(){
+await this.$continueButton().waitForDisplayed({timeout:3000});
+await this.$continueButton().click();
+ }
+ /**
+  * Method for clicking login button
+  */
+async clickOnLoginButton(){
+  await this.$loginButton().waitForDisplayed({timeout:7000})
+  await this.$loginButton().click()  
+}
 }
 export const homePage = new HomePage();
