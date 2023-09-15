@@ -25,6 +25,7 @@ export const config = {
         //'./myDesignation/specs/**/*.js'
         //'./demoqa/specs/upload-download.spec.js'
         './eDelivery/specs/edelivery.spec.js'
+    
     ],
     // Patterns to exclude.
     exclude: [
