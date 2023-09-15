@@ -11,7 +11,7 @@ class LoginPage {
     async openUrl() {
         await browser.url('https://demoqa.com/'); // Launch the site
         await browser.maximizeWindow(); // First the site is launched in small size (to view window in max size)
-        await browser.pause(5000); // time in millis
+        await browser.pause(2000); // time in millis
     }
 
     /**
@@ -21,7 +21,7 @@ class LoginPage {
     async clickOnTile(tileNameInPage) { // Function to click on the tile
         await this.$tileName(tileNameInPage).scrollIntoView({block: 'center'}); // To scroll down to the center
         await this.$tileName(tileNameInPage).click(); 
-        await browser.pause(10000);
+        //await browser.pause(2000);
     }
 }
 export const landingPage = new LoginPage();

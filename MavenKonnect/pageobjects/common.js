@@ -9,6 +9,6 @@ export default class Common {
   async launchUrl() {
     await browser.url("https://demotmwebsite.github.io/");
     await browser.maximizeWindow();
-    await browser.pause(2000);
+   
   }
 }

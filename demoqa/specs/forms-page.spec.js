@@ -1,5 +1,5 @@
-import { formsPage } from "../page-objects/forms-page";
-import { landingPage } from '../page-objects/landing-page';
+import { formsPage } from "../page-objects/forms-page.js";
+import { landingPage } from '../page-objects/landing-page.js';
 
 xdescribe("Demo QA Application Text Box automation", () => {
     it("load the demo qa url", async () => { // it block shows the action to be performed
