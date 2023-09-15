@@ -4,7 +4,7 @@ class LoggedIn extends Common {
     super();
     this.$loginButton = () =>
       $('//div[@class ="subm_btn"]//a[contains(text(),"Log In")]');
-    ``;
+
     this.$hiText = () => $('//span[@class ="user-name ng-binding"]');
     this.$successMessaage = () => $('//div[@class="toast toast-success"]');
     this.$locations = () => $('//input[@id="searchlocation"]');
@@ -14,6 +14,7 @@ class LoggedIn extends Common {
       );
     this.$verifyLocation = () =>
       $('//li[@role ="button"][contains(text(),"Chennai")]');
+    
   }
   /**
    * Method to click on the login button after the signing up
@@ -35,5 +36,6 @@ class LoggedIn extends Common {
     await this.$locationChennai().waitForDisplayed({ timeout: 7000 });
     await this.$locationChennai().click();
   }
+
 }
 export const loginPage = new LoggedIn();

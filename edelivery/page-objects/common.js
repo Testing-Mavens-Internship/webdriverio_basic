@@ -6,7 +6,7 @@ export class Common {
 
   async openURL() {
     if (this.$errorHeader().isDisplayed()) {
-      browser.refresh();
+      await browser.refresh();
     }
     await browser.url("https://edelivery.zoproduct.com/");
     await browser.maximizeWindow();

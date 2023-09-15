@@ -1,6 +1,6 @@
 import { home } from "../page-objects/home-page.js";
 import { loginPage } from "../page-objects/after-login-page.js";
-import { maxShopping } from "../page-objects/max-shoping-page.js";
+import { shopping } from "../page-objects/shoping-page.js";
 import randomName from "random-name";
 import randomNum from "random-num";
 let firstName = randomName.first();
@@ -71,15 +71,15 @@ describe("End to end automation of edelivery website", () => {
   });
 
   it("Click on the Max shopping site", async () => {
-    await maxShopping.clickOnMax();
-    expect(await maxShopping.$maxHeader().waitForDisplayed())
+    await shopping.selectShoppingSite();
+    expect(await shopping.$shopHeader("MAX").waitForDisplayed())
       .withContext("Clicked on max fasshion")
       .toBe(true);
   });
 
   it("Click on the khaki add button", async () => {
-    await maxShopping.clickOnKhaki();
-    expect(await maxShopping.$specialInstruction().waitForDisplayed())
+    await shopping.selectItem();
+    expect(await shopping.$specialInstruction().waitForDisplayed())
       .withContext(
         "Clicked on khaki and additional infromation header is displayed"
       )
@@ -87,8 +87,8 @@ describe("End to end automation of edelivery website", () => {
   });
 
   it("Click on add to cart button present in the special instruction page", async () => {
-    await maxShopping.clickOnAddToCart();
-    expect(await maxShopping.$checkOut().waitForDisplayed())
+    await shopping.clickOnAddToCart();
+    expect(await shopping.$checkOut().waitForDisplayed())
       .withContext("After aadding to the cart the checkout button is visible")
       .toBe(true);
   });
