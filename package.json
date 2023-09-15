@@ -9,5 +9,12 @@
   },
   "scripts": {
     "wdio": "wdio run ./wdio.conf.js"
+  },
+  "dependencies": {
+    "email-generator": "^1.0.1",
+    "random": "^4.1.0",
+    "random-email-generator": "^1.0.4",
+    "random-names-generator": "^1.0.2",
+    "random-number": "^0.0.9"
   }
 }

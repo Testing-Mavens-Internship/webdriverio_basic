@@ -3,6 +3,7 @@ import { webTablesPage } from "./web-tables-page.js";
 import { radioButtonPage } from "./radio-button-page.js";
 import { checkBoxPage } from "./check-box-page.js";
 import { links } from "./links-page.js";
+import { uploadDownloadPage } from "./upload-download-page.js";
 
 class ElementsPage {
     constructor() {
@@ -50,6 +51,14 @@ class ElementsPage {
         await this.$sideMenu("Links").waitForClickable(5000);
         await this.$sideMenu("Links").click();
         await links.$header().waitForDisplayed({timeout: 2000});
+    }
+    /**
+     * click on upload and download
+     */
+    async clickOnUploadAndDownload(){
+        await this.$sideMenu('Upload and Download').scrollIntoView();
+        await this.$sideMenu('Upload and Download').click();
+        await uploadDownloadPage.$header().waitForDisplayed({timeout:2000});
     }
 }
 export const elementsPage = new ElementsPage();

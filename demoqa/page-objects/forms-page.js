@@ -9,6 +9,9 @@ class FormsPage{
         this.$subjectClick = () => $('//div[contains(@class,"subjects")]//input');
         this.$hobbies = (hobbie) => $(`//input/..//label[text()="${hobbie}"]`);
         this.currentAddress = () => $('//div//textarea[@placeholder="Current Address"]');
+        this.$chooseFile = () => $(`//input[@id="uploadPicture"]`);
+        this.$submitButton = () => $(`//button[text()="Submit"]`);
+        this.$selectCity = () => $(`//div[text()="Select City"]`);
     }
 
     /**
@@ -34,8 +37,12 @@ class FormsPage{
         await this.$subjectClick().waitForClickable(5000);
         await this.$subjectClick().click();
         await this.$subjectClick().setValue("H");
+        await this.$subjects('Hindi').waitForClickable(5000);
         await this.$subjects('Hindi').click();
         await this.$hobbies('Reading').click();
+        await this.$chooseFile().waitForClickable(3000);
+        await this.$chooseFile().click();
+        await this.currentAddress().scrollIntoView();
         await this.currentAddress().setValue('abc house, kochi, kerala, 680500');
     }
   
