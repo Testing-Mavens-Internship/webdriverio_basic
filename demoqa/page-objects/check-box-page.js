@@ -7,7 +7,6 @@ class CheckBox {
         this.$displayedResult = (results) => $(`//span[contains(text(),'${results}')]`);
         this.$result = () => $(`//div[@id="result"]`);
     }
-
     /**
      * Click the check Box
      * @param {string} value 

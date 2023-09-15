@@ -2,7 +2,7 @@ import { openingPage } from "../page-objects/opening-page.js";
 import { elementsPage } from "../page-objects/elements-page.js";
 import { uploadDownloadPage } from "../page-objects/upload-download-page.js";
 
-describe("Demo QA Application Links automation", () => {
+describe("Demo QA Application Upload and download automation", () => {
   it("load the demo qa url", async () => {
     await openingPage.openUrl();
     expect(await openingPage.$header().isDisplayed())
@@ -31,5 +31,14 @@ describe("Demo QA Application Links automation", () => {
       .toBeDisplayed();
   });
 
+  it("Upload File", async() => {
+    await uploadDownloadPage.uploadFile();
+    expect(await uploadDownloadPage.$verifyUpload().isDisplayed())
+    .withContext("Expect the fake path to be dsiplayed")
+    .toBe(true);
+  });
 
+  it("Dowload File", async() => {
+    await uploadDownloadPage.downloadFile();
+  });
 })
