@@ -37,6 +37,11 @@ describe("EDelivery Application:",()=>{
     })
     it("click on the login button on message verification pop up",async()=>{
         await landingPage.clickLoginButton2()
+        expect(await landingPage.$successfullyRegistedMessage({timeout:20000,reverse:true}).isDisplayed()).withContext('Expect successful register message should display').toBe(true)
+        expect(await landingPage.$userName(fname).isDisplayed()).withContext("Expect the user name on top right of the home page").toBe(true)
+    })
+    it("click on search bar and fill the location",async()=>{
+        await landingPage.clickOnSearchLocation()
     })
 
 })
