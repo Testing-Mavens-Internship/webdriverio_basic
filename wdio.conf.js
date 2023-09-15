@@ -22,7 +22,7 @@ export const config = {
     // will be called from there.
     //
     specs: [
-        './demoqa/specs/08-upload-download.spec.js'
+        './eDelivery/specs/01-eDelivery.spec.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -65,11 +65,11 @@ export const config = {
                 '--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36',
             ],
             excludeSwitches: ['enable-auto`mation'],
-            // prefs: {
-            //  'download.prompt_for_download': false,
-            //  'directory_upgrade': true,
-            //  'download.default_directory': downloadsFolder,
-            // },
+            prefs: {
+             'download.prompt_for_download': false,
+             'directory_upgrade': true,
+             'download.default_directory': "D:/OneDrive/Documents/TM/downloadFolder",
+            },
         },
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
