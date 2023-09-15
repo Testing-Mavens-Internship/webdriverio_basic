@@ -22,7 +22,7 @@ export const config = {
     // will be called from there.
     //
     specs: [
-        './MavenKonnect/specs/**/*.js'
+        './EDelivery/specs/EDelivery.spec.js'
     ],
     // Patterns to exclude.
     exclude: [

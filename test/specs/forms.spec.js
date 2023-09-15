@@ -4,11 +4,11 @@ let name = 'Anchana';
 let email = 'xyz@gmail.com';
 let gender = 'Female';
 let mobileNumber = 9447110461;
-let dateOfBirth = '07 Jan 2001';
+//let dateOfBirth = '07 Jan 2001';
 let hobbies = 'Music';
 
 
-xdescribe('My Login application', () => {
+Xdescribe('My Login application', () => {
     it('should launch the url', async () => {
         await LoginPage.openUrl()
         expect(await LoginPage.$header().isDisplayed()).withContext('expect home page logo is displayed ').toBe(true);
@@ -25,7 +25,7 @@ xdescribe('My Login application', () => {
     
     
     it("Enter the details",async()=>{
-        await formsPage.enterdetails(name,email,gender,mobileNumber,dateOfBirth,hobbies)
+        await formsPage.enterdetails(name,email,gender,mobileNumber,hobbies)
         expect(await formsPage.$submitButton().isDisplayed()).withContext('Expecting submit button to be clicked').toBe(true);
        
 

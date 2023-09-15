@@ -7,8 +7,11 @@ class FormsPage{
         this.$enterfields=(value)=>$(`//label[contains(text(),"${value}")]/../..//input`);
         this.$enterLastName=()=>$(`//input[@id="lastName"]`);
         this.$selectGender=(gender)=>$(`//label[text()="${gender}"]`)
+        this.$clickDateOfBirth=()=>$(`//div[@class="react-datepicker__input-container"]//input`);
+        this.$selectDateOfBirth=()=>$(`//div[@aria-label="Choose Thursday, August 31st, 2023"]`);
         this.$selectHobbies=(hobbies)=>$(`//label[text()="${hobbies}"]`)
         this.$submitButton=()=>$(`//button[text()="Submit"]`)
+        this.$chooseFileButton=()=>$(`//input[@id="uploadPicture"]`)
 
 
     }
@@ -24,10 +27,12 @@ class FormsPage{
         await this.$enterfields('Email').setValue(email)
         await this.$selectGender(gender).click()
         await this.$enterfields('Mobile').setValue(mobileNumber)
-        await this.$enterfields('Date of Birth').setValue(dateOfBirth)
+        await this.$clickDateOfBirth().click();
+        await this.$selectDateOfBirth().click();
         await this.$selectHobbies(hobbies).click()
         await this.$submitButton().scrollIntoView({block: 'center'});
         await this.$submitButton().waitForClickable();
+        await this.$chooseFileButton().click()
         await browser.pause(3000);
 
      }

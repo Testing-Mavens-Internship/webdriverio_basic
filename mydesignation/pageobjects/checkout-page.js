@@ -19,7 +19,7 @@ class CheckOutPage extends CommonPage{
         
     }
     /**
-     * function for entering the details in the checkout page
+     * Method for entering the details and click on place order button
      */
     async enterDetails()
      {

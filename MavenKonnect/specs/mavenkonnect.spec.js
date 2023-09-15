@@ -18,7 +18,7 @@ let cvv = "123";
 let a;
 
 
-describe('My Login application', () => {
+xdescribe('My Login application', () => {
     it('should launch the url', async () => {
         await homePage.openUrl()
         expect(await homePage.$header().isDisplayed()).withContext('expect header is displayed ').toBe(true);

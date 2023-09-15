@@ -9,5 +9,11 @@
   },
   "scripts": {
     "wdio": "wdio run ./wdio.conf.js"
+  },
+  "dependencies": {
+    "random-letters": "^1.0.0-rc.1",
+    "random-name": "^0.1.2",
+    "random-number": "^0.0.9",
+    "random-numbers": "^1.0.8"
   }
 }
