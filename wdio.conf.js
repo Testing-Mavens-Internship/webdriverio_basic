@@ -22,7 +22,7 @@ export const config = {
     // will be called from there.
     //
     specs: [
-        'mavenKonnect/specs/mavenKonnect-page.spec.js'
+        'eDelivery/specs/eDelivery-page.spec.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -160,9 +160,9 @@ export const config = {
         // The Jasmine framework allows interception of each assertion in order to log the state of the application
         // or website depending on the result. For example, it is pretty handy to take a screenshot every time
         // an assertion fails.
-        expectationResultHandler: function(passed, assertion) {
-            // do something
-        }
+        expectationResultHandler: function (passed, assertion) {
+            if (!passed) debugger;
+        },
     },
     
     //
