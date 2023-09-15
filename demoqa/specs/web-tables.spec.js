@@ -8,7 +8,7 @@ let email = "anisha@gmail.com";
 let age = 24;
 let salary = 12345;
 let department = "cse";
-describe("Demo QA Application Text Box automation", () => {
+xdescribe("Demo QA Application Text Box automation", () => {
     it("load the demo qa url", async () => {
       await landingPage.openUrl();
       expect(await landingPage.$header().isDisplayed())

@@ -1,11 +1,10 @@
 import { landingPage } from "../page-objects/landing-page.js";
 import  { practiceForm} from "../page-objects/practice-form-page.js";
-let fName =  "Anisha";
-let lName = "V A"
+let nameFirst =  "Anisha";
+let nameLast = "V A"
 let email = "anisha@gmail.com";
 let gender = "Female"
-let mobile = 1234567890;
-//let dob = 
+let mobileNumber = 1234567890;
 let subject = "cse";
 let hobbies = "asdfgh";
 let address = "abc street" 
@@ -31,11 +30,13 @@ describe("Demo QA Application form automation", () => {
         .toBeDisplayed();
       });
     
-    it("Fill form",async () => {
-        await practiceForm.fillFormfield(fName,lName,email,gender,mobile,subject,hobbies,address) 
-        // let values = ["Anisha","V A","anisha@gmail.com","24","12345","cse"];
-        // for(let item of values){
-        //   expect( await webTablesPage.$data(item).isDisplayed()).withContext("Done").toBe(true);
-        // 
-    });
+      it("Fill form",async()=>{
+
+        await practiceForm.fillFormField(nameFirst,nameLast,email,mobileNumber,dob)
+       
+        await practiceForm.click();
+
+        await practiceForm.currentAddress()
+
+      })
 });

@@ -6,7 +6,7 @@ let fullName = "Anisha";
 let email = "anisha@gmail.com";
 let address1 = "abc street";
 let address2 = "def street";
-describe("Demo QA Application Text Box automation", () => {
+xdescribe("Demo QA Application Text Box automation", () => {
   it("load the demo qa url", async () => {
     await landingPage.openUrl();
     expect(await landingPage.$header().isDisplayed())

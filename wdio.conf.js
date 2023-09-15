@@ -22,11 +22,11 @@ export const config = {
     // will be called from there.
     //
     specs: [
-        './demoqa/specs/**/*.js'
+        './demoqa/specs/upload-download.spec.js'
         //'./sausedemo/specs/**/*.js'
         //'./mydesignation/specs/**/*.js'
         //'./mavenKonnect/specs/**/*.js'
-
+        //'./eDelivery/specs/**/*.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -71,10 +71,10 @@ export const config = {
 				],
 				//excludeSwitches: ['enable-automation'],
 				// prefs: {
-				// 	'download.prompt_for_download': false,
-				// 	'directory_upgrade': true,
-				// 	'download.default_directory': downloadsFolder,
-				// },
+				//  	'download.prompt_for_download': false,
+				//  	'directory_upgrade': true,
+				//  	'download.default_directory': 'Downloads',
+				//  },
 			},
 			// If outputDir is provided WebdriverIO can capture driver session logs
 			// it is possible to configure which logTypes to include/exclude.

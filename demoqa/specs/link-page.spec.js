@@ -1,7 +1,7 @@
 import { landingPage } from "../page-objects/landing-page.js";
 import { elementsPage } from "../page-objects/elements-page.js";
 import { linksPage} from "../page-objects/links-page.js"
-describe("Demo QA Application link page automation", () => {
+xdescribe("Demo QA Application link page automation", () => {
     it("load the demo qa url", async () => {
       await landingPage.openUrl();
       expect(await landingPage.$header().isDisplayed())

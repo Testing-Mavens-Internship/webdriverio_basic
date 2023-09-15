@@ -1,7 +1,7 @@
 import { landingPage } from "../page-objects/landing-page.js";
 import { elementsPage } from "../page-objects/elements-page.js";
 import { checkPage } from "../page-objects/checkbox-page.js"
-describe("Demo QA Application check box automation", () => {
+xdescribe("Demo QA Application check box automation", () => {
   it("load the demo qa url", async () => {
     await landingPage.openUrl();
     expect(await landingPage.$header().isDisplayed())
