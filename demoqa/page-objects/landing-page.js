@@ -1,4 +1,4 @@
-export { elementsPage } from("../page-objects/elements-page.js");
+export { elementsPage } from"../page-objects/elements-page.js";
 class LoginPage {
   constructor() {
     this.$tileName = (name) => $(`//div[@class="category-cards"]//h5[text()="${name}"]`);

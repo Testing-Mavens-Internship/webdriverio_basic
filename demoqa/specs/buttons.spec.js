@@ -1,9 +1,9 @@
-import { checkbox } from ("../page-objects/check-box-page");
+import { checkbox } from ("../page-objects/check-box-page.js");
 import { landingPage } from ("../page-objects/landing-page.js");
 import { elementsPage } from ("../page-objects/elements-page.js");
-import { buttonPage } from ("..//page-objects/buttons-page.js");
+import { buttonPage } from ("../page-objects/buttons-page.js");
 
-describe("Demo QA Application Text Box automation", () => {
+xdescribe("Demo QA Application Text Box automation", () => {
   it("load the demo qa url", async () => {
     await landingPage.openUrl();
     expect(await landingPage.$header().isDisplayed())

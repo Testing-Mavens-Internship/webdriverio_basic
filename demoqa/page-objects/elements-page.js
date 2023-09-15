@@ -1,4 +1,4 @@
-import { textBoxPage } from ('..//page-objects/text-box.js');
+import { textBoxPage } from '../page-objects/text-box.js';
  
 class ElementsPage {
     constructor() {

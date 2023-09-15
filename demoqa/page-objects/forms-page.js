@@ -1,4 +1,4 @@
-import {landingPage} from ('../page-objects//landing-page.js');
+import {landingPage} from '../page-objects/landing-page.js';
 class FormsPage {
     constructor() {
         this.$header = () => $('//div[@class = "main-header"]');
@@ -9,6 +9,7 @@ class FormsPage {
         this.$currentAddress=()=>$('//label[text()="Current Address"]/../..//textarea')
         this.$subject = ()=> $('//div[@class ="subjects-auto-complete__menu css-26l3qy-menu"]//div[text()="Hindi"]');
         this.$hobbies=(a,b)=>$(`//label[text()="${a}"]/../..//label[text()="${b}"]`)
+        this.$upload = () => $('//input[@id =  "uploadPicture"]');
     }   
     /**
      * Click on forms
@@ -41,6 +42,7 @@ class FormsPage {
         await this.$submitButton().scrollIntoView({ block : "center"}); 
         await this.$subject().setValue("Hindi");        
         await this.$hobbies("Hobbies","Sports").click();
+        await this.$upload().click();
     }
     /**
      * Click on the submit button

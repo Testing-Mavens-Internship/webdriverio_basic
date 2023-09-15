@@ -1,5 +1,5 @@
-import { landingPage } from ('../page-objects/landing-page.js');
-import { formsPage } from ('..//page-objects/forms-page.js');
+import { landingPage } from '../page-objects/landing-page.js';
+import { formsPage } from '../page-objects/forms-page.js';
 describe("Demo QA Application Text Box automation", () => {
     it("load the demo qa url", async () => {
       await landingPage.openUrl();

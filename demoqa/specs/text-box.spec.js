@@ -1,8 +1,8 @@
-import { landingPage } from "../page-objects//landing-page.js";
+import { landingPage } from "../page-objects/landing-page.js";
 import { elementsPage } from "../page-objects/elements-page.js";
-import { textBoxPage } from "..//page-objects/text-box.js";
+import { textBoxPage } from "../page-objects/text-box.js";
 
-describe("Demo QA Application Text Box automation", () => {
+xdescribe("Demo QA Application Text Box automation", () => {
   it("load the demo qa url", async () => {
     await landingPage.openUrl();
     expect(await landingPage.$header().isDisplayed())

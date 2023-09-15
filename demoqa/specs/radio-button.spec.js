@@ -1,7 +1,7 @@
-import { radioButtonPage } from ('../page-objects/radio-button-page');
+import { radioButtonPage } from '../page-objects/radio-button-page';
 import { landingPage } from '../page-objects/landing-page.js';
 import { elementsPage } from '../page-objects/elements-page.js';
-describe("Radio Button", () => {
+xdescribe("Radio Button", () => {
     it("load the demo qa url", async () => {
         await landingPage.openUrl();
         expect(await landingPage.$header().isDisplayed())

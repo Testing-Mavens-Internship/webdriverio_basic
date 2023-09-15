@@ -23,9 +23,10 @@ export const config = {
     //
     specs: [
         // './sauceDemo/specs/**/*.js'
-        // './demoqa/specs/links.spec.js'
+        // './demoqa-trial/specs/08-upload-download.spec.js'
         // './myDesignation/specs/**/*.js'
-        './mavenkonect/specs/**/*.js'
+        //'./mavenkonect/specs/**/*.js'
+        'edelivery/specs/edelivery.spec.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -63,7 +64,7 @@ export const config = {
 
                     '--window-size=1920,1080',
                     '--incognito',
-                    '--headless=new',
+                    //'--headless=new',
                     '--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36',
 
                 ],
