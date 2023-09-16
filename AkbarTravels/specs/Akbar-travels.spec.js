@@ -20,6 +20,11 @@ describe("Akbar Travels Application:",()=>{
 
     it("Selecting the number of travelers",async()=>{
         await homePage.addingTravelers()
+        expect(await homePage.$travellersAndDateVAlidate().isDisplayed()).withContext("Expect the date and no of travellers should be same as added").toBe(true)
+    })
+
+    it("Click on Search flight button",async()=>{
+        await homePage.clickOnSearchFlight()
     })
 
 

@@ -7,9 +7,10 @@ class HomePage extends Common{
         this.$FromToValidate=(validate)=>$(`//h6[contains(text(),"${validate}")]`) // selected place validation
         this.$date=()=>$(`//div[text()="October "]/..//div[text()=" 5 "]`) //date of travel
         this.$dateValidate=()=>$(`//h6[text()="05 "]/span[text()="Oct’23"]/../../p[text()="Thursday"]`) //date validation
+        this.$travellersAndDateVAlidate=()=>$(`//h6[contains(text(),"5")]/span[text()="Travellers"]/../../p[contains(text(),"Premium Economy")]`) // date and number of travellers validation
         this.$travellersAdd=(traveler)=>$(`//p[contains(text(),"${traveler}")]/../div//div[text()="+"]`) // selecting number of travellers
         this.$classType=()=>$(`//div[contains(text(),"Premium Economy")]`)
-        this.$applyButton=()=>$(`//span[text()="Apply"]`) //apply button
+        this.$applyAndSearchFlightButton=(buttonName)=>$(`//span[text()="${buttonName}"]`) //apply button and search flight button(Apply, Search Flights)
 
     }/**
      * Function for selecting the From and To locations
@@ -22,10 +23,15 @@ class HomePage extends Common{
         await this.$selectDirection("BOM").click()
         
     }
+    /**
+     * Function for selecting the date
+     */
     async selectingDate(){
         await this.$date().click()
         
-    }
+    }/**
+     * Function for adding travellers and choosing the type of class
+     */
     async addingTravelers(){
         for(let i=0;i<2;i++){
             await this.$travellersAdd("Adult").click()
@@ -34,9 +40,14 @@ class HomePage extends Common{
             await this.$travellersAdd("Children").click()
         }
         await this.$classType().click()
-        await this.$applyButton().click()
+        await this.$applyAndSearchFlightButton("Apply").click()
+        }/**
+         * Function for click on search flight button
+         */
+    async clickOnSearchFlight(){
+        await this.$applyAndSearchFlightButton("Search Flights").click()
         await browser.pause(3000)
-        }
+    }    
 
 }
 export const homePage = new HomePage()
