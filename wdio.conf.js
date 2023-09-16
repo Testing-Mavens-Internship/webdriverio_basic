@@ -26,7 +26,8 @@ export const config = {
         // './demoqa-trial/specs/08-upload-download.spec.js'
         // './myDesignation/specs/**/*.js'
         //'./mavenkonect/specs/**/*.js'
-        'akbarTravels/specs/akbartravels.spec.js'
+        //'akbarTravels/specs/akbarTravels.spec.js'
+        'flipkart/specs/flipKart.spec.js'
     ],
     // Patterns to exclude.
     exclude: [

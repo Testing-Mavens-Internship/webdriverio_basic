@@ -38,7 +38,7 @@ class Home extends Common{
      */
     async clickOnFromPlace(){
         await this.$fromToDePartReturn("liFrom").click();
-        await this.$fromToDePartReturn("COK").click();
+        await this.$fromToDePartReturn("BLR").click();
     }
     /**
      * Method to choose the to location 

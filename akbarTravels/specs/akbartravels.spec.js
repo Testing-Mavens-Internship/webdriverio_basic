@@ -1,5 +1,5 @@
 import { akbarHome } from "../page-objects/home-page.js";
-describe("End to end autopmation of booking a flight", () => {
+describe("End to end automation of booking a flight", () => {
   it("Launch the akbar travels website", async () => {
     await akbarHome.openURL();
     expect(await akbarHome.$header().waitForDisplayed())
@@ -16,7 +16,7 @@ describe("End to end autopmation of booking a flight", () => {
 
   it("Select from where you want to board the flight", async () => {
     await akbarHome.clickOnFromPlace();
-    expect(await akbarHome.$fromValidation("Cochin ").isDisplayed())
+    expect(await akbarHome.$fromValidation("Bangalore ").isDisplayed())
       .withContext("expect Cochin is displayed at from location ")
       .toBe(true);
   });
@@ -59,6 +59,5 @@ describe("End to end autopmation of booking a flight", () => {
     expect(await akbarHome.$header().waitForDisplayed({timeout:20000, reverse: true}))
     .withContext("New header is shown when user clicks Search Flights button.")
     .toBe(true);
-  })
-
+  });
 });
