@@ -16,7 +16,7 @@ describe("Demo QA Application form automation", () => {
       .toBeDisplayed();
     });
 
-    it("Click on the Check box tile and verify the navigation", async () => {
+    it("Click on the upload and download tile and verify the navigation", async () => {
         await elementsPage.clickOnTile("Upload and Download");
         expect(await uploadDownload.$pageHeader("Upload and Download"))
           .withContext("Expect web table header to be displayed")

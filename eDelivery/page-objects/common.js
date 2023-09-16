@@ -1,7 +1,6 @@
 export default class Common{
     constructor(){
         this.$header = () => $('//a[@class="navbar-brand"]')   
-        this.$verifyThankYou = () => $('')
     }
     /**
      * Method to launch url
