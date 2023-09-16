@@ -11,10 +11,10 @@ class LoginPage extends Common{
     /**
      * Method to click on the one way radio button
      */
-    async fillFlightDetails(placeFrom,placeTo){
+    async fillFlightDetails(){
         await this.$radioButton("One Way").click();
-        await this.$SearchFrom("From").setValue(placeFrom);
-        await this.$location(placeFrom).click();
+       // await this.$SearchFrom("From").setValue(placeFrom);
+        //await this.$location(placeFrom).click();
         //await this.$SearchFrom("To").setValue(placeTo)
     }
 

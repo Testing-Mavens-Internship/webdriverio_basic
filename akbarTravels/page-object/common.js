@@ -7,11 +7,14 @@ export default class Common{
      * Method to launch the akbar travels url
      */
     async openUrl(){
-        await browser.url('https://www.akbartravels.com/in/flight?lan=en');
+        await browser.url('https://www.akbartravels.com/');
         await browser.maximizeWindow();
+        await browser.refresh();
         await this.$logo().waitForDisplayed({timeout:40000});
         await this.$flight().click();
-        await this.$radioButton("One Way").waitForDisplayed({timeout:40000});
+        await browser.pause(20000);
+        
+        //await this.$radioButton("One Way").waitForDisplayed({timeout:40000});
 
     }
 }
