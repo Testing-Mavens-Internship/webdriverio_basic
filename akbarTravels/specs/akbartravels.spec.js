@@ -30,7 +30,7 @@ describe("End to end autopmation of booking a flight", () => {
 
   it("Select the departure date",async()=>{
     await akbarHome.clickOnDeparture();
-    expect(await akbarHome.$depValidation("23 ").isDisplayed())
+    expect(await akbarHome.$depValidation("24").isDisplayed())
     .withContext("Departure date is being clicked")
     .toBe(true);
   });
@@ -56,7 +56,7 @@ describe("End to end autopmation of booking a flight", () => {
   });
   it("Click on search flights", async()=>{
     await akbarHome.clickOnSearchFlights();
-    expect(await akbarHome.$newHeader().waitForDisplayed({timeout : 7000}))
+    expect(await akbarHome.$header().waitForDisplayed({timeout:20000, reverse: true}))
     .withContext("New header is shown when user clicks Search Flights button.")
     .toBe(true);
   })

@@ -10,7 +10,7 @@ class Home extends Common{
         this.$toValidation = (to) =>$(`//li[@id = "liTo"]//h6[text() = "${to}"]`)
 
         this.$departureHeader = () =>$('//h3//span[contains(text(),Departure)]')
-        this.$departureDate = () =>$('(//div[@fxlayout="column" and @fxlayoutalign="center center"][contains(text(),"23")])[1]')
+        this.$departureDate = () =>$('(//div[@fxlayout="column" and @fxlayoutalign="center center"][contains(text(),"24")])[1]')
         this.$depValidation = (departure) =>$(`//li[@id = "liOn"]//h6[contains(text(),"${departure}")]`)
         
         this.$travelers = () =>$('//li[@class = "travellers"]');
@@ -21,7 +21,7 @@ class Home extends Common{
         this.$travelerHeader = () =>$('//li[@class = "travellers"]//h6[contains(text(),"4")]')
 
         this.$searchFlight = () =>$('//li//button/span[text() ="Search Flights"]');
-        this.$newHeader = () =>$('//button[@class ="btn"]/span[@class ="text"]');
+        this.$newHeader = () =>$('//h2/div[text()="Stops"]');
         
         
         
