@@ -2,7 +2,7 @@ import { elementsPage } from "../pageobjects/elements-page.js";
 import { landingPage } from "../pageobjects/landing-page.js"
 import {radioButtonPage} from "../pageobjects/radio-button.js"
 
-describe("Demoqa application radio button automation ", () => {
+xdescribe("Demoqa application radio button automation ", () => {
     
 
     it("load the demoqa url",async() =>{

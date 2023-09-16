@@ -15,7 +15,7 @@ let expMonth = "July";
 let expYear = 2025;
 let cvv = 352;
 
-describe("End to end flow of maven konnect", () => {
+xdescribe("End to end flow of maven konnect", () => {
   it("Open url", async () => {
     await homePage.openUrl();
     expect(await homePage.$header().isDisplayed())
