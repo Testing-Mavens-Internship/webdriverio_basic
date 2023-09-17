@@ -5,18 +5,19 @@ class TravelPage extends Common {
     this.$travelHeader = () => $('//div[@class ="lAXZRO"][text() = "Travel"]');
     this.$tripType = (trip) => $(`//input[@id="${trip}"]`);
     this.$tripTypeAlternate = (trip) => $(`//label[@for ="${trip}"]`);
-    this.$fromToDepartReturnClass = (index) =>
-      $(`//input[@name="0-${index}"]`);
+    this.$fromToDepartReturnClass = (index) => $(`//input[@name="0-${index}"]`);
     this.$location = (fromOrTo) => $(`//div[text() ="${fromOrTo}"]`);
-    
+
     this.$fromLocationValidation = () =>
       $(
         '//input[@tabindex="01" and @value ="Kochi, COK - Cochin International Airport, India"]'
       );
     this.$toLocationValidaiton = () =>
       $(
-        '//input[@tabindex="02" and @value ="Mumbai, BOM - Chatrapati Shivaji International Airport"]'
+        '//input[@tabindex="02" and @value ="Mumbai, BOM - Chatrapati Shivaji Airport, India" or @value ="Mumbai, BOM - Chatrapati Shivaji International Airport"]'
       );
+    this.$dateValidation = () =>
+      $('//input[@tabindex="03" and @value="24 Sep, Sun"]');
     this.$date = (month, day) =>
       $(
         `//div[contains(text(),"${month}")]/ancestor::thead/following-sibling::tbody//button[contains(text(),"${day}")]`
@@ -63,6 +64,8 @@ class TravelPage extends Common {
    */
   async travelerClass() {
     await this.$passengerPlus("Adults").doubleClick();
+    await this.$passengerPlus("Children").click();
+    await browser.pause(2000);
   }
 
   /**

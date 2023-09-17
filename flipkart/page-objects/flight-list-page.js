@@ -33,6 +33,9 @@ class FligthDetails extends Common{
         await this.$filter("SpiceJet").scrollIntoView({block : "center"});
         await this.$filter("SpiceJet").click();
     }
+    /**
+     * Method to click on the book flight
+     */
     async clickOnBook(){
         await this.$clickBook().isClickable()
         await this.$clickBook().click()
