@@ -57,6 +57,9 @@ class TravelPage extends Common {
     await travelPage
       .$cityDeparture(departurecity)
       .waitForDisplayed({ timeout: 2000 });
+      await travelPage
+      .$cityArrival(arrivalCity)
+      .waitForDisplayed({ timeout: 2000 });
   }
 }
 

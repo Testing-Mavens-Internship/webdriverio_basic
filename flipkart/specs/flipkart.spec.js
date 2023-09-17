@@ -17,6 +17,7 @@ describe("End to end automation of flipkart", () => {
     expect(
       await searchResultsPage.$cityDeparture(departureCity).isDisplayed()
     ).toBe(true);
+    expect (await searchResultsPage.$cityArrival(arrivalCity).isDisplayed()).toBe(true)
   });
   it("Choose flight", async () => {
     await searchResultsPage.chooseFlight();

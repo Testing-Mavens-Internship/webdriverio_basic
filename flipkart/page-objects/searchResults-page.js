@@ -24,7 +24,7 @@ class SearchResultsPage extends Common {
   async chooseFlight() {
     await this.$flight().click();
     await this.$bookFlight().click();
-    await searchResultsPage.$loginHeader().waitForDisplayed({ timeout: 2000 });
+    await searchResultsPage.$loginHeader().waitForDisplayed({ timeout: 6000 });
   }
 }
 
