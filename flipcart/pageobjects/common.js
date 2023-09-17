@@ -1,6 +1,7 @@
 export default class Common {
   constructor() {
-    this.$header = () => $(`//img[@class="aqQN50"]`);
+    this.$header = () => $(`//img[@alt="Flipkart"]`);
+    this.$login = () => $(`//span[text()="Login"]`);
   }
   /**
    * Method to launch flipcart url

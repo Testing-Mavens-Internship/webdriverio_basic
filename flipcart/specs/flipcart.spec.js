@@ -4,7 +4,7 @@ describe("End-to-End automation of Flipcart application", () => {
   it("Lauch Flipcart url", async () => {
     await homePage.lauchUrl();
     await homePage.clickOnClose();
-    expect(await homePage.$header().waitForDisplayed({timeout:1000}))
+    expect(await homePage.$header().waitForDisplayed({ timeout: 1000 }))
       .withContext("Expect header to be displayed")
       .toBe(true);
   });
@@ -16,18 +16,28 @@ describe("End-to-End automation of Flipcart application", () => {
       .toBe(true);
   });
 
-  it("Enter the from and to loaction", async() =>{
+  it("Enter the from and to loaction", async () => {
     let place1 = "Kochi";
     let place2 = "Dubai";
     let date = "12";
     let month = "October";
     await travelPage.enterLoaction(place1, place2, month, date);
-    await travelPage.validate();
-    // expect(await travelPage.$validate("From","Kochi").isDisplayed()).withContext("Expect the from location to be same as entered").toBe(true);
-    // expect(await travelPage.$validate("To","Dubai").isDisplayed()).withContext("Expect the to location to be same as entered").toBe(true);
+    expect(await homePage.$travel().isDisplayed())
+      .withContext("Expect the header to be displayed")
+      .toBe(true);
   });
 
-  it("Select departure time", async()=>{
+  it("Select departure time", async () => {
     await travelPage.clickOnFlightTime();
+    expect(await travelPage.$morning().isEnabled())
+      .withContext("Expect morning to be selected")
+      .toBe(true);
+  });
+
+  it("Click on book and verify navigation", async () => {
+    await travelPage.clickOnBook();
+    expect(await travelPage.$login().isDisplayed())
+      .withContext("Expect login page to be displayed")
+      .toBe(true);
   });
 });
