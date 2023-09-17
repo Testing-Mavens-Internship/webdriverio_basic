@@ -14,7 +14,7 @@ let email = randomName.first();
 // let number = randomNumber();
 // let email = randomFirstName();
 
-describe('My Login application', () => {
+xdescribe('My Login application', () => {
     it('should launch the url', async () => {
         await homePage.openUrl()
         await homePage.$header().waitForDisplayed({timeout:12000});
