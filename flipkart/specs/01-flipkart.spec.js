@@ -63,10 +63,23 @@ describe("Automation for flight booking in flipkart", () => {
     }
   });
 
-  it("Click on price Sort", async() => {
+  it("Click on price filter and verify price is sorted or not", async() => {
     await flightPage.clickOnPriceSort();
 
-    let flightPrice = await flightPage.$$flightPrice().map((price) => price.getText());
-    console.log(flightPrice);
+    let price = await flightPage.$$flightPrice().map((price) => price.getText());
+    let flightPrice = price.map((item) => item.split(',').join('').slice(1));
+
+    expect(await flightPage.isPriceSorted(flightPrice))
+    .withContext('Expect Flight price to be sorted')
+    .toBe(true);
+  });
+
+  it("Click on departure time filter and Book Flight", async() => {
+    await flightPage.clickOnFilter('Night');
+    await flightPage.clickOnBook();
+
+    expect(await flightPage.$button('Request OTP').isDisplayed())
+      .withContext("Expect Request otp to be displayed")
+      .toBe(true);
   })
 });
