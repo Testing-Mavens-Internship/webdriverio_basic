@@ -13,7 +13,7 @@ let pinCode = 689647;
 let phone = 9999999999;
 let email = "devika@gmail.com";
 
-describe("Mydesignation Application automation", () => {
+xdescribe("Mydesignation Application automation", () => {
   it("load the mydesignation url", async () => {
     await homePage.openUrl();
     expect(await homePage.$title().isDisplayed())

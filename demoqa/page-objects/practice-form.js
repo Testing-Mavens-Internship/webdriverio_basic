@@ -7,6 +7,8 @@ class PracticePage {
     this.$inputField = (idValue) => $(`//input[@id="${idValue}"]`);
 
     this.$radioButtonField = (gender) => $(`//label[text()="${gender}"]`);
+
+    this.$chooseFiles = () => $('//div[@class="form-file"]//input');
   }
 
   /** click on form tile 
@@ -33,6 +35,16 @@ class PracticePage {
 
     await this.$radioButtonField(gender).click();
   }
+
+/**
+ * Method to choose and upload a file
+ */
+async clickOnChooseFile(){
+      await this.$chooseFiles().scrollIntoView({ block: "center" });
+      await this.$chooseFiles().waitForClickable(5000);
+      await this.$chooseFiles().click();
+      //await browser.pause(10000);
+}
 }
 
 export const practicePage = new PracticePage();

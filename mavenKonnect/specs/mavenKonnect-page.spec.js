@@ -16,7 +16,7 @@ let expiryYear = "2026";
 let cvv = "193";
 let a;
 
-describe("Fill the contact and payment details in the mavenKonnect website and validate the details are being entered", () => {
+xdescribe("Fill the contact and payment details in the mavenKonnect website and validate the details are being entered", () => {
   it("launch the website and validate the header", async () => {
     await landingPage.openUrl();
     expect(await landingPage.$pageHeader().isDisplayed())

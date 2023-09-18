@@ -42,4 +42,11 @@ xdescribe("Demo QA Application Form page automation", () => {
       .withContext("Expect radio to be clicked")
       .toBe(true);
   });
+  // it("Click on the choose file ", async () => {
+  //   await practicePage.clickOnChooseFile();
+    
+  // });
+
+
+  
 });
