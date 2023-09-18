@@ -1,0 +1,8 @@
+ {"arrivalCity" : "Mumbai",
+ "departureCity" : "Kochi",
+ "arrival":"BOM",
+ "departure":"COK",
+ "month" : "October 2023",
+ "day" : "27",
+ "adults":3,
+ "children":2}
