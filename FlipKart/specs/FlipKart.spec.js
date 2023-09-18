@@ -1,7 +1,6 @@
 import { homePage } from "../pageobjects/home-page.js";
 import { bookingPage } from "../pageobjects/booking-page.js";
-let from = "BOM";
-let to = "COK";
+import data from "../testData/test-data.json" assert {type:"json"};
 
 describe('My Login application', () => {
     it('should launch the url', async () => {
@@ -15,7 +14,7 @@ describe('My Login application', () => {
     })
 
     it('book flight tickets', async () => {
-        await homePage.searchFlightTickets(from,to)
+        await homePage.searchFlightTickets(data.from,data.to,data.adults,data.children)
         expect(await homePage.$travelHeader().isDisplayed()).withContext('expect travel header is displayed ').toBe(true);
         expect(await homePage.$validateFrom().waitForDisplayed()).withContext('expect from place is displayed ').toBe(true);
         expect(await homePage.$validateTo().waitForDisplayed()).withContext('expect to place is displayed ').toBe(true);
@@ -24,11 +23,23 @@ describe('My Login application', () => {
 
     it('Apply filters', async () => {
         await bookingPage.applyFilters()
-        expect(await bookingPage.$ticketprice("₹30,653").isDisplayed()).withContext('expect highest price is displayed ').toBe(true);
+        expect(await bookingPage.$ticketPrice("₹30,653").isDisplayed()).withContext('expect highest price is displayed ').toBe(true);
+    })
+    it("Sorting of flight price", async ()=> {
+        await bookingPage.sortPrice();
+        expect (await bookingPage.sortPrice()).withContext("Expect price is displayed in decsending order").toBe(true);
+      });
+
+    it("Validate flight details",async()=>{
+        for(let i=1;i<bookingPage.$$flightDetails().length;i++){
+    await bookingPage.validateFlight(i)
+    expect (await bookingPage.$airportValidation(from).isDisplayed).toBe(true)
+    expect (await bookingPage.$airportValidation(to).isDisplayed).toBe(true)
+     }
     })
 
     it('click on book button and validate', async () => {
         await bookingPage.bookFlight("₹30,653")
-        expect(await bookingPage.$loginText().isDisplayed()).withContext('expect login text is displayed ').toBe(true);
+        expect(await bookingPage.$loginText().waitForDisplayed()).withContext('expect login text is displayed ').toBe(true);
     })        
 })
