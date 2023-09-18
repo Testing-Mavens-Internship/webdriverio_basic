@@ -22,7 +22,7 @@ export const config = {
     // will be called from there.
     //
     specs: [
-        'demoqa/specs/upload-and-download.spec.js',
+        'flipkart/specs/workflow.spec.js',
 
     ],
     // Patterns to exclude.

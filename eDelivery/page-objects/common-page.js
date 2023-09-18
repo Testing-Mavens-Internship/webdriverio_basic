@@ -8,5 +8,6 @@ export default class Common{
     async openUrl() {
         await browser.url('https://edelivery.zoproduct.com/');
         await browser.maximizeWindow();
+        await this.$header().waitForDisplayed({timeout:20000})
     }
 }
