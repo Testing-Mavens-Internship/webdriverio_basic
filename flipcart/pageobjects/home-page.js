@@ -3,7 +3,7 @@ import Common from "./common.js";
 class HomePage extends Common {
   constructor() {
     super();
-    this.$closeLogin = () => $(`//button[@class="_2KpZ6l _2doB4z"]`);
+    this.$closeLogin = () => $(`//*[text()="✕"]`);
     this.$travelButton = () => $(`//img[@alt="Travel"]`);
     this.$travel = () => $(`//div[text()="Travel"]`);
     this.$from = () =>

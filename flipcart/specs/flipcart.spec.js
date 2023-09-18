@@ -1,5 +1,6 @@
 import { homePage } from "../pageobjects/home-page.js";
 import { travelPage } from "../pageobjects/travel-page.js";
+import data from "../testdata/data.json" assert { type: "json" };
 describe("End-to-End automation of Flipcart application", () => {
   it("Lauch Flipcart url", async () => {
     await homePage.lauchUrl();
@@ -17,21 +18,44 @@ describe("End-to-End automation of Flipcart application", () => {
   });
 
   it("Enter the from and to loaction", async () => {
-    let place1 = "Kochi";
-    let place2 = "Dubai";
-    let date = "12";
-    let month = "October";
-    await travelPage.enterLoaction(place1, place2, month, date);
+    await travelPage.enterLoaction(
+      data.departure,
+      data.arrival,
+      data.month,
+      data.date,
+      data.adults,
+      data.children
+    );
     expect(await homePage.$travel().isDisplayed())
       .withContext("Expect the header to be displayed")
       .toBe(true);
   });
 
   it("Select departure time", async () => {
-    await travelPage.clickOnFlightTime();
-    expect(await travelPage.$morning().isEnabled())
+    await travelPage.clickOnFlightTime(data.time);
+    expect(await travelPage.$night().isEnabled())
       .withContext("Expect morning to be selected")
       .toBe(true);
+  });
+
+  it("Verify sorting of price", async () => {
+    expect(await travelPage.sortPrice())
+      .withContext("Expect price to be in decsending order")
+      .toBe(true);
+  });
+
+  it("verify the flights", async () => {
+    let count = await travelPage.getCount();
+    console.log(count);
+    for (let i = 1; i <= count; i++) {
+      await travelPage.verifyFlightDetails(i);
+      expect(await travelPage.$flightDetail(data.fromCode, i).isDisplayed())
+        .withContext("Expect COK to be displayed")
+        .toBe(true);
+      expect(await travelPage.$flightDetail(data.toCode, i).isDisplayed())
+        .withContext("Expect BOM to be displayed")
+        .toBe(true);
+    }
   });
 
   it("Click on book and verify navigation", async () => {

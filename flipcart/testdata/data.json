@@ -1,0 +1,11 @@
+{
+    "departure" : "Kochi",
+    "arrival" : "Mumbai",
+    "date" : "12",
+    "month" : "October",
+    "time" : "Night",
+    "adults" : "Adults",
+    "children" : "Children",
+    "fromCode" :"COK",
+    "toCode":"BOM" 
+}

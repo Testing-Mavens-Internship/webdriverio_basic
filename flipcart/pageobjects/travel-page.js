@@ -26,25 +26,35 @@ class TravelPage extends Common {
         `//div[text()="${time}"]/..//div[@class="_1OSdiW"]//input[contains(@value,"${place}")]`
       );
     this.$flightTime = (item) => $(`//div[text()="${item}"]`);
-    this.$morning = () =>
-      $(`//input[@class="_30VH1S"]/..//div[text()="Morning"]`);
-    this.$book = () => $(`(//div[@class="ZiOg5a"][text()="Book"])[1]`);
+    this.$night = () => $(`//input[@class="_30VH1S"]/..//div[text()="Night"]`);
+    this.$book = () => $(`(//div[text()="Book"])[1]`);
+    this.$$price = () => $$(`//div[@class="_3uUoiD"]`);
+    this.$sortPrice = () => $(`//span[text()="PRICE"]`);
+    this.$flightDetails = (index) =>
+      $(`(//span[text()="Flight Details"])[${index}]`);
+    this.$fromValidate = (place) =>
+      $(`//span[@class="_2KEcM_" and contains(text(),"${place}")]`);
+    this.$$records = () => $$(`//div[@class="_367J6x"]`);
+    this.$flightDetail = (place, index) =>
+      $(
+        `(//span[text()="Flight Details"]/ancestor::div//div//span[text()="${place}"])[${index}]`
+      );
   }
   /**
    * Method to enter from, to, date, class, and number of travellers
-   * @param {string} place1
-   * @param {string} place2
+   * @param {string} arrival
+   * @param {string} departure
    * @param {string} month
    * @param {string} date
    */
-  async enterLoaction(place1, place2, month, date) {
-    await this.$from().setValue("cochin");
-    await this.$fromOption(place1).click();
-    await this.$to().setValue("dubai");
-    await this.$fromOption(place2).click();
+  async enterLoaction(departure, arrival, month, date, adults, children) {
+    await this.$from().setValue(departure);
+    await this.$fromOption(departure).click();
+    await this.$to().setValue(arrival);
+    await this.$fromOption(arrival).click();
     await this.$date(month, date).click();
-    await this.$travellers("Adults").doubleClick();
-    await this.$travellers("Children").doubleClick();
+    await this.$travellers(adults).doubleClick();
+    await this.$travellers(children).doubleClick();
     await this.$class().click();
     await this.$done().click();
     await this.$search().click();
@@ -52,14 +62,52 @@ class TravelPage extends Common {
   /**
    * Method to select flight time
    */
-  async clickOnFlightTime() {
-    await this.$flightTime("Morning").click();
+  async clickOnFlightTime(time) {
+    await this.$flightTime(time).click();
+  }
+  /**
+   * Method to verify sorting of prices
+   * @returns
+   */
+  async sortPrice() {
+    await this.$sortPrice().click();
+    let priceArray = await this.$$price().map((item) => item.getText());
+    let sortArray = [];
+    for (let item of priceArray) {
+      sortArray.push(parseInt(item.replace(/[₹,]/g, "")));
+    }
+    console.log(sortArray);
+    for (let i = 0; i < sortArray.length - 1; i++) {
+      if (sortArray[i] >= sortArray[i + 1]) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
+  /**
+   * Method to get count
+   * @returns
+   */
+  async getCount() {
+    let priceArray = await this.$$price().map((item) => item.getText());
+    let count = priceArray.length;
+    return count;
+  }
+  /**
+   *
+   * @param {number} index
+   */
+  async verifyFlightDetails(index) {
+    await this.$flightDetails(index).click();
   }
   /**
    * Method to click on book button
    */
   async clickOnBook() {
+    await this.$book().scrollIntoView({ block: "center" });
     await this.$book().click();
+    await this.$login().waitForDisplayed({ timeout: "3000" });
   }
 }
 export const travelPage = new TravelPage();
