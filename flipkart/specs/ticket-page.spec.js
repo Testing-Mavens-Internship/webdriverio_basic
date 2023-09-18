@@ -1,10 +1,10 @@
 import { launchPage } from "../page-object/launch-page.js";
 import { flightBookingPage } from "../page-object/flight-page.js";
-//import data from "../text-data/dataSheet.json" assert { type: "json" };
+//import data from "../text-data/dataSheet.json" 
 
-let from = "Delhi";
-let to = "Kerala";
-let ticketCharge = "₹20000";
+let from = "New Delhi";
+let to = "Mumbai";
+let ticketCharge = "₹15,119";
 
 describe("Buy a flight ticket for 5 members in flipkart travel page:", () => {
   it("launch the flipkart travel website", async () => {

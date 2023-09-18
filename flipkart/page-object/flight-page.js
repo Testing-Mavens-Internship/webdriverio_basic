@@ -22,9 +22,9 @@ class FlightBookingPage extends Common {
    * Method to apply filters
    */
   async applyTimeFilter() {
-    await this.$stopFilter().click();
+    await this.$stopFilter("Non-stop").click();
     await this.$flightTime("Night").click();
-    await this.$priceFilter().click();
+    //await this.$priceFilter().click();
   }
   
   /**
@@ -32,7 +32,7 @@ class FlightBookingPage extends Common {
    */
   async ClickOnBookButton(ticketCharge) {
     await this.$bookButton(ticketCharge).click();
-    await this.$loginText().waitForDisplayed({ timeout: "3000" });
+    await this.$loginText().waitForDisplayed({ timeout: "2000" });
   }
 }
 export const flightBookingPage = new FlightBookingPage();

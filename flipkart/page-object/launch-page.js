@@ -8,7 +8,7 @@ class LaunchPage extends Common {
       $(
         `//label[contains(text(),"${fromTo}")]/../following-sibling::div//span[contains(text(),"${place}")]`
       );
-    $(
+   this.$travellers = (member)=> $(
       `(//div[contains(text(),"${member}")]/../following-sibling::div//button)[2]`
     );
     this.$departOn = (month, day) =>
