@@ -21,7 +21,7 @@ export const config = {
   // then the current working directory is where your `package.json` resides, so `wdio`
   // will be called from there.
   //
-  specs: ["./eDelivery/specs/e-delivery.spec.js"],
+  specs: ["./flipkart/specs/travel.spec.js"],
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
@@ -158,6 +158,8 @@ export const config = {
     // or website depending on the result. For example, it is pretty handy to take a screenshot every time
     // an assertion fails.
     expectationResultHandler: function (passed, assertion) {
+      if(!passed)
+      debugger;
       // do something
     },
   },

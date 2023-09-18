@@ -1,0 +1,12 @@
+{
+    "from":"Kochi",
+    "to":"Bangalore",
+    "month":"September", 
+    "day":"20",
+    "departureTime": "Morning",
+    "time1" : "06:00",
+    "time2" : "12:00",
+    "categoryAdults": "Adults",
+    "categoryChildren": "Children",
+    "ticketClass": "Premium Economy"
+}
