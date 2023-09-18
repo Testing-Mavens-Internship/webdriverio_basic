@@ -1,5 +1,6 @@
 import { homePage } from "../page-objects/home-page.js";
-//import {data} from "../page-objects/test-Data.json";
+import { flightPage } from "../page-objects/flight-page.js";
+import data from "../page-objects/test-Data.json" assert{type:"json"};
 
 describe("Akbar Travels Application:",()=>{
     it("Launch the Website",async()=>{
@@ -25,7 +26,9 @@ describe("Akbar Travels Application:",()=>{
 
     it("Click on Search flight button",async()=>{
         await homePage.clickOnSearchFlight()
+        expect(await flightPage.$tripDetialsValidation().isDisplayed()).withContext("Expect the FROM To details given in the first page").toBe(true)
     })
+    
 
 
 

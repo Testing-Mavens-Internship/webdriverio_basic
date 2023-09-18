@@ -2,6 +2,8 @@ export default class Common{
     constructor(){
         this.$mainHeader=()=>$(`//div[@class="main-logo"]`) //main logo
         this.$fromAndTo=(ditection)=>$(`//label[text()="${ditection}"]`) // To / From (for clicking)
+        this.$tripDetialsValidation=()=>$('//h2[contains(text(),"BOM")]/span[text()="Mumbai"]/../../h2[contains(text(),"COK")]/span[text()="Cochin"]') //validate trip 
+
 
         
 

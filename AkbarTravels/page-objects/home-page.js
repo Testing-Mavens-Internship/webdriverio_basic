@@ -43,10 +43,11 @@ class HomePage extends Common{
         await this.$applyAndSearchFlightButton("Apply").click()
         }/**
          * Function for click on search flight button
-         */
+         */     
     async clickOnSearchFlight(){
-        await this.$applyAndSearchFlightButton("Search Flights").click()
-        await browser.pause(3000)
+        await this.$applyAndSearchFlightButton("Search Flights").doubleClick()
+        await browser.pause(30000)
+      //  await this.$tripDetialsValidation().waitForDisplay({timeout:30000})
     }    
 
 }

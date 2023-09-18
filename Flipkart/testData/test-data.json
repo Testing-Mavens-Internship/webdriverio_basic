@@ -1,0 +1,14 @@
+{
+    "directionFrom": "01",
+    "directionTo"  : "02",
+    "locationFrom" : "COK",
+    "locationTo"   : "BOM",
+    "locationNameFrom":"Kochi",
+    "locationNameTo":"Mumbai",
+    "date":"20",
+    "Adult" : "Adults",
+    "Children" :"Children",
+    "noOfAdult":"1",
+    "noOFChildren":"1",
+    "className":"Premium Economy"
+}
