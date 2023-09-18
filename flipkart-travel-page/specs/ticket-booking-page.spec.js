@@ -2,16 +2,17 @@ import { launchPage } from "../page-object/launch-page.js";
 import { flightPage } from "../page-object/flight-page.js";
 import data from "../text-data/dataSheet.json" assert { type: "json" };
 
-let from = "Mumbai";
-let to = "Hyderabad";
-let ticketCharge = "₹10,329";
+// let from = "Mumbai";
+// let to = "Hyderabad";
+// let ticketCharge = "₹10,329";
 
-describe("Buy a flight ticket for 5 members in flipkart travel page", () => {
+describe("Buy a flight ticket for 5 members in flipkart travel page:", () => {
   it("launch the flipkart travel website", async () => {
     await launchPage.openUrl();
     expect(await launchPage.$logo().isDisplayed())
       .withContext("Expect the flipkart logo to be displayed")
       .toBe(true);
+
   });
 
   it("fill the flight details", async () => {
@@ -26,16 +27,25 @@ describe("Buy a flight ticket for 5 members in flipkart travel page", () => {
       .withContext("Expect the  depart on date to be displayed")
       .toBe(true);
   });
+ 
+  it('verify the flights', async() => {
+   let count = await flightPage.$$records().length;
+      for(let i=1;i<=count;i++){
+        await flightPage.verifyFlightDetails(i);
+        expect(await flightPage.$flightDetail(data.fromCode,i).isDisplayed()).withContext('Expect BOM to be displayed').toBe(true);
+        expect(await flightPage.$flightDetail(data.toCode,i).isDisplayed()).withContext('Expect BOM to be displayed').toBe(true);
+      }
+  })
 
   it("Apply filter and book flight ticket", async () => {
     await flightPage.applyTimeFilter();
-    expect(await flightPage.$ticketPrice(data.ticketCharge).isDisplayed())
+    expect(await flightPage.sortPrice())
       .withContext("Expect the highest price to be displayed")
       .toBe(true);
   });
 
   it("Click on the book button", async () => {
-    await flightPage.ClickOnBookButton(data.ticketCharge);
+    await flightPage.ClickOnBookButton();
     expect(await flightPage.$loginText().isDisplayed())
       .withContext("Expect the request otp button is visible")
       .toBe(true);

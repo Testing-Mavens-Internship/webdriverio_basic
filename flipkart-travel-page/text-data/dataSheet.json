@@ -1,5 +1,7 @@
 {
     "from" :"Mumbai",
     "to": "Hyderabad",
-    "ticketCharge" :"₹10,329"
+    "ticketCharge" :"₹15,832",
+    "fromCode":"BOM",
+    "toCode":"HYD"
 }

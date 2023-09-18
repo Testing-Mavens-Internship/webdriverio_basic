@@ -28,7 +28,6 @@ class LaunchPage extends Common {
     await this.$searchTab("0-datefrom").click();
     await this.$departOn("October 2023","20").click();
     await this.$searchTab("0-travellerclasscount").click();
- //   await this.$travellers("Adults").click();
     await this.$travellers("Adults").click();
     await this.$travellers("Adults").click();
     await this.$travellers("Children").waitForDisplayed({timeout:'1000'})
