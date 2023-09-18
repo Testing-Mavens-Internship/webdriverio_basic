@@ -22,11 +22,12 @@ export const config = {
     // will be called from there.
     //
     specs: [
-        './demoqa/specs/upload-download.spec.js'
+        //'./demoqa/specs/upload-download.spec.js'
         //'./sausedemo/specs/**/*.js'
         //'./mydesignation/specs/**/*.js'
         //'./mavenKonnect/specs/**/*.js'
         //'./eDelivery/specs/**/*.js'
+        './flipkart/specs/**/*.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -165,7 +166,8 @@ export const config = {
         // or website depending on the result. For example, it is pretty handy to take a screenshot every time
         // an assertion fails.
         expectationResultHandler: function(passed, assertion) {
-            // do something
+            if(!passed)
+            debugger
         }
     },
     
