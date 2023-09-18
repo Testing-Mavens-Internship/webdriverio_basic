@@ -1,3 +1,10 @@
-// {
-//     "section": "Travel"
-// }
+{   
+    "section" : "Travel",
+    "from" : "Mumbai",
+    "to" : "Hyderabad",
+    "month" : "October 2023",
+    "day" : "27",
+    "noOfAdults" : "3",
+    "noOfChild" : "2", 
+     "filter" : "Air India"
+}

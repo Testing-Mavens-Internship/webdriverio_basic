@@ -2,19 +2,48 @@ import Common from "./common.js";
 class FlightPage extends Common {
   constructor() {
     super();
-    this.$cityName = (city) => $(`//div[text()="From"]/..//div[@class="_3qBKP_ _1Jqgld"]/input[contains(@value,"${city}")]`);
-    this.$airLine = (flight) => $(`//div[text()="${flight}"]`);
-    this.$bookFlight = () => $('//span[text()="SpiceJet"]/ancestor::div[@class="_2IAB80"]/following-sibling::div[@class="_-5f1wK"]');
+    this.$verifyName = (city) =>
+      $(`//div[@class="_3Jcym_"]//span[text()="${city}"]`);
+    this.$bookFlight = () => $('(//div[@class="_-5f1wK"])[1]');
     this.$loginHeader = () => $('//span[text()="Login"]');
+    this.$filter = (filter) => $(`//div[text()="${filter}"]`);
+    this.$$getPrice = () => $$('//div[@class="_3uUoiD"]');
+    this.$$flightDetails = () => $$('//span[@class="KO_IQZ"]');
+    this.$flightDetail = (index) => $(`//span[@class="KO_IQZ"][${index}]`);
+    this.$validationCity = (name) =>
+      $(`//div[@class="_3K77nP"]/span[text()="${name}"]`);
   }
   /**
-   * Method to book the flight
+   * Method to filter flights and sort price in ascending order
+   * @param {string} filter
+   * @returns boolean
    */
-  async chooseFlight(flight) {
-    await this.$airLine(flight).click();
+  async filterSort(filter) {
+    await this.$filter(filter).click();
+    let price = [];
+    price = await this.$$getPrice().map((item) => item.getText());
+    price = await price.map((item) => item.replace(/[₹,]/g, "")).map(Number);
+    for (let i = 0; i < price.length; i++) {
+      if (price[i] <= price[i + 1]) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
+  /**
+   * Method to validate flight details
+   * @param {string} index
+   */
+  async flightValidation(index) {
+    await this.$flightDetail(index).click();
+  }
+  /**
+   * Method to book flight
+   */
+  async bookFlight() {
     await this.$bookFlight().click();
     await this.$loginHeader().waitForDisplayed({ timeout: 6000 });
   }
 }
-
 export const flightPage = new FlightPage();

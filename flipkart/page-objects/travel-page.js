@@ -1,4 +1,5 @@
- import Common from "./common.js";
+import Common from "./common.js";
+import { flightPage } from "./flight-page.js";
 class TravelPage extends Common {
   constructor() {
     super();
@@ -19,40 +20,40 @@ class TravelPage extends Common {
       );
     this.$totalCount = () => $('//input[@name="0-travellerclasscount"]');
     this.$adults = () =>
-      $(
-        '//div[text()="Adults"]/../following-sibling::div[@class="_1_YMe_"]//div[@class="VjWsXZ"]/button[@class="_2KpZ6l _34K0qG _37Ieie"]'
-      );
+      $('(//div[text()="Adults"]/../following-sibling::div//button)[2]');
     this.$children = () =>
-      $(
-        '//div[text()="Children"]/../following-sibling::div[@class="_1_YMe_"]//div[@class="VjWsXZ"]/following-sibling::div/button[@class="_2KpZ6l _34K0qG _37Ieie"]'
-      );
+      $('(//div[text()="Children"]/../following-sibling::div//button)[2]');
     this.$cabinClass = () =>
       $('//div[text()="Economy"]/../../div[@class="_1XFPmK"]');
     this.$searchButton = () => $('//span[text()="SEARCH"]/..');
-    }
-    /**
-     * method to fill fields
-     * @param {string} from 
-     * @param {string} to 
-     * @param {string} month 
-     * @param {string} day 
-     */
-    async searchFlight(from,to,month,day) {
+  }
+  /**
+   * Method to fill details of flight
+   * @param {string} from
+   * @param {string} to
+   * @param {string} month
+   * @param {string} day
+   * @param {string} noOfAdults
+   * @param {string} noOfChild
+   */
+  async searchFlight(from, to, month, day, noOfAdults, noOfChild) {
     await this.$from().setValue(from);
     await this.$departure(from).click();
     await this.$to().setValue(to);
     await this.$arrival(to).click();
     await this.$departOn().click();
-    await this.$date(month,day).click();
+    await this.$date(month, day).click();
     await this.$totalCount().click();
-    await this.$adults().click();
-    await this.$adults().click();
-    await this.$children().click();
-    await this.$children().click();
+    for (let i = 0; i < noOfAdults - 1; i++) {
+      await this.$adults().click();
+    }
+    for (let i = 0; i < noOfChild; i++) {
+      await this.$children().click();
+    }
     await this.$cabinClass().click();
     await this.$searchButton().click();
-    await this.$departure(from).waitForDisplayed({ timeout: 2000 });
-    await this.$arrival(to).waitForDisplayed({ timeout: 2000 });
+    await flightPage.$verifyName(from).waitForDisplayed({ timeout: 6000 });
+    await flightPage.$verifyName(to).waitForDisplayed({ timeout: 6000 });
   }
 }
 
