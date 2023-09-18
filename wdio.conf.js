@@ -22,7 +22,7 @@ export const config = {
     // will be called from there.
     //
     specs: [
-        './eDelivery/specs/01-eDelivery.spec.js'
+        './flipkart/specs/01-flipkart.spec.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -60,8 +60,8 @@ export const config = {
         'goog:chromeOptions': {
             args: [
                 '--window-size=1920,1080',
-                '--incognito',
-                '--headless=new',
+                // '--incognito',
+                // '--headless=new',
                 '--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36',
             ],
             excludeSwitches: ['enable-auto`mation'],
@@ -161,6 +161,8 @@ export const config = {
         // an assertion fails.
         expectationResultHandler: function (passed, assertion) {
             // do something
+                if(!passed)
+                debugger
         }
     },
 

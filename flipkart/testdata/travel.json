@@ -1,0 +1,10 @@
+{
+"from" : "COK",
+"fromPlace" : "Kochi",
+"to" : "BOM",
+"toPlace" : "Mumbai",
+"month" : "September",
+"day" : "28",
+"cabin" : "Business",
+"traveller" : "Adults"
+}
