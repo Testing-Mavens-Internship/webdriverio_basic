@@ -81,6 +81,13 @@ class FlightsPage extends Common {
     return flag;
   }
   /**
+   * @param {number} i 
+   * Method to click flight details
+   */
+  async clickOnFlightDetails(i){
+    await this.$flightDetails(i).click();
+  }
+  /**
    * Method to click book option
    */
   async clickOnBook() {

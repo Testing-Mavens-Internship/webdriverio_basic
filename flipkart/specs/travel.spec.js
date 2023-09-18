@@ -32,7 +32,7 @@ describe("Flipkart flight booking automation", () => {
       .toBe(true);
     count = await flightsPage.getCount();
     for (let i = 1; i <= count; i++) {
-      await flightsPage.$flightDetails(i).click();
+      await flightsPage.clickOnFlightDetails(i);
       expect(await flightsPage.$outputFlightDetails(data.from).isDisplayed())
         .withContext("Expect source to be kochi")
         .toBe(true);
