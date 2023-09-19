@@ -1,8 +1,9 @@
 import Common from "./common.js";
-
+import night from "getTime";
 class TravelPage extends Common {
   constructor() {
     super();
+    this.$travel = () => $(`//div[text()="Travel"]`);
     this.$from = () =>
       $(`//input[@class="_1w3ZZo _1YBGQV _2EjOJB lZd1T6 _2vegSu _2mFmU7"]`);
     this.$fromOption = (place) =>
@@ -26,7 +27,8 @@ class TravelPage extends Common {
         `//div[text()="${time}"]/..//div[@class="_1OSdiW"]//input[contains(@value,"${place}")]`
       );
     this.$flightTime = (item) => $(`//div[text()="${item}"]`);
-    this.$night = () => $(`//input[@class="_30VH1S"]/..//div[text()="Night"]`);
+    this.$night = (time) =>
+      $(`//input[@class="_30VH1S"]/..//div[text()="${time}"]`);
     this.$book = () => $(`(//div[text()="Book"])[1]`);
     this.$$price = () => $$(`//div[@class="_3uUoiD"]`);
     this.$sortPrice = () => $(`//span[text()="PRICE"]`);
@@ -39,6 +41,7 @@ class TravelPage extends Common {
       $(
         `(//span[text()="Flight Details"]/ancestor::div//div//span[text()="${place}"])[${index}]`
       );
+    this.$$departTime = () => $$(`//span[@class="_2l73WS _1ljBda"]`);
   }
   /**
    * Method to enter from, to, date, class, and number of travellers
@@ -58,16 +61,64 @@ class TravelPage extends Common {
     await this.$class().click();
     await this.$done().click();
     await this.$search().click();
+    await this.$travel().waitForDisplayed({ timeout: 5000 });
   }
   /**
-   * Method to select flight time
+   * Method to click on departure time and verify the departure time
+   * @returns booelan
    */
-  async clickOnFlightTime(time) {
+  async departTimeFilter(time) {
     await this.$flightTime(time).click();
+    let depart = await this.$$departTime().map((item) => item.getText());
+    let flag;
+    let length = depart.length;
+    if (time == "Morning") {
+      for (let i = 0; i < length; i++) {
+        if (depart[i] >= "06:00" && depart[i] <= "12:00") {
+          flag = true;
+        } else {
+          flag = false;
+        }
+      }
+      return flag;
+    }
+    if (time == "Early Morning") {
+      for (let i = 0; i < length; i++) {
+        if (depart[i] >= "00:00" && depart[i] <= "06:00") {
+          flag = true;
+        } else {
+          flag = false;
+        }
+      }
+      return flag;
+    }
+    if (time == "Afternoon") {
+      for (let i = 0; i < length; i++) {
+        if (depart[i] >= "12:00" && depart[i] <= "18:00") {
+          flag = true;
+        } else {
+          flag = false;
+        }
+      }
+      return flag;
+    }
+    if (time == "Night") {
+      for (let i = 0; i < length; i++) {
+        if (
+          (depart[i] >= "18:00" && depart[i] <= "23:59") ||
+          depart[i] == "00:00"
+        ) {
+          flag = true;
+        } else {
+          flag = false;
+        }
+      }
+      return flag;
+    }
   }
   /**
    * Method to verify sorting of prices
-   * @returns
+   * @returns boolean
    */
   async sortPrice() {
     await this.$sortPrice().click();
@@ -76,7 +127,6 @@ class TravelPage extends Common {
     for (let item of priceArray) {
       sortArray.push(parseInt(item.replace(/[₹,]/g, "")));
     }
-    console.log(sortArray);
     for (let i = 0; i < sortArray.length - 1; i++) {
       if (sortArray[i] >= sortArray[i + 1]) {
         return true;
@@ -86,8 +136,8 @@ class TravelPage extends Common {
     }
   }
   /**
-   * Method to get count
-   * @returns
+   * Method to get count of number of flights
+   * @returns number
    */
   async getCount() {
     let priceArray = await this.$$price().map((item) => item.getText());
@@ -95,11 +145,12 @@ class TravelPage extends Common {
     return count;
   }
   /**
-   *
+   *Method to verify the from and to location
    * @param {number} index
    */
   async verifyFlightDetails(index) {
     await this.$flightDetails(index).click();
+    await this.$book().waitForClickable({ timeout: "3000" });
   }
   /**
    * Method to click on book button

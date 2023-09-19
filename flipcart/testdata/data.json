@@ -3,7 +3,7 @@
     "arrival" : "Mumbai",
     "date" : "12",
     "month" : "October",
-    "time" : "Night",
+    "time" : ["Early Morning","Morning","Afternoon","Night"],
     "adults" : "Adults",
     "children" : "Children",
     "fromCode" :"COK",

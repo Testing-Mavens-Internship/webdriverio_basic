@@ -9,5 +9,6 @@ export default class Common {
   async lauchUrl() {
     await browser.url("https://www.flipkart.com/");
     await browser.maximizeWindow();
+    await this.$login().waitForDisplayed({ timeout: 5000 });
   }
 }

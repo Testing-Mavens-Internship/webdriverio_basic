@@ -5,7 +5,6 @@ class HomePage extends Common {
     super();
     this.$closeLogin = () => $(`//*[text()="✕"]`);
     this.$travelButton = () => $(`//img[@alt="Travel"]`);
-    this.$travel = () => $(`//div[text()="Travel"]`);
     this.$from = () =>
       $(`//input[@class="_1w3ZZo _1YBGQV _2EjOJB lZd1T6 _2vegSu _2mFmU7"]`);
   }
@@ -14,12 +13,14 @@ class HomePage extends Common {
    */
   async clickOnClose() {
     await this.$closeLogin().click();
+    await this.$travelButton().waitForDisplayed({ timeout: 5000 });
   }
   /**
    * Method to click on travel option and navigat to travel page
    */
-  async clickOnTravel() {
+  async clickOnTravel(travel) {
     await this.$travelButton().click();
+    await travel.waitForDisplayed({ timeout: 5000 });
   }
 }
 export const homePage = new HomePage();

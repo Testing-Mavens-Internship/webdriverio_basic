@@ -1,9 +1,16 @@
 import { homePage } from "../pageobjects/home-page.js";
 import { travelPage } from "../pageobjects/travel-page.js";
 import data from "../testdata/data.json" assert { type: "json" };
+
 describe("End-to-End automation of Flipcart application", () => {
   it("Lauch Flipcart url", async () => {
     await homePage.lauchUrl();
+    expect(await homePage.$login().isDisplayed())
+      .withContext("Expect header to be displayed")
+      .toBe(true);
+  });
+
+  it("Click on close button", async () => {
     await homePage.clickOnClose();
     expect(await homePage.$header().waitForDisplayed({ timeout: 1000 }))
       .withContext("Expect header to be displayed")
@@ -11,8 +18,8 @@ describe("End-to-End automation of Flipcart application", () => {
   });
 
   it("Click on travel button and verify navigation to travel page", async () => {
-    await homePage.clickOnTravel();
-    expect(await homePage.$travel().isDisplayed())
+    await homePage.clickOnTravel(travelPage.$travel());
+    expect(await travelPage.$travel().isDisplayed())
       .withContext("Expect navigation to travel page")
       .toBe(true);
   });
@@ -26,15 +33,17 @@ describe("End-to-End automation of Flipcart application", () => {
       data.adults,
       data.children
     );
-    expect(await homePage.$travel().isDisplayed())
+    expect(await travelPage.$travel().isDisplayed())
       .withContext("Expect the header to be displayed")
       .toBe(true);
   });
 
   it("Select departure time", async () => {
-    await travelPage.clickOnFlightTime(data.time);
-    expect(await travelPage.$night().isEnabled())
-      .withContext("Expect morning to be selected")
+    expect(await travelPage.departTimeFilter(data.time[3]))
+      .withContext("Expect depart time to be between given time")
+      .toBe(true);
+    expect(await travelPage.$night(data.time[3]).isEnabled())
+      .withContext("Expect depart time to be selected")
       .toBe(true);
   });
 
@@ -46,7 +55,6 @@ describe("End-to-End automation of Flipcart application", () => {
 
   it("verify the flights", async () => {
     let count = await travelPage.getCount();
-    console.log(count);
     for (let i = 1; i <= count; i++) {
       await travelPage.verifyFlightDetails(i);
       expect(await travelPage.$flightDetail(data.fromCode, i).isDisplayed())
