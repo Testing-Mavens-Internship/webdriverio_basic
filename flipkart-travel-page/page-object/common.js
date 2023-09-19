@@ -8,12 +8,11 @@ export default class Common {
   /**
    * Method to launch the url
    */
-  async openUrl() {
+  async openUrl(value) {
     await browser.url("https://www.flipkart.com/");
     await browser.maximizeWindow();
     await this.$closeLogin().click();
     await this.$travel().click();
-    await this.$logo().waitForDisplayed({ timeout: 40000 });
-    await browser.pause(2000);
+    await value.waitForDisplayed({ timeout: 40000 });
   }
 }

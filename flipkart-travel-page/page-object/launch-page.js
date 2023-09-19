@@ -36,7 +36,7 @@ class LaunchPage extends Common {
     await this.$radioButton("Premium Economy").click();
     await this.$button("Done").click();
     await this.$searchButton().click();
-    await this.$logo().waitForDisplayed({timeout:"2000"});
+    await launchPage.$logo().waitForDisplayed({timeout:"2000"});
   }
 }
 export const launchPage = new LaunchPage();

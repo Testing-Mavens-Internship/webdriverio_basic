@@ -1,6 +1,7 @@
 {
     "from" :"Mumbai",
     "to": "Hyderabad",
+    "time":["Early Morning","Morning","Afternoon","Night"],
     "ticketCharge" :"₹15,832",
     "fromCode":"BOM",
     "toCode":"HYD"
