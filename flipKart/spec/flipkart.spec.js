@@ -55,6 +55,13 @@ describe("Flipkart Autoamtion", () => {
       .toBe(true);
   });
 
+  it("Validating sort", async() =>{
+   expect(await bookingViewPage.sortPrice()).withContext("Expect the descending order").toBe(true);
+    expect(await bookingViewPage.$verifyPriceArrow().isDisplayed())
+      .withContext("Arrow is changed")
+      .toBe(true);
+  })
+
   it("Click on Flight", async () => {
     await bookingViewPage.bookFlight(data.flightNumber);
     expect(await homePage.$closeIcon().isDisplayed())

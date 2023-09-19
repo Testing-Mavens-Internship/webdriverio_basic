@@ -11,6 +11,10 @@ class BookingViewPage {
       $(`//span[@class="_3eJLu6" and contains(text(),"${place}")]`);
     this.$filter = (time) => $(`//div[text()="${time}"]`);
     this.$$timeVerification = () => $$(`//div/span[@class="_2l73WS _1ljBda"]`);
+    this.$$priceDisplayed = () => $$(`//div[@class="_3uUoiD"]`);
+    this.$priceArrow = () => $(`//*[text()="PRICE"]`);
+    this.$verifyPriceArrow = () =>
+      $(`//*[local-name()='svg' and @class="_2Pcql8 _1lrvYG"]`);
   }
 
   /**
@@ -28,6 +32,29 @@ class BookingViewPage {
     for (let i = 1; i <= verify.length; i++) {
       if (verify[i] > departureTimeShift && verify[i] < arrivalTimeShift)
         return true;
+      else return false;
+    }
+  }
+
+  /**
+   * Method to find if the prices are in sorted format
+   * @returns
+   */
+  async sortPrice() {
+    await this.$priceArrow().scrollIntoView();
+    await this.$priceArrow().waitForClickable({ timeout: 5000 });
+    await this.$priceArrow().click();
+    await this.$verifyPriceArrow().waitForDisplayed({ timeout: 2000 });
+    let price = [];
+    price = await this.$$priceDisplayed().map((item) => item.getText());
+    console.log(price);
+    let priceInInt = [];
+    for (let item of price) {
+      priceInInt.push(parseInt(item.replace(/[₹,]/g, "")));
+    }
+    console.log(priceInInt);
+    for (let i = 0; i < priceInInt.length; i++) {
+      if (priceInInt[i] > priceInInt[i + 1]) return true;
       else return false;
     }
   }
