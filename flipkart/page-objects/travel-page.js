@@ -26,8 +26,8 @@ class TravelPage extends Common {
       $('(//div[text()="Adults"]/../following-sibling::div//button)[2]');
     this.$children = () =>
       $('(//div[text()="Children"]/../following-sibling::div//button)[2]');
-    this.$economy = () =>
-      $('//div[text()="Economy"]/../../div[@class="_1XFPmK"]');
+    this.$economy = (economy) =>
+      $(`//div[text()="${economy}"]/../../div[@class="_1XFPmK"]`);
     this.$searchButton = () => $('//span[text()="SEARCH"]/..');
   }
   /**
@@ -38,6 +38,7 @@ class TravelPage extends Common {
    * @param {String} day
    * @param {String} adults
    * @param {String} children
+   * @param {String} economy
    */
   async searchForFlight(
     departureCity,
@@ -45,7 +46,8 @@ class TravelPage extends Common {
     month,
     day,
     adults,
-    children
+    children,
+    economy
   ) {
     await this.$radioButton().click();
     await this.$fromcity().setValue(departureCity);
@@ -61,7 +63,7 @@ class TravelPage extends Common {
     for (let i = 0; i < children; i++) {
       await this.$children().click();
     }
-    await this.$economy().click();
+    await this.$economy(economy).click();
     await this.$searchButton().click();
     await travelPage
       .$cityDeparture(departureCity)

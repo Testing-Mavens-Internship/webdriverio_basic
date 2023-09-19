@@ -21,7 +21,8 @@ describe("End to end automation of flipkart", () => {
       data.month,
       data.day,
       data.adults,
-      data.children
+      data.children,
+      data.economy
     );
     expect(
       await searchResultsPage.$cityDeparture(data.departureCity).isDisplayed()

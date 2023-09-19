@@ -6,6 +6,7 @@
  "day" : "27",
  "adults":3,
  "children":2,
+ "economy":"Economy",
  "timing":["Early Morning","Morning","Afternoon","Night"],
  "airlinesName":"Air India"
 
