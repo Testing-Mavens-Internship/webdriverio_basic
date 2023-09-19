@@ -1,0 +1,9 @@
+{
+ "flight" : "Vistara",
+"fromDestination" :"BOM",
+"toDestination" :"BLR",
+"month" : "Sept",
+"day" : "22",
+ "adultNumber" : 3,
+"departureTime" : "Early Morning"
+}

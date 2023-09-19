@@ -1,8 +1,9 @@
 import { cartPage } from "../pageobjects/cart-page.js";
 import { contactUs } from "../pageobjects/contact-us-page.js";
 import { homePage } from "../pageobjects/home-page.js";
+import data from "../testdata/testdata.json" assert{type: "json"};
 
-let fullName = "Vaishnav S";
+//let fullName = "Vaishnav S";
 let email = "vsn@gmail.com";
 let phoneNumber = 1234567890;
 let address = "p.o.house";
@@ -33,7 +34,7 @@ xdescribe("End to end flow of maven konnect", () => {
   });
 
   it("Fill Contact Us form", async () => {
-    await contactUs.fillForm(fullName, email, phoneNumber);
+    await contactUs.fillForm(data.fullName, email, phoneNumber);
     await contactUs.submit();
     await browser.acceptAlert();
     expect(await contactUs.$thankYouHeader().isDisplayed())
