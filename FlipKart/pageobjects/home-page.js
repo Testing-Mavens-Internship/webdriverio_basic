@@ -22,20 +22,27 @@ class HomePage extends Common {
     await this.$travelTitle().waitForDisplayed({timeout:7000});
     await this.$travelTitle().click();
   }
-  /**
-   * Method for searching flight
-   * @param {string} from 
-   * @param {string} to 
-   */
-  async searchFlightTickets(from,to,adults,children){
-    await this.$clickTextFields("departcity").setValue("Mumbai");
-    await this.$selectAirports("BOM").waitForClickable();
-    await this.$selectAirports("BOM").click();
-    await this.$clickTextFields("arrivalcity").setValue("Cochin");
-    await this.$selectAirports("COK").waitForClickable();
-    await this.$selectAirports("COK").click();
+ /**
+  * 
+  * @param {string} from 
+  * @param {string} to 
+  * @param {string} clickFrom 
+  * @param {string} clickTo 
+  * @param {string} month 
+  * @param {string} day 
+  * @param {string} adults 
+  * @param {string} children 
+  * @param {string} cabinClass 
+  */
+  async searchFlightTickets(from,to,clickFrom,clickTo,month,day,adults,children,cabinClass){
+    await this.$clickTextFields("departcity").setValue(from);
+    await this.$selectAirports(clickFrom).waitForClickable();
+    await this.$selectAirports(clickFrom).click();
+    await this.$clickTextFields("arrivalcity").setValue(to);
+    await this.$selectAirports(clickTo).waitForClickable();
+    await this.$selectAirports(clickTo).click();
     await this.$clickTextFields("datefrom").click();
-    await this.$departOn("October 2023","1").click();
+    await this.$departOn(month,day).click();
     await this.$clickTextFields("travellerclasscount").click();
     for(let i=0;i<adults-1;i++){
       await this.$travellers("Adults").click();
@@ -43,7 +50,7 @@ class HomePage extends Common {
     for(let j=0;j<children;j++){
       await this.$travellers("Children").click();
     }
-    await this.$cabinClass("Business").click();
+    await this.$cabinClass(cabinClass).click();
     await this.$doneButton("Done").click();
     await this.$searchButton().click();
   }

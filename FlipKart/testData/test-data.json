@@ -1,7 +1,12 @@
 {
 
- "from" : "BOM",
- "to" : "COK",
+ "from" : "Mumbai",
+ "to" : "Cochin",
+ "clickFrom" : "BOM",
+ "clickTo" : "COK",
+ "month" : "October 2023",
+ "day": "1",
+ "cabinClass" : "Business",
  "adults" : "3",
  "children" : "2"
 

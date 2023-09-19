@@ -14,7 +14,7 @@ describe('My Login application', () => {
     })
 
     it('book flight tickets', async () => {
-        await homePage.searchFlightTickets(data.from,data.to,data.adults,data.children)
+        await homePage.searchFlightTickets(data.from,data.to,data.clickFrom,data.clickTo,data.month,data.day,data.adults,data.children,data.cabinClass)
         expect(await homePage.$travelHeader().isDisplayed()).withContext('expect travel header is displayed ').toBe(true);
         expect(await homePage.$validateFrom().waitForDisplayed()).withContext('expect from place is displayed ').toBe(true);
         expect(await homePage.$validateTo().waitForDisplayed()).withContext('expect to place is displayed ').toBe(true);
