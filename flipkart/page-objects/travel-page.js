@@ -30,7 +30,7 @@ class TravelPage extends CommonPage {
    * @param {string} cabin 
    * @param {string} elementTodisplay
    */
-  async fillUpDetails(from, to, month, day, traveller, cabin, elementTodisplay) {
+  async fillUpDetails(from, to, month, day, traveller, cabin) {
     await this.$inputField("From").setValue(from);
     await this.$selectField(from).waitForClickable({ timeout: 2000 });
     await this.$selectField(from).click();
@@ -45,6 +45,7 @@ class TravelPage extends CommonPage {
     await this.$search().waitForClickable({ timeout: 3000 });
     await this.$search().click();
     await this.$loadText('Looking for flights...').waitForDisplayed({ timeout : 4000 });
+
   }
 }
 export const travelPage = new TravelPage();

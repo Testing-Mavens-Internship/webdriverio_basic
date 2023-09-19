@@ -7,5 +7,7 @@
 "day" : "28",
 "cabin" : "Business",
 "traveller" : "Adults",
-"departureTime" : "Night"
+"departureFilter" : "Afternoon",
+"startTime" : "12.00",
+"endTime" : "17:59"
 }

@@ -6,13 +6,8 @@ import testdata from "../testdata/travel.json" assert { type: "json" };
 describe("Automation of flight booking in flipkart", () => {
   it("Load the url of Flipkart", async () => {
     await homePage.openUrl();
-    expect(await homePage.$loginPopUp().isDisplayed())
-      .withContext("Expect login popup to be displayed")
-      .toBe(true);
-  });
-
-  it("Close login PopUp", async () => {
     await homePage.clickOnClose();
+    
     expect(await homePage.$loginPopUp().isDisplayed())
       .withContext("Expect login popup to be closed")
       .toBe(false);
@@ -35,10 +30,9 @@ describe("Automation of flight booking in flipkart", () => {
       testdata.month,
       testdata.day,
       testdata.traveller,
-      testdata.cabin,
-      flightPage.$airport(1)
+      testdata.cabin
     );
-    expect(await travelPage.$loadText("Looking for flights...").isDisplayed())
+    expect(await travelPage.$loadText("Looking for flights..").isDisplayed())
       .withContext("Expect flight looking animation to be displayed")
       .toBe(true);
   });
@@ -67,7 +61,7 @@ describe("Automation of flight booking in flipkart", () => {
         .withContext(`expect from to be ${testdata.from}`)
         .toBe(true);
       expect(await flightPage.$destinationCode(testdata.to).isDisplayed())
-        .withContext(`expect from to be ${testdata.to}`)
+        .withContext(`expect destination to be ${testdata.to}`)
         .toBe(true);
     }
   });
@@ -75,9 +69,7 @@ describe("Automation of flight booking in flipkart", () => {
   it("Click on price filter and verify price is sorted or not", async () => {
     await flightPage.clickOnPriceSort();
 
-    let price = await flightPage
-      .$$flightPrice()
-      .map((price) => price.getText());
+    let price = await flightPage.$$flightPrice().map((price) => price.getText());
     let flightPrice = price.map((item) => item.split(",").join("").slice(1));
 
     expect(await flightPage.isPriceSorted(flightPrice))
@@ -85,9 +77,18 @@ describe("Automation of flight booking in flipkart", () => {
       .toBe(true);
   });
 
-  it("Click on departure time filter and Book Flight", async () => {
-    await flightPage.clickOnFilter("Night");
+  it("Click on Departure time filter", async() =>{
+    await flightPage.clickOnFilter(testdata.departureFilter);
+    let departureTime = await flightPage.$$departureTime().map((time) => time.getText());
 
+    for(let time of departureTime){
+      expect(await flightPage.isTimeInFilter(testdata.startTime, testdata.endTime, time))
+    .withContext(`Expect ${time} belongs to ${testdata.departureFilter}`)
+    .toBe(true);
+    }
+  });
+
+  it("Click on Book Flight", async () => {
     let flightBooking = await flightPage.$$flightName().map((items) => items.getText());
     console.log(flightBooking[0]);
     await flightPage.clickOnBook(flightBooking[0]);

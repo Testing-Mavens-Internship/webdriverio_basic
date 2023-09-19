@@ -1,4 +1,3 @@
-import { el, th } from "@faker-js/faker";
 import CommonPage from "./common-page.js";
 
 class FlightPage extends CommonPage{
@@ -13,7 +12,7 @@ class FlightPage extends CommonPage{
         this.$flightDetails = (flight) => $(`//span[text()='${flight}']/ancestor::div[@class="_3xFhY1"]/following-sibling::div//span`);
         this.$priceSort = () => $(`//div[@class="_1ysLi0"]`);
         this.$$flightPrice = () => $$(`//div[@class="_3uUoiD"]`);
-        this.$book = () => $(`(//div[@class="_2IAB80"]/following-sibling::div[@class="_-5f1wK"])[1]`);
+        this.$$departureTime = () => $$(`//div[@class="_2GJTkY"]//span[@class="_2l73WS _1ljBda"]`);
         this.$booking = (flight) => $(`//span[contains(text(),'${flight}')]/ancestor::div[@class="_2IAB80"]/following-sibling::div[@class="_-5f1wK"]`)
     }
     /**
@@ -68,6 +67,26 @@ class FlightPage extends CommonPage{
      */
     async verifyAirport(searchedPlace, displayedPlace){
         if(searchedPlace == displayedPlace){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    /**
+     * 
+     * @param {string} startTime 
+     * @param {string} endTime 
+     * @param {string} time 
+     * @returns boolean
+     */
+    async isTimeInFilter(startTime, endTime, time){
+        const [hours, minutes] = time.split(':').map(Number);
+        const [startHours, startMinutes] = startTime.split(':').map(Number);
+        const [endHours, endMinutes] = endTime.split(':').map(Number);
+
+        if((hours > startHours || (hours === startHours && minutes >= startMinutes)) &&
+        (hours < endHours || (hours === endHours && minutes < endMinutes))){
             return true;
         }
         else{
