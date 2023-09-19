@@ -32,11 +32,34 @@ describe("Automation workflow of Flipkart website",()=>{
       })
       it("Select non stop and verify ",async ()=>{
         await flightsPage.selectNonStop()
-        expect(await flightsPage.$filterCheck().isDisplayed())
+        expect(await flightsPage.$page("Clear filters").isDisplayed())
           .withContext("Clear filter button is displayed")
           .toBe(true)
       })
-      it("Details",async ()=>{
+      it("Click on Flight details and verify route",async ()=>{
         await flightsPage.clickOnDetails()
+        let count = await flightsPage.$$flights().length
+        for(let i=1;i<=count;i++){
+          expect(await flightsPage.$routeCheck("COK",i).isDisplayed())
+          .withContext("Expecting COK to be displayed")
+          .toBe(true)
+          expect(await flightsPage.$routeCheck("BOM",i).isDisplayed())
+          .withContext("Expecting BOM to be displayed")
+          .toBe(true)
+        }
+      })
+      it("Filter by departure and verify",async ()=>{
+        await flightsPage.filterByTime("Morning")
+        let len=flightsPage.$$getTime().length
+        for(let i=1;i<=len;i++){
+          if(i%2!=0){
+              let time = flightsPage.$$getTime().getText()
+              if(time>="06:00"){
+                  expect(flightsPage.$verifyTime(i).isDisplayed())
+                    .withContext("Expecting Time to be displayed")
+                    .toBe(true)
+              }
+          }
+        }
       })
 })

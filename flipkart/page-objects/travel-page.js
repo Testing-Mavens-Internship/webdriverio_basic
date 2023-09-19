@@ -21,6 +21,8 @@ class Travel extends Common{
         await this.$add("Children").doubleClick()
         await this.$button("Done").click()
         await this.$search().click()
+        await this.$route("Kochi").waitForDisplayed({timeout:20000})
+        await this.$route("Mumbai").waitForDisplayed({timeout:20000})
     }
 }
 export const travelPage = new Travel()
