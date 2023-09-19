@@ -32,8 +32,7 @@ class TravelPage extends Common {
     this.$book = () => $(`(//div[text()="Book"])[1]`);
     this.$$price = () => $$(`//div[@class="_3uUoiD"]`);
     this.$sortPrice = () => $(`//span[text()="PRICE"]`);
-    this.$flightDetails = (index) =>
-      $(`(//span[text()="Flight Details"])[${index}]`);
+    this.$flightDetails = (index) =>$(`(//span[text()="Flight Details"])[${index}]`);
     this.$fromValidate = (place) =>
       $(`//span[@class="_2KEcM_" and contains(text(),"${place}")]`);
     this.$$records = () => $$(`//div[@class="_367J6x"]`);

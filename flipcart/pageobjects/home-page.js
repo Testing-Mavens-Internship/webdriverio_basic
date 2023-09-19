@@ -13,7 +13,7 @@ class HomePage extends Common {
    */
   async clickOnClose() {
     await this.$closeLogin().click();
-    await this.$travelButton().waitForDisplayed({ timeout: 5000 });
+    await this.$travelButton().waitForClickable({ timeout: 5000 });
   }
   /**
    * Method to click on travel option and navigat to travel page
