@@ -8,6 +8,7 @@ describe("Flipkart flight booking automation", () => {
     expect(await homePage.$logo().isDisplayed())
       .withContext("Expect logo to be displayed")
       .toBe(true);
+    expect(await homePage.$travel().isDisplayed()).withContext("Expect travel option to be deiplayed").toBe(true);
   });
 
   it("click on travel option and verify navigation", async () => {
@@ -15,6 +16,7 @@ describe("Flipkart flight booking automation", () => {
     expect(await homePage.$details("01").isDisplayed())
       .withContext("Expect from input field to be displayed")
       .toBe(true);
+    expect(await homePage.$searchButton().isDisplayed()).withContext("Expect search button to be displayed").toBe(true);
   });
 
   it("Enter details and search", async () => {
@@ -32,7 +34,7 @@ describe("Flipkart flight booking automation", () => {
       .toBe(true);
     count = await flightsPage.getCount();
     for (let i = 1; i <= count; i++) {
-      await flightsPage.clickOnFlightDetails(i);
+      await flightsPage.clickOnFlightDetails(i,data.from);
       expect(await flightsPage.$outputFlightDetails(data.from).isDisplayed())
         .withContext("Expect source to be kochi")
         .toBe(true);

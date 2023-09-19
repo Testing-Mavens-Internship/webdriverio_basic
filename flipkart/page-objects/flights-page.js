@@ -42,7 +42,7 @@ class FlightsPage extends Common {
    @param {string} time2
    */
   async verifyDepartureTime(time1, time2) {
-    let flag;
+    let flag = false;
     let timesArray = [];
     timesArray = await this.$$times().map((item) => item.getText());
     console.log(timesArray);
@@ -60,7 +60,7 @@ class FlightsPage extends Common {
    * Method to verify sort option
    */
   async verifySort() {
-    let flag;
+    let flag = false;
     await this.$sort().click();
     let priceArray = [];
     let price = [];
@@ -71,7 +71,7 @@ class FlightsPage extends Common {
       price.push(parseInt(item.replace(/[₹,]/g, "")));
     }
     console.log(price);
-    for (let i = 0; i < price.length - 1; i++) {
+    for (let i = 0; i < price.length-1; i++) {
       if (price[i] >= price[i + 1]) {
         flag = true;
       } else {
@@ -82,10 +82,12 @@ class FlightsPage extends Common {
   }
   /**
    * @param {number} i 
+   * @param {string} source 
    * Method to click flight details
    */
-  async clickOnFlightDetails(i){
+  async clickOnFlightDetails(i,source){
     await this.$flightDetails(i).click();
+    await this.$outputFlightDetails(source).waitForDisplayed({timeout: 3000});
   }
   /**
    * Method to click book option
