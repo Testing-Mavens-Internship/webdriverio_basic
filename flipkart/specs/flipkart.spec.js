@@ -29,6 +29,14 @@ describe("End to end automation of flipkart", () => {
       await searchResultsPage.$cityArrival(data.arrivalCity).isDisplayed()
     ).toBe(true);
   });
+  it("Validate whether the prices are sorted according to selection", async () => {
+    let sortValidation = await searchResultsPage.sortPrice();
+    expect(await sortValidation).toBe(true);
+  });
+  it("Validate flight timing",async()=>{
+   let time= await searchResultsPage.flightTiming(data.timing[1])
+   expect(await time).toBe(true)
+  })
   it("Validate flight details", async () => {
     for (let i = 1; i < searchResultsPage.$$flightDetails().length; i++) {
       await searchResultsPage.flightValidation(i);
@@ -41,10 +49,8 @@ describe("End to end automation of flipkart", () => {
       ).toBe(true);
     }
   });
-  it("Validate whether the prices are sorted according to selection", async () => {
-    let sortValidation = await searchResultsPage.sortPrice();
-    expect(await sortValidation).toBe(true);
-  });
+
+
   it("Choose flight", async () => {
     await searchResultsPage.chooseFlight();
     expect(await searchResultsPage.$loginHeader().isDisplayed()).toBe(true);

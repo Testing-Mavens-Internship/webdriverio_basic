@@ -5,4 +5,7 @@
  "month" : "October 2023",
  "day" : "27",
  "adults":3,
- "children":2}
+ "children":2,
+ "timing":["Early Morning","Morning","Afternoon","Night"]
+
+}

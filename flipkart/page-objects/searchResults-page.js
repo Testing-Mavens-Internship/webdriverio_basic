@@ -1,6 +1,8 @@
 import Common from "./Common.js";
+import time from "gettime";
 let priceArray = [];
 let sortArray = [];
+let timeArray = [];
 class SearchResultsPage extends Common {
   constructor() {
     super();
@@ -25,7 +27,62 @@ class SearchResultsPage extends Common {
       $(`//div[@class="_3K77nP"]/span[text()="${name}"]`);
     this.$$ticketPrice = () => $$('//div[@class="_3uUoiD"]');
     this.$sortButton = () => $('//span[text()="PRICE"]');
+    this.$flightTiming = (time) => $(`//div[text()="${time}"]`);
+    this.$$flightTIme = () => $$('//span[@class="_2l73WS _1ljBda"]');
   }
+  /**
+   * Methos to validate timing if flight
+   * @param {Strin} timing 
+   * @returns boolean 
+   */
+  async flightTiming(timing) {
+    if (timing == "Early Morning") {
+      this.$flightTiming(timing).click();
+      timeArray = await this.$$flightTIme().map((item) => item.getText());
+      for (let i = 0; i < this.$$flightTIme().length; i++) {
+        if (item > "00:00" && item < "6:00") {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    }
+    if (timing == "Morning") {
+      await this.$flightTiming(timing).click();
+      timeArray = await this.$$flightTIme().map((item) => item.getText());
+
+      for (let item of timeArray) {
+        if ("06:00" < item && item < "12:00") {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    }
+    if (timing == "Afternoon") {
+      await this.$flightTiming(timing).click();
+      timeArray = await this.$$flightTIme().map((item) => item.getText());
+      for (let item of timeArray) {
+        if ("06:00" < item && item < "18:00") {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    }
+    if (timing == "Night") {
+      this.$flightTiming(timing).click();
+      timeArray = await this.$$flightTIme().map((item) => item.getText());
+      for (let item of timeArray) {
+        if ("18:00" < item && item < "24:00") {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    }
+  }
+
   /**
    * Method to validate to and from city in search results page
    * @param {String} index
