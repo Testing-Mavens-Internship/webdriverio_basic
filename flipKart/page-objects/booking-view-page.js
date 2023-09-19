@@ -54,7 +54,7 @@ class BookingViewPage {
     }
     console.log(priceInInt);
     for (let i = 0; i < priceInInt.length; i++) {
-      if (priceInInt[i] > priceInInt[i + 1]) return true;
+      if (priceInInt[i] >= priceInInt[i + 1]) return true;
       else return false;
     }
   }
