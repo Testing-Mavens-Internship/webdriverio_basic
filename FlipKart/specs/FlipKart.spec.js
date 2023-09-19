@@ -22,19 +22,22 @@ describe('My Login application', () => {
     })
 
     it('Apply filters', async () => {
-        await bookingPage.applyFilters()
+        await bookingPage.applyFilters(data.time[0])
+        expect (await bookingPage.timeValidation(data.time[0])).withContext("Expect depart time is between the applied time filter").toBe(true);
         expect(await bookingPage.$ticketPrice("₹30,653").isDisplayed()).withContext('expect highest price is displayed ').toBe(true);
     })
+
     it("Sorting of flight price", async ()=> {
         await bookingPage.sortPrice();
         expect (await bookingPage.sortPrice()).withContext("Expect price is displayed in decsending order").toBe(true);
       });
 
     it("Validate flight details",async()=>{
-        for(let i=1;i<bookingPage.$$flightDetails().length;i++){
-    await bookingPage.validateFlight(i)
-    expect (await bookingPage.$airportValidation(from).isDisplayed).toBe(true)
-    expect (await bookingPage.$airportValidation(to).isDisplayed).toBe(true)
+        for(let i=1;i<await bookingPage.$$flightDetails().length;i++){
+        await bookingPage.validateFlight(i)
+    expect(await bookingPage.$chooseAirline().isEqual(await bookingPage.$airlineValidation()))
+    expect (await bookingPage.$airportValidation(data.clickFrom,i).isDisplayed()).toBe(true)
+    expect (await bookingPage.$airportValidation(data.clickTo,i).isDisplayed()).toBe(true)
      }
     })
 

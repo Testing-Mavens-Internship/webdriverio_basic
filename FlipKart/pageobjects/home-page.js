@@ -19,8 +19,8 @@ class HomePage extends Common {
    * Method for searching travel header
    */
   async clickOnTravel(){
-    await this.$travelTitle().waitForDisplayed({timeout:7000});
     await this.$travelTitle().click();
+    await this.$travelHeader().waitForDisplayed({setTimeout:20000});
   }
  /**
   * 
@@ -53,6 +53,7 @@ class HomePage extends Common {
     await this.$cabinClass(cabinClass).click();
     await this.$doneButton("Done").click();
     await this.$searchButton().click();
+    await this.$travelHeader().waitForDisplayed({setTimeout:20000});
   }
 }
 export const homePage = new HomePage();

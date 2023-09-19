@@ -8,6 +8,8 @@
  "day": "1",
  "cabinClass" : "Business",
  "adults" : "3",
- "children" : "2"
+ "children" : "2",
+ "time":["Early Morning","Morning","Afternoon","Night"],
+ 
 
 }
