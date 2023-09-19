@@ -13,8 +13,8 @@ class PracticeForm{
         this.$nameFields=(name)=>$(`//label[contains(text(),'${name}')]/../..//input`)
 
         this.$lastName=()=>$(`//input[@id="lastName"]`)
-
         this.$gender=(gender)=>$(`//label[text()="${gender}"]`)
+        this.$upload=()=>$(`//input[@id="uploadPicture"]`)
 
     }
 
@@ -22,27 +22,20 @@ class PracticeForm{
 
         await this.$textBoxName(PracticeFormNavTitle).click()
 
-        await browser.pause(3000);
-
-       // await this.$practiceFormTitle().waitForDisplayed({setTimeout:30000})
+        await this.$practiceFormTitle().waitForDisplayed({setTimeout:30000})
 
     }
 
     async clickOnNameField(Names,email,sex,phoneNumber,date){
 
         await this.$nameFields("Name").setValue(Names)
-
         await this.$lastName("Name").setValue("Salu")
-
         await this.$nameFields("Email").setValue(email)
-
         await this.$gender(sex).click()
-
         await this.$nameFields("Mobile").setValue(phoneNumber)
-
         await this.$nameFields("Date").setValue(date)
+        await this.$upload().click();
 
-        await browser.pause(3000);
 
     }
 

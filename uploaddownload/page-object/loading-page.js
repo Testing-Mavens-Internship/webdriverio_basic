@@ -1,9 +1,8 @@
-import { elementPage }  from "../pageobjects/element-page.js";
-
 class LaunchPage{
     constructor() {
         this.$logo = () => $('//div[@id="app"]//header//img');
         this.$tile = (name) => $(`//div[@class="category-cards"]//h5[text()="${name}"]`)
+        this.$header = () => $('div.main-header', 'Elements');
 
 
     }
@@ -26,8 +25,7 @@ class LaunchPage{
     async clickOnTile(tileName) {
         await this.$tile(tileName).scrollIntoView({block:"center"});
         await this.$tile(tileName).click();
-        //await elementPage.$header("Elements").waitForDisplayed({timeout:20000});
-        // await elementPage.$button("Web Table").waitForDisplayed({timeout:20000});
+        
     }
 } 
- export const launchPage= new LaunchPage()
+ export const launchP= new LaunchPage()

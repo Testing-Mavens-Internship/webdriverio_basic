@@ -12,7 +12,6 @@ class HomePage extends Common {
   /**
    * Method to click on Contact Us
    */
-
   async clickOnContactUs() {
     await this.$contactUs().click();
     let windowHandle = await browser.getWindowHandles();
@@ -23,7 +22,6 @@ class HomePage extends Common {
   /**
    * Methdod to click Cart icon
    */
-
   async clickOnCartIcon() {
     await this.$cartIcon().click();
     await cartPage.$cartPageHeader().waitForDisplayed({ timeout: 20000 });

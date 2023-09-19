@@ -7,11 +7,8 @@ export default class Common {
   }
 
   /**
-
-   * Method to launch url
-
+   * Method to launch the url
    */
-
   async launchUrl() {
     await browser.url("https://demotmwebsite.github.io/");
     await browser.maximizeWindow();

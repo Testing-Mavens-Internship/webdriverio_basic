@@ -41,16 +41,13 @@ describe("End to end flow automation of MavenKonnect", () => {
 
   it("Click on home menu and verify navigation", async () => {
     await contactPage.clickOnHome();
-
     expect(await homePage.$header().isDisplayed())
       .withContext("Expext homepage header to be displayed")
-
       .toBe(true);
   });
 
   it("Click on cart icon and verify navigation", async () => {
     await homePage.clickOnCartIcon();
-
     expect(await cartPage.$cartPageHeader().isDisplayed())
       .withContext("Expect cart page header to be displayed")
 
@@ -71,7 +68,6 @@ describe("End to end flow automation of MavenKonnect", () => {
       expiryYear,
       cvv
     );
-
     expect(await contactPage.$thankYou().isDisplayed())
       .withContext("Expect thankyou message to be displayed")
       .toBe(true);

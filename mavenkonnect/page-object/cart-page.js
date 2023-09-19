@@ -23,7 +23,6 @@ class CartPage extends Common {
    * @param {string} expiryYear
    * @param {string} cvv
    */
-
   async fillForm(
     fullName,
     eMail,

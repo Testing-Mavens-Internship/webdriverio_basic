@@ -30,9 +30,7 @@ class ContactPage extends Common {
   }
 
   /**
-
    * Method to click on home menu
-
    */
   async clickOnHome() {
     await this.$home().click();
@@ -41,7 +39,6 @@ class ContactPage extends Common {
     await browser.switchToWindow(windowHandle[0]);
     await homePage.$header().waitForDisplayed({ timeout: 20000 });
   }
-
 }
 
 export const contactPage = new ContactPage();

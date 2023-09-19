@@ -1,0 +1,17 @@
+{
+
+
+        "from":"Kochi",
+        "to":"Bangalore",
+        "month":"September",
+        "day":"20",
+        "departureTime": "Morning",
+        "categoryAdults": "Adults",
+        "categoryChildren": "Children",
+        "ticketClass": "Premium Economy",
+        "category" : "Travel",
+        "flightNumber": "UK-518 | UK-865",
+        "time": "Afternoon",
+        "departureTimeShift": "12:00",
+        "arrivalTimeShift" : "18:00"
+}
