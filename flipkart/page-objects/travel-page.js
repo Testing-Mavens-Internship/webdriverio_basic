@@ -10,6 +10,9 @@ class Travel extends Common{
         this.$route = (route)=>$(`//div[@class="_3Jcym_"]//span[text()="${route}"]`)
         this.$selectField = (airport) => $(`//div[contains(text(),'${airport}')]/ancestor::div[@class="_3uA4ax"]`);
     }
+    /**
+     * Used to set information to search for flights
+     */
     async setFrom(){
         await this.$mode("From").setValue(testdata.from)
         await this.$selectField(testdata.fromClick).click()

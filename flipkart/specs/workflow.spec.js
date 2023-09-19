@@ -50,16 +50,8 @@ describe("Automation workflow of Flipkart website",()=>{
       })
       it("Filter by departure and verify",async ()=>{
         await flightsPage.filterByTime("Morning")
-        let len=flightsPage.$$getTime().length
-        for(let i=1;i<=len;i++){
-          if(i%2!=0){
-              let time = flightsPage.$$getTime().getText()
-              if(time>="06:00"){
-                  expect(flightsPage.$verifyTime(i).isDisplayed())
-                    .withContext("Expecting Time to be displayed")
-                    .toBe(true)
-              }
-          }
-        }
+        expect(await flightsPage.verifyDepartureTime("06:00","12:00"))
+          .withContext("Expecting time range to be true")
+          .toBe(true)
       })
 })
