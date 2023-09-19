@@ -12,7 +12,6 @@ describe("Buy a flight ticket for 5 members in flipkart travel page:", () => {
     expect(await launchPage.$logo().isDisplayed())
       .withContext("Expect the flipkart logo to be displayed")
       .toBe(true);
-
   });
 
   it("fill the flight details", async () => {
@@ -37,7 +36,7 @@ describe("Buy a flight ticket for 5 members in flipkart travel page:", () => {
       }
   })
 
-  it("Apply filter and book flight ticket", async () => {
+  it("Apply filter and sort the price details", async () => {
     await flightPage.applyTimeFilter();
     expect(await flightPage.sortPrice())
       .withContext("Expect the highest price to be displayed")

@@ -33,6 +33,10 @@ class FlightPage extends Common {
     await browser.pause(3000);
     await this.$priceFilter().waitForDisplayed({timeout:2000});
   }
+  /**
+   * Method to sort the price 
+   * @returns boolean
+   */
   async sortPrice(){
     let flightPrice = [];
     let newFlightPrice =[];
@@ -52,6 +56,10 @@ class FlightPage extends Common {
       }
     }
   }
+  /**
+   * Method to verify the flight details
+   * @param {Number} index 
+   */
   async verifyFlightDetails(index){
     await this.$flight(index).click();
 
