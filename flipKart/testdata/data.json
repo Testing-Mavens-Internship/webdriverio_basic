@@ -5,12 +5,11 @@
         "to":"Bangalore",
         "month":"September",
         "day":"22",
-       
         "categoryAdults": "Adults",
         "categoryChildren": "Children",
-        "ticketClass": "Premium Economy",
+        "ticketClass": "Economy",
         "category" : "Travel",
-        "flightNumber": "UK-518 | UK-865",
+        "flightNumber": "6E-968",
         "time": "Afternoon",
         "departureTimeShift": "12:00",
         "arrivalTimeShift" : "18:00"
