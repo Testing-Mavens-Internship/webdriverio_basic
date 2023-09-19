@@ -6,5 +6,6 @@
 "month" : "September",
 "day" : "28",
 "cabin" : "Business",
-"traveller" : "Adults"
+"traveller" : "Adults",
+"departureTime" : "Night"
 }

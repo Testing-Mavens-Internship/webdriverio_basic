@@ -11,7 +11,7 @@ class HomePage extends CommonPage{
      */
     async clickOnMenuIcon(icon){
         await this.$menuIcon(icon).click();
-        await this.$header('Travel').waitForDisplayed({ timeout : 1000 });
+        await this.$header('Travel').waitForDisplayed({ timeout : 3500 });
     }
     /**
      * Method for selecting search type

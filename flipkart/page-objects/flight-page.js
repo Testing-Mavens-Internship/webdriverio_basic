@@ -1,10 +1,10 @@
-import { th } from "@faker-js/faker";
+import { el, th } from "@faker-js/faker";
 import CommonPage from "./common-page.js";
 
 class FlightPage extends CommonPage{
     constructor(){
         super();
-        this.$airport = (place) => $(`//span[@class="_271Zih"][contains(text(),'${place}')]`);
+        this.$airport = (index) => $(`(//span[@class="_271Zih"])[${index}]`);
         this.$fromCode = (code) => $(`//div[@class="_3K77nP"]//span[text()='${code}']`);
         this.$destinationCode = (code) => $(`//span[@class="_2vwrMb"][text()='${code}']`);
         this.$filter = (type) => $(`//div[@class="_325M91"][contains(text(),'${type}')]`);
@@ -14,6 +14,7 @@ class FlightPage extends CommonPage{
         this.$priceSort = () => $(`//div[@class="_1ysLi0"]`);
         this.$$flightPrice = () => $$(`//div[@class="_3uUoiD"]`);
         this.$book = () => $(`(//div[@class="_2IAB80"]/following-sibling::div[@class="_-5f1wK"])[1]`);
+        this.$booking = (flight) => $(`//span[contains(text(),'${flight}')]/ancestor::div[@class="_2IAB80"]/following-sibling::div[@class="_-5f1wK"]`)
     }
     /**
      * method for applying filter
@@ -56,8 +57,22 @@ class FlightPage extends CommonPage{
     /**
      * Method for click on booking
      */
-    async clickOnBook(){
-        await this.$book().click();
+    async clickOnBook(flight){
+        await this.$booking(flight).click();
+    }
+    /**
+     * Method for verifying searched place and displayed Place
+     * @param {string} searchedPlace 
+     * @param {string} displayedPlace 
+     * @returns string
+     */
+    async verifyAirport(searchedPlace, displayedPlace){
+        if(searchedPlace == displayedPlace){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
     
 }
