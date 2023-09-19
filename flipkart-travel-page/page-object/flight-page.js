@@ -22,6 +22,7 @@ class FlightPage extends Common {
    * Method to apply filter
    */
   async applyTimeFilter(time) {
+    await this.$stopFilter("Non-stop").waitForClickable();
     await this.$stopFilter("Non-stop").click();
     await this.$flightTime(time).click();
     await this.$priceFilter().click();
@@ -135,7 +136,7 @@ async verifyTime(timeFilter)
  */
   async verifyFlightDetails(index){
     await this.$flight(index).click();
-
+    await this.$flight(index).waitForClickable();
   }
 /**
  * Method to click on Book button
