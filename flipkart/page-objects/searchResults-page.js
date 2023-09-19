@@ -14,7 +14,9 @@ class SearchResultsPage extends Common {
       $(
         `//div[text()="To"]/..//div[@class="_3qBKP_ _1Jqgld"]/input[contains(@value,"${city}")]`
       );
-    this.$flight = () => $('//div[text()="Air India"]');
+    this.$flight = (airlinesName) => $(`//div[text()="${airlinesName}"]`);
+    this.$$flightName=(airlinesName)=>$$(`//div[@class="ZLipHt"]/span[contains(text(),"${airlinesName}")]`)
+    this.$airlinesName=(airlinesName,index)=>$(`(//div[@class="ZLipHt"]/span[contains(text(),"${airlinesName}")])[${index}]`)
     this.$bookFlight = () =>
       $(
         '//span[text()="SpiceJet"]/ancestor::div[@class="_2IAB80"]/following-sibling::div[@class="_-5f1wK"]'
@@ -22,9 +24,9 @@ class SearchResultsPage extends Common {
     this.$bookFlight1 = () => $('(//div[@class="_-5f1wK"])[1]');
     this.$loginHeader = () => $('//span[text()="Login"]');
     this.$$flightDetails = () => $$('//span[@class="KO_IQZ"]');
-    this.$flightDetail = (index) => $(`//span[@class="KO_IQZ"][${index}]`);
-    this.$validationCity = (name) =>
-      $(`//div[@class="_3K77nP"]/span[text()="${name}"]`);
+    this.$flightDetail = (index) => $(`(//span[text()="Flight Details"])[${index}]`);
+    this.$validationCity = (name,index) =>
+      $(`(//span[text()="Flight Details"]/ancestor::div//div//span[text()="${name}"])[${index}]`);
     this.$$ticketPrice = () => $$('//div[@class="_3uUoiD"]');
     this.$sortButton = () => $('//span[text()="PRICE"]');
     this.$flightTiming = (time) => $(`//div[text()="${time}"]`);
@@ -88,34 +90,44 @@ class SearchResultsPage extends Common {
    * @param {String} index
    * @param {String} name
    */
-  async flightValidation(index, name) {
+  async flightValidation(index,departure,arrival) {
     await this.$flightDetail(index).click();
+    await this.$flightDetail(index).waitForDisplayed({timeout:20000})
+    
   }
   /**
    * Method to sort the search result in descending order
    * @returns boolean
-   */
-  async sortPrice() {
-    await this.$flight().click();
-    await this.$sortButton().click();
-    priceArray = await this.$$ticketPrice().map((item) => item.getText());
-    sortArray = await priceArray
-      .map((item) => item.replace(/[₹,]/g, ""))
-      .map(Number);
-    for (let i = 0; i < sortArray.length; i++) {
-      if (sortArray[i] >= sortArray[i + 1]) {
-        return true;
+  */
+ async sortPrice() {
+   await this.$sortButton().click();
+   priceArray = await this.$$ticketPrice().map((item) => item.getText());
+   sortArray = await priceArray
+   .map((item) => item.replace(/[₹,]/g, ""))
+   .map(Number);
+   for (let i = 0; i < sortArray.length; i++) {
+     if (sortArray[i] >= sortArray[i + 1]) {
+       return true;
       } else {
         return false;
+      
       }
     }
   }
   /**
-   * Method the book the flight
+   * Method to filter out a certain airlines
    */
-  async chooseFlight() {
-    await this.$bookFlight1().click();
-    await searchResultsPage.$loginHeader().waitForDisplayed({ timeout: 6000 });
+  async chooseAirline(airlinesName){
+    await this.$flight(airlinesName).click()
+  }
+
+  /**
+   * Method the book the flight
+  */
+ async chooseFlight() {
+   await this.$bookFlight1().scrollIntoView({block : 'start'})
+   await this.$bookFlight1().click();
+   await searchResultsPage.$loginHeader().waitForDisplayed({ timeout: 6000 });
   }
 }
 

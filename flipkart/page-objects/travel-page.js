@@ -3,6 +3,7 @@ import Common from "./Common.js";
 class TravelPage extends Common {
   constructor() {
     super();
+    this.$travelHeader = () => $('//div[text()="Travel"]');
     this.$radioButton = () =>
       $('//label[@for="ONE_WAY"]//div[@class="_1XFPmK"]');
     this.$fromcity = () =>
