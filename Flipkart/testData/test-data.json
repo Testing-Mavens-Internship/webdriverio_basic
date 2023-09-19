@@ -2,13 +2,17 @@
     "directionFrom": "01",
     "directionTo"  : "02",
     "locationFrom" : "COK",
-    "locationTo"   : "BOM",
+    "locationTo"   : "LAX",
     "locationNameFrom":"Kochi",
-    "locationNameTo":"Mumbai",
-    "date":"20",
+    "locationNameTo":"Los Angles",
+    "date":"5",
     "Adult" : "Adults",
     "Children" :"Children",
     "noOfAdult":"1",
     "noOFChildren":"1",
-    "className":"Premium Economy"
+    "className":"Premium Economy",
+    "Time":"Morning",
+    "startTime":"06:00",
+    "endTime":"12:00",
+    "airlines":"Air Canada"
 }
