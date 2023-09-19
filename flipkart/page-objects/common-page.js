@@ -4,10 +4,7 @@ export default class CommonPage{
         this.$menuIcon = (list) => $(`//div[@class="eFQ30H"]//div[contains(text(),'${list}')]`);
         this.$header = (text) => $(`//div[@class="lAXZRO"][contains(text(),'${text}')]`);
         this.$loginPopUp = () => $(`//div[@class="_2QfC02"]`);
-        this.$loginPopUp2 = () => $(`class="JFPqaw"`);
         this.$button = (value) => $(`//button[contains(text(),'${value}')]`);
-        this.$closeButton = () => $(`//button[@class="_2KpZ6l _2doB4z"]`);
-        this.$revertUI = () => $(`//div[@class="X7fEwA"]//img[@alt="Not Really"]`);
     }
     /**
      * load url of Flipkart application

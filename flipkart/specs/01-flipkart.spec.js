@@ -51,12 +51,10 @@ describe("Automation of flight booking in flipkart", () => {
 
   it("Verify loaded flight details", async () => {
     await flightPage.clickOnFilter("Non-stop");
-
     let flightArray = await flightPage.$$flightName().map((items) => items.getText());
 
     for (let flight of flightArray) {
       await flightPage.clickOnDetails(flight);
-
       expect(await flightPage.$fromCode(testdata.from).isDisplayed())
         .withContext(`expect from to be ${testdata.from}`)
         .toBe(true);
@@ -68,7 +66,6 @@ describe("Automation of flight booking in flipkart", () => {
 
   it("Click on price filter and verify price is sorted or not", async () => {
     await flightPage.clickOnPriceSort();
-
     let price = await flightPage.$$flightPrice().map((price) => price.getText());
     let flightPrice = price.map((item) => item.split(",").join("").slice(1));
 
@@ -89,8 +86,8 @@ describe("Automation of flight booking in flipkart", () => {
   });
 
   it("Click on Book Flight", async () => {
+    await flightPage.clickOnPriceSort();
     let flightBooking = await flightPage.$$flightName().map((items) => items.getText());
-    console.log(flightBooking[0]);
     await flightPage.clickOnBook(flightBooking[0]);
 
     expect(await flightPage.$button("Request OTP").isDisplayed())
