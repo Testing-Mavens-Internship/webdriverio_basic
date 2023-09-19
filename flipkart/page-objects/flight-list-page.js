@@ -19,7 +19,7 @@ class FligthDetails extends Common{
         this.$clickDetailsFrom = (from) =>$(`//div[@class="_3K77nP"]//span[text()="${from}"]`);
         this.$clickDetailsTo = (to) =>$(`//div[@class="_3K77nP _29BGl3"]//span[text()="${to}"]`)
         this.$$departTime = () => $$(`//span[@class="_2l73WS _1ljBda"]`);
-        this.$flightName = (flightName) => $(`//div[@class="ZLipHt"]//span[text()="Vistara"]`)
+        this.$flightName = (flightName) => $(`//div[@class="ZLipHt"]//span[text()="${flightName}"]`)
     }
 
     /**

@@ -2,7 +2,7 @@ import Common from "./common.js";
 class TravelPage extends Common {
   constructor() {
     super();
-    this.$loginHeade = () => $('//a[text() = "Login"]');
+    this.$loginButton = () => $('//a[text() = "Login"]');
     this.$tripType = (trip) => $(`//input[@id="${trip}"]`);
     this.$tripTypeAlternate = (trip) => $(`//label[@for ="${trip}"]`);
     this.$fromToDepartReturnClass = (index) => $(`//input[@name="0-${index}"]`);
@@ -66,11 +66,12 @@ class TravelPage extends Common {
     await this.$date(month, day).click();
   }
   /**
-   * Method to increment or decremment the count of the people based on peopletype(adults,children,infants)
+   * Method to click the travelers
+   * @param {string} travelers 
    */
-  async travelerClass() {
-    await this.$passengerPlus("Adults").doubleClick();
-    await this.$passengerPlus("Children").click();
+  async travelerClass(travelers) {
+    await this.$passengerPlus(travelers).doubleClick();
+    await this.$passengerPlus(travelers).click();
   }
 
   /**

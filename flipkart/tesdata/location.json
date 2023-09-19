@@ -8,5 +8,6 @@
     "toClick" : "BOM",
     "time" : ["Early Morning","Morning","Afternoon","Night"],
     "airlines" : ["SpiceJet","Vistara","Air India","Air Asia", "IndiGo","Akasa Air"],
-    "stops" :["Non-stop", "1 stop"]
+    "stops" :["Non-stop", "1 stop"],
+    "travelers" :["Adults","Children","Infants"]
 }  
