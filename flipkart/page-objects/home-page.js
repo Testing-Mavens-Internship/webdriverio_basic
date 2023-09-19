@@ -2,8 +2,7 @@ import  Common  from "./common.js";
 class HomeFlipkart extends Common{
     constructor(){
         super();
-        this.$closeLogin =() =>$('//button[text()="✕"]')
-        this.$closeLoginAlternate = () =>$('//span[text()="✕"]');
+        this.$closeLogin =() =>$('//*[text() ="✕"]')
         this.$flipKartHeader = ()=>$('//img[@title="Flipkart"]');
         this.$clickType = (data) =>$(`//div[@class ="xtXmba"][text()="${data}"]`)
         this.$travelClick = () =>$('//img[@alt="Travel"]')
@@ -14,12 +13,8 @@ class HomeFlipkart extends Common{
      * Method to click on the close button in the login pop up
      */
     async clickCloseLogin(){
-        let closeLogin = await this.$closeLogin().isClickable();
-        if(closeLogin){
-            await this.$closeLogin().click();
-        }
-        else 
-        await this.$closeLoginAlternate().click();
+        await this.$closeLogin().isClickable();
+        await this.$closeLogin().click();
     }
     /**
      * Click on the travel button present in the home screen
@@ -30,7 +25,8 @@ class HomeFlipkart extends Common{
             await this.$clickType("Travel").click();
         }
         else 
-        await this.$travelClick().click(); 
+        await this.$travelClick().click();
+     //await $waitElement.waitForDisplayed()
     }
 }
 export const homeFlipkart = new HomeFlipkart()

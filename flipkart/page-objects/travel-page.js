@@ -2,22 +2,22 @@ import Common from "./common.js";
 class TravelPage extends Common {
   constructor() {
     super();
-    this.$travelHeader = () => $('//div[@class ="lAXZRO"][text() = "Travel"]');
+    this.$loginHeade = () => $('//a[text() = "Login"]');
     this.$tripType = (trip) => $(`//input[@id="${trip}"]`);
     this.$tripTypeAlternate = (trip) => $(`//label[@for ="${trip}"]`);
     this.$fromToDepartReturnClass = (index) => $(`//input[@name="0-${index}"]`);
     this.$location = (fromOrTo) => $(`//div[text() ="${fromOrTo}"]`);
 
-    this.$fromLocationValidation = () =>
+    this.$fromLocationValidation = (from) =>
       $(
-        '//input[@tabindex="01" and @value ="Kochi, COK - Cochin International Airport, India"]'
+        `//input[@tabindex="01" and contains(@value,"${from}")]`
       );
-    this.$toLocationValidaiton = () =>
+    this.$toLocationValidaiton = (to) =>
       $(
-        '//input[@tabindex="02" and @value ="Mumbai, BOM - Chatrapati Shivaji Airport, India" or @value ="Mumbai, BOM - Chatrapati Shivaji International Airport"]'
+        `//input[@tabindex="02" and contains(@value,"${to}")]`
       );
     this.$dateValidation = () =>
-      $('//input[@tabindex="03" and @value="24 Sep, Sun"]');
+      $('//input[@tabindex="03" and @value="20 Sep, Wed"]');
     this.$date = (month, day) =>
       $(
         `//div[contains(text(),"${month}")]/ancestor::thead/following-sibling::tbody//button[contains(text(),"${day}")]`
@@ -34,30 +34,36 @@ class TravelPage extends Common {
     this.$clickDone = () => $('//button[text()="Done"]');
     this.$clickSearch = () =>
       $('//button[@type="button"]//span[text()="SEARCH"]');
-  }
-  /**
-   * Click on from location
-   */
-  async fromLocation() {
-    await this.$fromToDepartReturnClass("departcity").setValue("cochin");
-    await this.$location("COK").waitForClickable();
-    await this.$location("COK").click();
-  }
 
-  /**
-   *Select the to location
-   */
-  async toLocation() {
-    await this.$fromToDepartReturnClass("arrivalcity").setValue("mumbai");
-    await this.$location("BOM").waitForClickable();
-    await this.$location("BOM").click();
   }
   /**
-   * Select Departuire date
+   * Method to enter the from location
+   * @param {string} from 
+   * @param {string} toClick
    */
-  async selectDepartDate() {
-    await this.$date("September", "24").scrollIntoView({ block: "center" });
-    await this.$date("September", "24").click();
+  async fromLocation(from, fromClick) {
+    await this.$fromToDepartReturnClass("departcity").setValue(from);
+    await this.$location(fromClick).waitForClickable();
+    await this.$location(fromClick).click();
+  }
+  /**
+   * Method to enter the to location
+   * @param {string} to 
+   * @param {string} toClick
+   */
+  async toLocation(to, toClick) {
+    await this.$fromToDepartReturnClass("arrivalcity").setValue(to);
+    await this.$location(toClick).waitForClickable();
+    await this.$location(toClick).click();
+  }
+  /**
+   * Method to enter the date
+   * @param {sting} month 
+   * @param {string} day 
+   */
+  async selectDepartDate(month, day) {
+    await this.$date(month, day).scrollIntoView({ block: "center" });
+    await this.$date(month, day).click();
   }
   /**
    * Method to increment or decremment the count of the people based on peopletype(adults,children,infants)
@@ -65,17 +71,18 @@ class TravelPage extends Common {
   async travelerClass() {
     await this.$passengerPlus("Adults").doubleClick();
     await this.$passengerPlus("Children").click();
-    await browser.pause(2000);
   }
 
   /**
+   * /**
    * Method to click the cabin
    * e => economy
    * w => premium economy
    * b => business
+   * @param {string} cabin 
    */
-  async selectCabinClass() {
-    await this.$cabinClass("e").click;
+  async selectCabinClass(cabin) {
+    await this.$cabinClass(cabin).click;
   }
   /**
    * Click on the done button

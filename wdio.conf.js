@@ -167,6 +167,8 @@ export const config = {
         // or website depending on the result. For example, it is pretty handy to take a screenshot every time
         // an assertion fails.
         expectationResultHandler: function(passed, assertion) {
+            if (!passed )
+            debugger
             // do something
         }
     },

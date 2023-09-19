@@ -1,0 +1,12 @@
+{
+    "from" : "Kochi",
+    "to" : "Mumbai",
+    "month" : "September",
+    "day" : "20",
+    "cabin" : ["e","w","b"],
+    "fromClick" : "COK",
+    "toClick" : "BOM",
+    "time" : ["Early Morning","Morning","Afternoon","Night"],
+    "airlines" : ["SpiceJet","Vistara","Air India","Air Asia", "IndiGo","Akasa Air"],
+    "stops" :["Non-stop", "1 stop"]
+}  
