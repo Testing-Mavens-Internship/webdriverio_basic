@@ -43,7 +43,7 @@ class FlightPage extends CommonPage{
     /**
      * Method for checking flight price is sorted or not
      * @param {number} priceArray 
-     * @returns 
+     * @returns  boolean
      */
     async isPriceSorted(priceArray){
         for (let i = 1; i < priceArray.length; i++) {
