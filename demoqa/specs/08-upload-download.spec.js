@@ -1,6 +1,10 @@
 import { openingPage } from "../page-objects/opening-page.js";
 import { elementsPage } from "../page-objects/elements-page.js";
 import { uploadDownloadPage } from "../page-objects/upload-download-page.js";
+import { DownloadFolder } from 'download-folder';
+
+let download = new DownloadFolder();
+let expectedExtension = '.jpeg'; 
 
 describe("Demo QA Application Upload and download automation", () => {
   it("load the demo qa url", async () => {
@@ -39,6 +43,13 @@ describe("Demo QA Application Upload and download automation", () => {
   });
 
   it("Dowload File", async() => {
-    await uploadDownloadPage.downloadFile();
+    await download.startMonitoring();
+    await uploadDownloadPage.clickOndownload();
+    
+    let downloadedFileName =  await download.getLastDownloadedFileName();
+
+  expect(await uploadDownloadPage.verifyDownload(expectedExtension, downloadedFileName))
+    .withContext(`Expect File to be downloaded with expected extension`)
+    .toBe(true);
   });
 })
