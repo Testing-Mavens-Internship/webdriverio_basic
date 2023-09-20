@@ -18,8 +18,8 @@ class TravelPage extends Common {
       $(
         `//div[@class="_1Di8FC"]//div[@class="_2zLOdI"][text()="${value}"]/../following-sibling::div//button[@class="_2KpZ6l _34K0qG _37Ieie"]`
       );
-    this.$class = () =>
-      $(`//div[@class="_2jIO64 _1NhOqr"]//div[text()="Premium Economy"]`);
+    this.$class = (seat) =>
+      $(`//div[@class="_2jIO64 _1NhOqr"]//div[text()="${seat}"]`);
     this.$done = () => $(`//button[text()="Done"]`);
     this.$search = () => $(`//button[@class="_2KpZ6l _1QYQF8 _3dESVI"]`);
     this.$validate = (time, place) =>
@@ -32,7 +32,8 @@ class TravelPage extends Common {
     this.$book = () => $(`(//div[text()="Book"])[1]`);
     this.$$price = () => $$(`//div[@class="_3uUoiD"]`);
     this.$sortPrice = () => $(`//span[text()="PRICE"]`);
-    this.$flightDetails = (index) =>$(`(//span[text()="Flight Details"])[${index}]`);
+    this.$flightDetails = (index) =>
+      $(`(//span[text()="Flight Details"])[${index}]`);
     this.$fromValidate = (place) =>
       $(`//span[@class="_2KEcM_" and contains(text(),"${place}")]`);
     this.$$records = () => $$(`//div[@class="_367J6x"]`);
@@ -41,8 +42,10 @@ class TravelPage extends Common {
         `(//span[text()="Flight Details"]/ancestor::div//div//span[text()="${place}"])[${index}]`
       );
     this.$$departTime = () => $$(`//span[@class="_2l73WS _1ljBda"]`);
-    this.$filter = (filters) =>$(`//div[@class ="_325M91"][text()="${filters}"]`);
-    this.$flightName = (flightName) => $(`//div[@class="ZLipHt"]//span[text()="${flightName}"]`)
+    this.$filter = (filters) =>
+      $(`//div[@class ="_325M91"][text()="${filters}"]`);
+    this.$flightName = (flightName) =>
+      $(`//div[@class="ZLipHt"]//span[text()="${flightName}"]`);
   }
   /**
    * Method to enter from, to, date, class, and number of travellers
@@ -51,7 +54,7 @@ class TravelPage extends Common {
    * @param {string} month
    * @param {string} date
    */
-  async enterLoaction(departure, arrival, month, date, adults, children) {
+  async enterLoaction(departure, arrival, month, date, adults, children, seat) {
     await this.$from().setValue(departure);
     await this.$fromOption(departure).click();
     await this.$to().setValue(arrival);
@@ -59,7 +62,7 @@ class TravelPage extends Common {
     await this.$date(month, date).click();
     await this.$travellers(adults).doubleClick();
     await this.$travellers(children).doubleClick();
-    await this.$class().click();
+    await this.$class(seat).click();
     await this.$done().click();
     await this.$search().click();
     await this.$travel().waitForDisplayed({ timeout: 5000 });
@@ -136,6 +139,10 @@ class TravelPage extends Common {
       }
     }
   }
+  /**
+   * Method to click on flight name
+   * @param {string} flight
+   */
   async clickOnFlight(flight) {
     await this.$filter(flight).waitForClickable();
     await this.$filter(flight).click();

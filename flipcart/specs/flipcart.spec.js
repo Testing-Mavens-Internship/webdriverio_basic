@@ -31,7 +31,8 @@ describe("End-to-End automation of Flipcart application", () => {
       data.month,
       data.date,
       data.adults,
-      data.children
+      data.children,
+      data.seat[0]
     );
     expect(await travelPage.$travel().isDisplayed())
       .withContext("Expect the header to be displayed")

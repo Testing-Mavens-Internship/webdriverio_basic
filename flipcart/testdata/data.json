@@ -8,5 +8,6 @@
     "children" : "Children",
     "fromCode" :"COK",
     "toCode":"BOM" ,
-    "airlines" : ["SpiceJet","Vistara","Air India","Air Asia", "IndiGo","Akasa Air"]
+    "airlines" : ["SpiceJet","Vistara","Air India","Air Asia", "IndiGo","Akasa Air"],
+    "seat" : ["Premium Economy","Economy","Business"]
 }
