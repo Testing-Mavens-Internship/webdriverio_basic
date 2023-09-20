@@ -65,7 +65,7 @@ class SearchResultsPage extends Common {
       await this.$flightTiming(timing).click();
       timeArray = await this.$$flightTIme().map((item) => item.getText());
       for (let item of timeArray) {
-        if ("06:00" < item && item < "18:00") {
+        if ("12:00" < item && item < "18:00") {
           return true;
         } else {
           return false;
@@ -76,7 +76,7 @@ class SearchResultsPage extends Common {
       this.$flightTiming(timing).click();
       timeArray = await this.$$flightTIme().map((item) => item.getText());
       for (let item of timeArray) {
-        if ("18:00" < item && item < "24:00") {
+        if ("18:00" < item && item < "23:59") {
           return true;
         } else {
           return false;
