@@ -1,10 +1,10 @@
 import Common from "./common.js";
-// import data from "get-time";
+
 
 class FlightPage extends Common {
   constructor() {
     super();
-    
+
     this.$verifyDetails = (data) => $(`//div[@class="_3Jcym_"]//span[text()="${data}"]`);
     this.$flightTime = (value) =>$(`//div[text()="${value}"]/ancestor::label//div[@class="_24_Dny _1MtB6C"]`);
     this.$stopFilter = (stop) => $(`//div[text()="${stop}"]`); 
@@ -55,7 +55,7 @@ class FlightPage extends Common {
     }
   }
 /**
- * Method to verify the appied time filter
+ * Method to verify the applied time filter
  * @param {Number} timeFilter 
  * @returns boolean
  */
@@ -134,16 +134,18 @@ async verifyTime(timeFilter)
  * Method to verify the flight details
  * @param {Number} index 
  */
-  async verifyFlightDetails(index){
+  async verifyFlightDetails(index)
+  {
     await this.$flight(index).click();
     await this.$flight(index).waitForClickable();
   }
 /**
  * Method to click on Book button
  */
-  async ClickOnBookButton(){
+ async ClickOnBookButton()
+ {
     await this.$bookButton().click();
     await this.$loginText().waitForDisplayed({ timeout: "3000" });
-  }
+ }
 }
 export const flightPage = new FlightPage();
