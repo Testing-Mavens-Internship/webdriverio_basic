@@ -10,6 +10,7 @@ class HomePage extends Common {
    */
   async selectProduct(section) {
     await this.$selectSection(section).click();
+    await this.$secondHeader(section).waitForDisplayed({timeout : 6000})
   }
 }
 export const homePage = new HomePage();

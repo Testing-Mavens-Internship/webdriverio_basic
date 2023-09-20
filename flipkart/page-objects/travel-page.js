@@ -1,5 +1,4 @@
 import Common from "./common.js";
-import { flightPage } from "./flight-page.js";
 class TravelPage extends Common {
   constructor() {
     super();
@@ -19,12 +18,10 @@ class TravelPage extends Common {
         `//div[text()="${month}"]/ancestor::table[@class="aSgzfL"]//td//button[text()="${day}"]`
       );
     this.$totalCount = () => $('//input[@name="0-travellerclasscount"]');
-    this.$adults = () =>
-      $('(//div[text()="Adults"]/../following-sibling::div//button)[2]');
-    this.$children = () =>
-      $('(//div[text()="Children"]/../following-sibling::div//button)[2]');
-    this.$cabinClass = () =>
-      $('//div[text()="Economy"]/../../div[@class="_1XFPmK"]');
+    this.$adultsChildren = (category) =>
+      $(`(//div[text()="${category}"]/../following-sibling::div//button)[2]`);
+    this.$cabinClass = (cabin) =>
+      $(`//div[text()="${cabin}"]/../../div[@class="_1XFPmK"]`);
     this.$searchButton = () => $('//span[text()="SEARCH"]/..');
   }
   /**
@@ -35,8 +32,9 @@ class TravelPage extends Common {
    * @param {string} day
    * @param {string} noOfAdults
    * @param {string} noOfChild
+   * @param {string} cabin
    */
-  async searchFlight(from, to, month, day, noOfAdults, noOfChild) {
+  async searchFlight(from, to, month, day, noOfAdults, noOfChild, cabin, verifyName) {
     await this.$from().setValue(from);
     await this.$departure(from).click();
     await this.$to().setValue(to);
@@ -45,15 +43,15 @@ class TravelPage extends Common {
     await this.$date(month, day).click();
     await this.$totalCount().click();
     for (let i = 0; i < noOfAdults - 1; i++) {
-      await this.$adults().click();
+      await this.$adultsChildren("Adults").click();
     }
     for (let i = 0; i < noOfChild; i++) {
-      await this.$children().click();
+      await this.$adultsChildren("Children").click();
     }
-    await this.$cabinClass().click();
+    await this.$cabinClass(cabin).click();
     await this.$searchButton().click();
-    await flightPage.$verifyName(from).waitForDisplayed({ timeout: 6000 });
-    await flightPage.$verifyName(to).waitForDisplayed({ timeout: 6000 });
+    await verifyName.waitForDisplayed({ timeout: 6000 });
+    await verifyName.waitForDisplayed({ timeout: 6000 });
   }
 }
 

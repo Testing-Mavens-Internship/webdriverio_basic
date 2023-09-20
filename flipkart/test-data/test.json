@@ -1,10 +1,16 @@
 {   
     "section" : "Travel",
+    "cabin" : "Business",
     "from" : "Mumbai",
     "to" : "Hyderabad",
+    "shortFrom" : "BOM",
+    "shortTo" : "HYD",
     "month" : "October 2023",
     "day" : "27",
     "noOfAdults" : "3",
     "noOfChild" : "2", 
-     "filter" : "Air India"
+    "filterAirline" : "Air India",
+    "filterDeparture" : "Night",
+    "filterStops" : "1 stop",
+    "validateStop" : "1"
 }

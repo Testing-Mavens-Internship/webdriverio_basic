@@ -25,24 +25,39 @@ describe("End to end automation of flipkart", () => {
       data.month,
       data.day,
       data.noOfAdults,
-      data.noOfChild
+      data.noOfChild,
+      data.cabin,
+      flightPage.$verifyName(data.from)
     );
     expect(await flightPage.$verifyName(data.from).isDisplayed()).toBe(true);
     expect(await flightPage.$verifyName(data.to).isDisplayed()).toBe(true);
   });
 
-  it("filter and sort flight details and verify result", async () => {
-    let sort = await flightPage.filterSort(data.filter);
-    expect(sort).toBe(true);
+  it("Sort flight details and verify result", async () => {
+    let sort = await flightPage.sortPrice();
+    expect(sort).toBe(true)
+  }); 
+
+  it("Apply filter to stop and airline",async () => {
+   await flightPage.filter(data.filterStops,data.filterAirline)
+   let count = await flightPage.$$getAirLine(data.filterAirline).length;
+    for(let index = 1; index<=count; index++){
+      expect(await flightPage.$validateAirLine(data.filterAirline,index).isDisplayed()).toBe(true)
+      expect(await flightPage.$validateStop(data.validateStop).isDisplayed()).toBe(true);
+    }
   });
 
+  it("Validate filtered departure time", async () => {
+    let time = await flightPage.validateDeparture(data.filterDeparture)
+    expect(time).toBe(true)
+  })
+
   it("Validate flight details", async () => {
-    for (let index = 1; index < flightPage.$$flightDetails().length; index++) {
+    let count = await flightPage.$$getFlightDetails().length;
+    for (let index = 1; index <= count; index++) {
       await flightPage.flightValidation(index);
-      expect(await flightPage.$validationCity(data.from).isDisplayed).toBe(
-        true
-      );
-      expect(await flightPage.$validationCity(data.to).isDisplayed).toBe(true);
+      expect(await flightPage.$validationPlace(data.shortFrom,index).isDisplayed()).toBe(true);
+      expect(await flightPage.$validationPlace(data.shortTo,index).isDisplayed()).toBe(true);
     }
   });
 
