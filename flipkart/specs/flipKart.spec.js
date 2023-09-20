@@ -111,7 +111,7 @@ describe("End to end autoamtion for flight booking in flipkart", () => {
 
   it("Click on the book button and login option must be displayed", async () => {
     await fligthDetails.clickOnBook();
-    expect(await fligthDetails.$loginHeader().waitForDisplayed({ timeout: 3000 }))
+    expect(await fligthDetails.$loginHeader().isDisplayed())
       .withContext("Login page should be displayed")
       .toBe(true);
   });
