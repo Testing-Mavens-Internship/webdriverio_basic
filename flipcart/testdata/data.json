@@ -7,5 +7,6 @@
     "adults" : "Adults",
     "children" : "Children",
     "fromCode" :"COK",
-    "toCode":"BOM" 
+    "toCode":"BOM" ,
+    "airlines" : ["SpiceJet","Vistara","Air India","Air Asia", "IndiGo","Akasa Air"]
 }

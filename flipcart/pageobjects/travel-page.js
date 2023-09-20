@@ -41,6 +41,8 @@ class TravelPage extends Common {
         `(//span[text()="Flight Details"]/ancestor::div//div//span[text()="${place}"])[${index}]`
       );
     this.$$departTime = () => $$(`//span[@class="_2l73WS _1ljBda"]`);
+    this.$filter = (filters) =>$(`//div[@class ="_325M91"][text()="${filters}"]`);
+    this.$flightName = (flightName) => $(`//div[@class="ZLipHt"]//span[text()="${flightName}"]`)
   }
   /**
    * Method to enter from, to, date, class, and number of travellers
@@ -133,6 +135,10 @@ class TravelPage extends Common {
         return false;
       }
     }
+  }
+  async clickOnFlight(flight) {
+    await this.$filter(flight).waitForClickable();
+    await this.$filter(flight).click();
   }
   /**
    * Method to get count of number of flights
