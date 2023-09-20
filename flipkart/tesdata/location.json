@@ -2,7 +2,7 @@
     "from" : "Kochi",
     "to" : "Mumbai",
     "month" : "September",
-    "day" : "20",
+    "day" : "21",
     "cabin" : ["e","w","b"],
     "fromClick" : "COK",
     "toClick" : "BOM",

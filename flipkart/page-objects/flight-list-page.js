@@ -52,7 +52,7 @@ class FligthDetails extends Common{
     /**
      * Method to click the sort price filter
      */
-    async clickOnPriceFilter(){
+     async clickOnPriceFilter(){
         await this.$sortPrice().click();
     }
     /**
@@ -65,9 +65,13 @@ class FligthDetails extends Common{
         for(let i of prices){
             replacedPrice.push(parseInt(i.replace(/[₹,]/g, "")));
         }
-        let flag=false;// ivide enthe value ane kodukane athe same value anme pass avunne
+        let flag = false;// ivide enthe value ane kodukane athe same value anme pass avunne
+        if(replacedPrice.length == 1){
+            flag = true;
+        }
         for(let i=0;i<replacedPrice.length-1;i++)
         {
+            
             if(replacedPrice[i]>=replacedPrice[i+1]){
                 flag = true;
             }
@@ -92,7 +96,6 @@ class FligthDetails extends Common{
    async getCount(){
        for(let i of await this.$$price()){
            prcieArray.push(await i.getText());
-           
         }
         let count = await  prcieArray.length;
         return  count ;
@@ -103,57 +106,57 @@ class FligthDetails extends Common{
      * @returns boolean
      */
     async getFromTime(flight){
-        let flag;
-        let departFrom = await this.$$departTime().map(item=>item.getText())
-        await this.$filter(flight).click();
+        let flag= false;
+        
         if(flight == "Early Morning"){
+            await this.$filter(flight).click();
+            let departFrom = await this.$$departTime().map(item=>item.getText())
             for(let i=0; i<departFrom.length;i++){
-            if(departFrom[i] >='00:00' && departFrom[i]<='6:00'){
-                flag = true
+            if(departFrom[i] >'00:00' && departFrom[i]<='6:00'){
+                flag = true;
             }
             else{
                 flag = false;
+            }   
+        }
+    }
+        if(flight == "Morning"){
+            await this.$filter(flight).click();
+            let departFrom = await this.$$departTime().map(item=>item.getText())
+            for(let i=0; i<departFrom.length;i++){
+                if(departFrom[i] >='06:01' && departFrom[i]<='11:59'){
+                flag = true;
             }
-            
+                else{
+                flag = false;
+            }
         }
-        return flag
     }
-    if(flight == "Morning"){
-        for(let i=0; i<departFrom.length;i++){
-        if(departFrom[i] >='06:00' && departFrom[i]<='12:00'){
-            flag = true
+        if(flight == "Afternoon"){
+            await this.$filter(flight).click();
+            let departFrom = await this.$$departTime().map(item=>item.getText())
+            for(let i=0; i<departFrom.length;i++){
+                if(departFrom[i] >='12:00' && departFrom[i]<='18:00'){
+                flag = true;
+            }
+                else{
+                flag = false;
+            }
         }
-        else{
-            flag = false;
-        }
-        
     }
-        return flag
+        if(flight == "Night"){
+            await this.$filter(flight).click();
+            let departFrom = await this.$$departTime().map(item=>item.getText())
+            for(let i=0; i<departFrom.length;i++){
+                if(departFrom[i] >='18:01' && departFrom[i]<='23:59' || departFrom[i]== "00:00"){
+                flag = true;
+            }
+                else{
+                flag = false;
+                }    
+            }
     }
-    if(flight == "Afternoon"){
-        for(let i=0; i<departFrom.length;i++){
-        if(departFrom[i] >='12:00' && departFrom[i]<='18:00'){
-            flag = true
-        }
-        else{
-            flag = false;
-        }
-        
-    }
-        return flag
-    }
-    if(flight == "Night"){
-        for(let i=0; i<departFrom.length;i++){
-        if(departFrom[i] >='18:00' && departFrom[i]<='23:59' || departFrom[i]== "00:00"){
-            flag = true
-        }
-        else{
-            flag = false;
-        }
-        
-    }
-        return flag
-    }
+    return flag
 }
     /**
      * Method to click on the flight filter

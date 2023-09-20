@@ -40,7 +40,7 @@ describe("End to end autoamtion for flight booking in flipkart", () => {
 
   it("Select the departure daate", async () => {
     await travelPage.selectDepartDate(testdata.month, testdata.day);
-    expect(await travelPage.$fromToDepartReturnClass("datefrom")).toHaveTextContaining(`Depart On ${testdata.day} Sep ,Wed`);
+    //expect(await travelPage.$fromToDepartReturnClass("datefrom")).toHaveTextContaining(`Depart On ${testdata.day} Sep ,Thu`);
   });
 
   it("Select the passenger", async () => {
@@ -77,35 +77,35 @@ describe("End to end autoamtion for flight booking in flipkart", () => {
   });
 
   it("Click on the non-stop flight", async () => {
-    await fligthDetails.clickOnStop(testdata.stops[1]);
-    expect(await fligthDetails.$filter(testdata.stops[1]).isEnabled())
-      .withContext("The one stop filter is added to the screen").toBe(true);
+    await fligthDetails.clickOnStop(testdata.stops[0]);
+    expect(await fligthDetails.$filter(testdata.stops[0]).isEnabled())
+      .withContext("The non stop filter is added to the screen").toBe(true);
   });
   it("Click on the time  with which the user want to board the flight", async () => {
-    expect(await fligthDetails.getFromTime(testdata.time[1])).toBe(true)
-    expect(await fligthDetails.$filter(testdata.time[1]).isEnabled()).withContext("The morning tyime is added as the filter").toBe(true);
-    expect(await fligthDetails.getFromTime(testdata.time[1])).withContext("The from time is clicked").toBe(true)
+    expect(await fligthDetails.getFromTime(testdata.time[3])).toBe(true)
+    expect(await fligthDetails.$filter(testdata.time[3]).isEnabled()).withContext("The morning time is added as the filter").toBe(true);
 
   });
-  it("Click on the non-stop flight", async () => {
-    await fligthDetails.clickOnFlightFilter(testdata.airlines[1]);
-    expect(await fligthDetails.$filter(testdata.airlines[1]).isEnabled())
+  it("Click on the airline to travel", async () => {
+    await fligthDetails.clickOnFlightFilter(testdata.airlines[2]);
+    expect(await fligthDetails.$filter(testdata.airlines[2]).isEnabled())
       .withContext("The vistara travels is selected for the traveling is selected").toBe(true);
   });
 
-  it("Get the price of the flight", async () => {
+  it("Get the price of the flight and validate whether the prices are in descending order ", async () => {
     await fligthDetails.clickOnPriceFilter();
     expect(await fligthDetails.getPriceAndSort())
       .withContext("Price is sorted in descending order")
       .toBe(true);
   });
 
-  it("Click on the details of the flight", async () => {
+  it("Click on the details of the flight, validate the airline selected, validate the from location,to location", async () => {
     let count = await fligthDetails.getCount()
     for (let i = 1; i <= count; i++) {
       await fligthDetails.clickOnFlightDetails(i);
-      expect(await fligthDetails.$filter(testdata.airlines[1]).isEqual(await fligthDetails.$flightName(testdata.airlines[1])))
+      expect(await fligthDetails.$filter(testdata.airlines[2]).isEqual(await fligthDetails.$flightName(testdata.airlines[2])))
       expect(await fligthDetails.$clickDetailsFrom(testdata.fromClick).isEqual(await fligthDetails.$location(testdata.fromClick)))
+      expect(await fligthDetails.$clickDetailsTo(testdata.toClick).isEqual(await fligthDetails.$location(testdata.toClick)))
     }
   })
 

@@ -17,7 +17,7 @@ class TravelPage extends Common {
         `//input[@tabindex="02" and contains(@value,"${to}")]`
       );
     this.$dateValidation = () =>
-      $('//input[@tabindex="03" and @value="20 Sep, Wed"]');
+      $('//input[@tabindex="03" and @value="21 Sep, Thu"]');
     this.$date = (month, day) =>
       $(
         `//div[contains(text(),"${month}")]/ancestor::thead/following-sibling::tbody//button[contains(text(),"${day}")]`
