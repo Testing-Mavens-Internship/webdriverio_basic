@@ -68,7 +68,7 @@ let time = await this.$$timeValidation().map(item=>item.getText());
 let flag;
 console.log(time)
 for(let item of time){
-  if((item>='06:00')&&(item<='18:00')){
+  if((item>='12:00')&&(item<='18:00')){
     flag = true;
   }
   else{
@@ -82,7 +82,7 @@ let time = await this.$$timeValidation().map(item=>item.getText());
 let flag;
 console.log(time)
 for(let item of time){
-  if((item>='18:00')&&(item<='24:00')){
+  if((item>='18:00')&&(item<='23:59')){
     flag = true;
   }
   else{
