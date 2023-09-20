@@ -12,8 +12,7 @@ export default class CommonPage{
     async openUrl(){
         await browser.url('https://www.flipkart.com/');
         await browser.maximizeWindow();
-        await this.$loginPopUp().waitForDisplayed({ timeout : 3000}) 
-        || await this.$loginPopUp2().waitForDisplayed({ timeout : 2000});
+        await this.$loginPopUp().waitForDisplayed({ timeout : 3000});
     }
     /**
      * Method for closing login popup
