@@ -6,8 +6,6 @@ class HomeFlipkart extends Common{
         this.$flipKartHeader = ()=>$('//img[@title="Flipkart"]');
         this.$clickType = (data) =>$(`//div[@class ="xtXmba"][text()="${data}"]`)
         this.$travelClick = () =>$('//img[@alt="Travel"]')
-        
-
     }
     /**
      * Method to click on the close button in the login pop up

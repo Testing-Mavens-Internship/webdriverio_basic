@@ -1,7 +1,6 @@
 import { openingPage } from "../page-objects/opening-page.js";
 import { elementsPage } from "../page-objects/elements-page.js";
 import { uploadDownloadPage } from "../page-objects/upload-download-page.js";
-
 describe("Demo QA Application Links automation", () => {
   it("load the demo qa url", async () => {
     await openingPage.openUrl();
@@ -30,10 +29,15 @@ describe("Demo QA Application Links automation", () => {
       .withContext("Expect page header to be displayed")
       .toBe(true);
   });
+  it("Download a file", async()=>{
+    await uploadDownloadPage.downloadFile();
+  })
   it("Uploading a file", async()=>{
     await uploadDownloadPage.clickUpload();
     expect(await uploadDownloadPage.$verifyUpload().isDisplayed())
     .withContext("Expect the fake path to be dsiplayed")
     .toBe(true);
   });
+
+  
 })

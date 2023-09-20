@@ -40,7 +40,7 @@ describe("End to end autoamtion for flight booking in flipkart", () => {
 
   it("Select the departure daate", async () => {
     await travelPage.selectDepartDate(testdata.month, testdata.day);
-    //expect(await travelPage.$fromToDepartReturnClass("datefrom")).toHaveTextContaining(`Depart On ${testdata.day} Sep ,Thu`);
+    expect(await travelPage.$fromToDepartReturnClass("datefrom")).toHaveTextContaining(`Depart On ${testdata.day} Sep ,Thu`);
   });
 
   it("Select the passenger", async () => {

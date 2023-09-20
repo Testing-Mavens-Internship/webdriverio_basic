@@ -1,23 +1,23 @@
-import  Common  from "./common.js";
-let prices= [];
-let prcieArray =[];
+import Common from "./common.js";
+let prices = [];
+let prcieArray = [];
 let replacedPrice = [];
 
 
-class FligthDetails extends Common{
-    constructor(){
+class FligthDetails extends Common {
+    constructor() {
         super();
-        this.$filterByText = () =>$('//div[@class ="_2CzBsO"][text()="Filter By"]')
-        this.$filter = (filters) =>$(`//div[@class ="_325M91"][text()="${filters}"]`)
-        this.$clickBook = () =>$('//div[@class="_-5f1wK"][text()="Book"]');
-        this.$$price = () =>$$('//div[@class ="_3uUoiD"]')
-        this.$sortPrice = () =>$('//span[@class ="_3W-vry"][text()="PRICE"]')
-        this.$loginHeader = () =>$('//span[@class="_36KMOx"]//span[text()="Login"]')
-        this.$location = (fromTo) =>$(`//span[@class="_271Zih"][text()="${fromTo}"]`)
-        this.$airLineValidation = (airlines) =>$(`//div[@class="ZLipHt"]//span[text()="${airlines}"]`)
-        this.$clickFlightDetails = (flightDetails) =>$(`(//div[@class="WwPZ25"]//span[text()="Flight Details"])[${flightDetails}]`)
-        this.$clickDetailsFrom = (from) =>$(`//div[@class="_3K77nP"]//span[text()="${from}"]`);
-        this.$clickDetailsTo = (to) =>$(`//div[@class="_3K77nP _29BGl3"]//span[text()="${to}"]`)
+        this.$filterByText = () => $('//div[@class ="_2CzBsO"][text()="Filter By"]')
+        this.$filter = (filters) => $(`//div[@class ="_325M91"][text()="${filters}"]`)
+        this.$clickBook = () => $('//div[@class="_-5f1wK"][text()="Book"]');
+        this.$$price = () => $$('//div[@class ="_3uUoiD"]')
+        this.$sortPrice = () => $('//span[@class ="_3W-vry"][text()="PRICE"]')
+        this.$loginHeader = () => $('//span[@class="_36KMOx"]//span[text()="Login"]')
+        this.$location = (fromTo) => $(`//span[@class="_271Zih"][text()="${fromTo}"]`)
+        this.$airLineValidation = (airlines) => $(`//div[@class="ZLipHt"]//span[text()="${airlines}"]`)
+        this.$clickFlightDetails = (flightDetails) => $(`(//div[@class="WwPZ25"]//span[text()="Flight Details"])[${flightDetails}]`)
+        this.$clickDetailsFrom = (from) => $(`//div[@class="_3K77nP"]//span[text()="${from}"]`);
+        this.$clickDetailsTo = (to) => $(`//div[@class="_3K77nP _29BGl3"]//span[text()="${to}"]`)
         this.$$departTime = () => $$(`//span[@class="_2l73WS _1ljBda"]`);
         this.$flightName = (flightName) => $(`//div[@class="ZLipHt"]//span[text()="${flightName}"]`)
     }
@@ -25,58 +25,57 @@ class FligthDetails extends Common{
     /**
      * Method to click the sort price
      */
-    async sortPrice(){
+    async sortPrice() {
         await this.$sortPrice().click();
     }
     /**
      * Method to select flight with or without stop
      */
-    async clickOnStop(stop){
-        await this.$filter(stop).click();   
+    async clickOnStop(stop) {
+        await this.$filter(stop).click();
     }
     /**
      * Method to click the morning flight
      */
-    async clickOnTime(time){
-        await this.$filter(time).scrollIntoView({block : "center"})
+    async clickOnTime(time) {
+        await this.$filter(time).scrollIntoView({ block: "center" })
         await this.$filter(time).click()
     }
-    
+
     /**
      * Method to click on the book flight
     */
-   async clickOnBook(){
-       await this.$clickBook().isClickable()
-       await this.$clickBook().click()
+    async clickOnBook() {
+        await this.$clickBook().isClickable()
+        await this.$clickBook().click()
     }
     /**
      * Method to click the sort price filter
      */
-     async clickOnPriceFilter(){
+    async clickOnPriceFilter() {
         await this.$sortPrice().click();
     }
     /**
      * Method to get price,sorting and replacing the rupee sign 
     */
-   async getPriceAndSort(){
-    for(let price of await this.$$price()){
-        prices.push(await price.getText());
+    async getPriceAndSort() {
+        for (let price of await this.$$price()) {
+            prices.push(await price.getText());
         }
-        for(let i of prices){
+        for (let i of prices) {
             replacedPrice.push(parseInt(i.replace(/[₹,]/g, "")));
         }
         let flag = false;// ivide enthe value ane kodukane athe same value anme pass avunne
-        if(replacedPrice.length == 1){
+        if (replacedPrice.length == 1) {
             flag = true;
         }
-        for(let i=0;i<replacedPrice.length-1;i++)
-        {
-            
-            if(replacedPrice[i]>=replacedPrice[i+1]){
+        for (let i = 0; i < replacedPrice.length - 1; i++) {
+
+            if (replacedPrice[i] >= replacedPrice[i + 1]) {
                 flag = true;
             }
-            else{
-                flag= false;    
+            else {
+                flag = false;
             }
         }
         return flag;
@@ -85,84 +84,84 @@ class FligthDetails extends Common{
      * Method to click on the flight details
      * @param {number} index 
     */
-   async clickOnFlightDetails(index){
-       await this.$clickFlightDetails(index).click();
-       await this.$clickFlightDetails(index).waitForClickable();
+    async clickOnFlightDetails(index) {
+        await this.$clickFlightDetails(index).click();
+        await this.$clickFlightDetails(index).waitForClickable();
     }
     /**
      * Method to get count of the flights
      * @returns number
     */
-   async getCount(){
-       for(let i of await this.$$price()){
-           prcieArray.push(await i.getText());
+    async getCount() {
+        for (let i of await this.$$price()) {
+            prcieArray.push(await i.getText());
         }
-        let count = await  prcieArray.length;
-        return  count ;
+        let count = await prcieArray.length;
+        return count;
     }
     /**
      * 
      * @param {string} flight 
      * @returns boolean
      */
-    async getFromTime(flight){
-        let flag= false;
-        
-        if(flight == "Early Morning"){
+    async getFromTime(flight) {
+        let flag = false;
+
+        if (flight == "Early Morning") {
             await this.$filter(flight).click();
-            let departFrom = await this.$$departTime().map(item=>item.getText())
-            for(let i=0; i<departFrom.length;i++){
-            if(departFrom[i] >'00:00' && departFrom[i]<='6:00'){
-                flag = true;
-            }
-            else{
-                flag = false;
-            }   
-        }
-    }
-        if(flight == "Morning"){
-            await this.$filter(flight).click();
-            let departFrom = await this.$$departTime().map(item=>item.getText())
-            for(let i=0; i<departFrom.length;i++){
-                if(departFrom[i] >='06:01' && departFrom[i]<='11:59'){
-                flag = true;
-            }
-                else{
-                flag = false;
+            let departFrom = await this.$$departTime().map(item => item.getText())
+            for (let i = 0; i < departFrom.length; i++) {
+                if (departFrom[i] > '00:00' && departFrom[i] <= '6:00') {
+                    flag = true;
+                }
+                else {
+                    flag = false;
+                }
             }
         }
-    }
-        if(flight == "Afternoon"){
+        if (flight == "Morning") {
             await this.$filter(flight).click();
-            let departFrom = await this.$$departTime().map(item=>item.getText())
-            for(let i=0; i<departFrom.length;i++){
-                if(departFrom[i] >='12:00' && departFrom[i]<='18:00'){
-                flag = true;
-            }
-                else{
-                flag = false;
+            let departFrom = await this.$$departTime().map(item => item.getText())
+            for (let i = 0; i < departFrom.length; i++) {
+                if (departFrom[i] >= '06:01' && departFrom[i] <= '11:59') {
+                    flag = true;
+                }
+                else {
+                    flag = false;
+                }
             }
         }
-    }
-        if(flight == "Night"){
+        if (flight == "Afternoon") {
             await this.$filter(flight).click();
-            let departFrom = await this.$$departTime().map(item=>item.getText())
-            for(let i=0; i<departFrom.length;i++){
-                if(departFrom[i] >='18:01' && departFrom[i]<='23:59' || departFrom[i]== "00:00"){
-                flag = true;
+            let departFrom = await this.$$departTime().map(item => item.getText())
+            for (let i = 0; i < departFrom.length; i++) {
+                if (departFrom[i] >= '12:00' && departFrom[i] <= '18:00') {
+                    flag = true;
+                }
+                else {
+                    flag = false;
+                }
             }
-                else{
-                flag = false;
-                }    
+        }
+        if (flight == "Night") {
+            await this.$filter(flight).click();
+            let departFrom = await this.$$departTime().map(item => item.getText())
+            for (let i = 0; i < departFrom.length; i++) {
+                if (departFrom[i] >= '18:01' && departFrom[i] <= '23:59' || departFrom[i] == "00:00") {
+                    flag = true;
+                }
+                else {
+                    flag = false;
+                }
             }
+        }
+        return flag
     }
-    return flag
-}
     /**
      * Method to click on the flight filter
      * @param {string} filter 
      */
-    async clickOnFlightFilter(filter){
+    async clickOnFlightFilter(filter) {
         await this.$filter(filter).waitForClickable();
         await this.$filter(filter).click();
     }
