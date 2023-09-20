@@ -58,7 +58,11 @@ describe("End-to-End automation of Flipcart application", () => {
     await travelPage.clickOnFlight(data.airlines[1]);
     for (let i = 1; i <= count; i++) {
       await travelPage.verifyFlightDetails(i);
-      expect(await travelPage.$filter(data.airlines[1]).isEqual(await travelPage.$flightName(data.airlines[1])))
+      expect(
+        await travelPage
+          .$filter(data.airlines[1])
+          .isEqual(await travelPage.$flightName(data.airlines[1]))
+      );
       expect(await travelPage.$flightDetail(data.fromCode, i).isDisplayed())
         .withContext("Expect COK to be displayed")
         .toBe(true);
