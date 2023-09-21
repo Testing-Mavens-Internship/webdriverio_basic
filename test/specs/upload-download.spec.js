@@ -3,7 +3,7 @@ import { elementsPage } from "../pageobjects/element-page.js";
 import { uploadAndDownload } from "../pageobjects/upload-download-page.js";
 
 
-describe('My Login application', () => {
+fdescribe('My Login application', () => {
     it('should launch the url', async () => {
         await loginpage.openUrl()
         expect(await loginpage.$header().isDisplayed()).withContext('expect home page logo is displayed').toBe(true);
@@ -21,5 +21,9 @@ describe('My Login application', () => {
     it("click on the upload button",async()=>{
         await uploadAndDownload.clickOnUploadButton()
         expect(await uploadAndDownload.$path().isDisplayed()).withContext("expect upload file path should be display").toBe(true)
+    })
+    it("Click on download Button",async()=>{
+        await uploadAndDownload.clickOnDownloadButton()
+
     })
 })

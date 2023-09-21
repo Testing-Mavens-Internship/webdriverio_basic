@@ -1,0 +1,23 @@
+{
+  "name": "my-new-project",
+  "type": "module",
+  "devDependencies": {
+    "@faker-js/faker": "^8.0.2",
+    "@wdio/cli": "^8.16.11",
+    "@wdio/jasmine-framework": "^8.16.3",
+    "@wdio/local-runner": "^8.16.3",
+    "@wdio/spec-reporter": "^8.16.3",
+    "webdriverio": "^8.16.11"
+  },
+  "scripts": {
+    "wdio": "wdio run ./wdio.conf.js"
+  },
+  "dependencies": {
+    "downloads-folder": "^3.0.3",
+    "faker": "^6.6.6",
+    "random": "^4.1.0",
+    "random-letters": "^1.0.0-rc.1",
+    "random-names-generator": "^1.0.2",
+    "random-num": "^1.1.3"
+  }
+}
