@@ -42,7 +42,7 @@ class BookingViewPage {
    * @returns
    */
   async sortPrice() {
-   // await this.$priceArrow().scrollIntoView();
+    await this.$priceArrow().scrollIntoView();
     await this.$priceArrow().waitForClickable({ timeout: 5000 });
     await this.$priceArrow().click();
     await this.$verifyPriceArrow().waitForDisplayed({ timeout: 2000 });
@@ -86,6 +86,7 @@ class BookingViewPage {
    * @param {string} flightNumber
    */
   async bookFlight(flightNumber) {
+    await this.$bookFlight(flightNumber).scrollIntoView({inline:"center"});
     await this.$bookFlight(flightNumber).waitForClickable();
     await this.$bookFlight(flightNumber).click();
   }

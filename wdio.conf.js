@@ -44,9 +44,10 @@ export const config = {
 
     //
 
+
     specs: [
 
-        'flipKart/spec/flipkart.spec.js'
+        './flipKart/spec/flipkart.spec.js'
 
     ],
 
@@ -126,7 +127,7 @@ export const config = {
 
                     '--incognito',
 
-                     //'--headless=new',
+                     '--headless=new',
 
                     '--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36',
 
@@ -134,15 +135,15 @@ export const config = {
 
                 excludeSwitches: ['enable-automation'],
 
-                //  prefs: {
+                 prefs: {
 
-                //  'download.prompt_for_download': false,
+                 'download.prompt_for_download': false,
 
-                //  'directory_upgrade': true,
+                 'directory_upgrade': true,
 
-                //  'download.default_directory': 'c:/Users/hp/Downloads',
+                 'download.default_directory': 'webdriverio_basic/downloadFolder',
 
-                //  },
+                 },
 
             },
 
